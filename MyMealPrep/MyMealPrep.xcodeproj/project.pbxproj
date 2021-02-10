@@ -17,6 +17,10 @@
 		EB3CF63D25D3621000AF6B91 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3CF63C25D3621000AF6B91 /* User.swift */; };
 		EB3CF64125D363B000AF6B91 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3CF64025D363B000AF6B91 /* UserError.swift */; };
 		EB3CF64725D364FD00AF6B91 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3CF64625D364FD00AF6B91 /* UserController.swift */; };
+		EB3CF64C25D379F600AF6B91 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB3CF64B25D379F600AF6B91 /* Colors.xcassets */; };
+		EB94E28F25D4578C000A518C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E28E25D4578C000A518C /* Recipe.swift */; };
+		EB94E29225D45E27000A518C /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E29125D45E27000A518C /* RecipeController.swift */; };
+		EB94E29525D46046000A518C /* RecipeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E29425D46046000A518C /* RecipeError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		EB3CF63C25D3621000AF6B91 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EB3CF64025D363B000AF6B91 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		EB3CF64625D364FD00AF6B91 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		EB3CF64B25D379F600AF6B91 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		EB94E28E25D4578C000A518C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		EB94E29125D45E27000A518C /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
+		EB94E29425D46046000A518C /* RecipeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				EB3CF63C25D3621000AF6B91 /* User.swift */,
+				EB94E28E25D4578C000A518C /* Recipe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -116,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				EB3CF62125D34FF400AF6B91 /* CustomUI */,
+				EB3CF65125D3A39000AF6B91 /* Custom Cells */,
 				EB3CF62025D34FF300AF6B91 /* Storyboards */,
 			);
 			path = Views;
@@ -127,6 +137,7 @@
 				EB3CF60425D34F7F00AF6B91 /* AppDelegate.swift */,
 				EB3CF60625D34F7F00AF6B91 /* SceneDelegate.swift */,
 				EB3CF60D25D34F7F00AF6B91 /* Assets.xcassets */,
+				EB3CF64B25D379F600AF6B91 /* Colors.xcassets */,
 				EB3CF61225D34F7F00AF6B91 /* Info.plist */,
 				EB3CF62525D350B000AF6B91 /* GoogleService-Info.plist */,
 			);
@@ -137,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				EB3CF64625D364FD00AF6B91 /* UserController.swift */,
+				EB94E29125D45E27000A518C /* RecipeController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -176,8 +188,16 @@
 			isa = PBXGroup;
 			children = (
 				EB3CF64025D363B000AF6B91 /* UserError.swift */,
+				EB94E29425D46046000A518C /* RecipeError.swift */,
 			);
 			path = "Error Handling";
+			sourceTree = "<group>";
+		};
+		EB3CF65125D3A39000AF6B91 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Custom Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB3CF64C25D379F600AF6B91 /* Colors.xcassets in Resources */,
 				EB3CF61125D34F7F00AF6B91 /* LaunchScreen.storyboard in Resources */,
 				EB3CF62625D350B000AF6B91 /* GoogleService-Info.plist in Resources */,
 				EB3CF60E25D34F7F00AF6B91 /* Assets.xcassets in Resources */,
@@ -297,8 +318,11 @@
 			files = (
 				EB3CF60525D34F7F00AF6B91 /* AppDelegate.swift in Sources */,
 				EB3CF60725D34F7F00AF6B91 /* SceneDelegate.swift in Sources */,
+				EB94E29225D45E27000A518C /* RecipeController.swift in Sources */,
 				EB3CF64725D364FD00AF6B91 /* UserController.swift in Sources */,
+				EB94E28F25D4578C000A518C /* Recipe.swift in Sources */,
 				EB3CF63D25D3621000AF6B91 /* User.swift in Sources */,
+				EB94E29525D46046000A518C /* RecipeError.swift in Sources */,
 				EB3CF64125D363B000AF6B91 /* UserError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
