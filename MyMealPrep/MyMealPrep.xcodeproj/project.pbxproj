@@ -21,6 +21,9 @@
 		EB94E28F25D4578C000A518C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E28E25D4578C000A518C /* Recipe.swift */; };
 		EB94E29225D45E27000A518C /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E29125D45E27000A518C /* RecipeController.swift */; };
 		EB94E29525D46046000A518C /* RecipeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E29425D46046000A518C /* RecipeError.swift */; };
+		EB94E29A25D482D0000A518C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E29925D482D0000A518C /* SignUpViewController.swift */; };
+		EB94E29D25D482DB000A518C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E29C25D482DB000A518C /* SignInViewController.swift */; };
+		EB94E2B925D49285000A518C /* HomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB94E2B825D49285000A518C /* HomeScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		EB94E28E25D4578C000A518C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		EB94E29125D45E27000A518C /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
 		EB94E29425D46046000A518C /* RecipeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeError.swift; sourceTree = "<group>"; };
+		EB94E29925D482D0000A518C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		EB94E29C25D482DB000A518C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		EB94E2B825D49285000A518C /* HomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +162,8 @@
 		EB3CF61F25D34FE100AF6B91 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EB94E29925D482D0000A518C /* SignUpViewController.swift */,
+				EB94E29C25D482DB000A518C /* SignInViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -164,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				EB3CF60A25D34F7F00AF6B91 /* Main.storyboard */,
+				EB94E2B825D49285000A518C /* HomeScreen.storyboard */,
 				EB3CF60F25D34F7F00AF6B91 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -262,6 +271,7 @@
 				EB3CF64C25D379F600AF6B91 /* Colors.xcassets in Resources */,
 				EB3CF61125D34F7F00AF6B91 /* LaunchScreen.storyboard in Resources */,
 				EB3CF62625D350B000AF6B91 /* GoogleService-Info.plist in Resources */,
+				EB94E2B925D49285000A518C /* HomeScreen.storyboard in Resources */,
 				EB3CF60E25D34F7F00AF6B91 /* Assets.xcassets in Resources */,
 				EB3CF60C25D34F7F00AF6B91 /* Main.storyboard in Resources */,
 			);
@@ -322,7 +332,9 @@
 				EB3CF64725D364FD00AF6B91 /* UserController.swift in Sources */,
 				EB94E28F25D4578C000A518C /* Recipe.swift in Sources */,
 				EB3CF63D25D3621000AF6B91 /* User.swift in Sources */,
+				EB94E29A25D482D0000A518C /* SignUpViewController.swift in Sources */,
 				EB94E29525D46046000A518C /* RecipeError.swift in Sources */,
+				EB94E29D25D482DB000A518C /* SignInViewController.swift in Sources */,
 				EB3CF64125D363B000AF6B91 /* UserError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

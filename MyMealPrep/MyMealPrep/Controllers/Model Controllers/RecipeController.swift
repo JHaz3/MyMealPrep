@@ -58,10 +58,10 @@ class RecipeController {
     
     func fetchImage(for recipe: Recipe, completion: @escaping (Result<UIImage,RecipeError>) -> Void) {
         
-        guard let recipeImage = URL(string: recipe.image ?? "\(print("Image Not Found"))") else {
+        guard let recipeImageURL = URL(string: recipe.image ?? "\(print("Image Not Found"))") else {
             return completion(.failure(.noData)) }
         
-        URLSession.shared.dataTask(with: recipeImage) { (data, _, error) in
+        URLSession.shared.dataTask(with: recipeImageURL) { (data, _, error) in
             if let error = error {
                 completion(.failure(.thrown(error)))
             }
