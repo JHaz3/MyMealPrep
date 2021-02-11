@@ -146,10 +146,10 @@
             </objects>
             <point key="canvasLocation" x="214.49275362318843" y="48.883928571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign In View Controller-->
         <scene sceneID="dRE-Ga-mzI">
             <objects>
-                <viewController id="FXy-Kx-f9s" sceneMemberID="viewController">
+                <viewController id="FXy-Kx-f9s" customClass="SignInViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zk0-Gh-v19">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -198,6 +198,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="signInButtonTapped:" destination="FXy-Kx-f9s" eventType="touchUpInside" id="SpT-Qb-UVr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="peX-u9-fKR"/>
@@ -218,6 +221,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sT7-ih-UdS"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="8Hd-75-NEn" id="YLF-uP-6G1"/>
+                        <outlet property="errorLabel" destination="sAu-Be-izm" id="JWz-go-RL8"/>
+                        <outlet property="passwordTextField" destination="aQv-4F-KlU" id="NaL-J2-WnF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5iZ-zd-UgF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

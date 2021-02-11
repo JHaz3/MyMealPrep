@@ -18,7 +18,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     
     // MARK: - Properties
-    let db = Firestore.firestore()
+    static let db = Firestore.firestore()
     var statusIsSignUp = true
     let defaults = UserDefaults.standard
     
@@ -62,7 +62,7 @@ class SignUpViewController: UIViewController {
         if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             confirmPasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-            return "Please make sure your password contains at least 8 characters with at leaset 1 number and 1 unique character."
+            return "Please make sure your password contains at least 8 characters with at least 1 number and 1 unique character."
         }
         return nil
     }

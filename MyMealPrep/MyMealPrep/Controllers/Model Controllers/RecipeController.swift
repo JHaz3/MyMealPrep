@@ -75,5 +75,4 @@ class RecipeController {
         }.resume()
     }
     
-    
 }// End of Class
