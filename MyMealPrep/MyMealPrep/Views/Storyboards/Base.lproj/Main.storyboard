@@ -191,8 +191,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Prep Photo" translatesAutoresizingMaskIntoConstraints="NO" id="E8d-rV-7Ia">
                                 <rect key="frame" x="0.0" y="701" width="414" height="161"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4s-o9-A7L">
-                                <rect key="frame" x="61" y="462" width="293" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4s-o9-A7L">
+                                <rect key="frame" x="60" y="466" width="294" height="30"/>
                                 <color key="backgroundColor" name="red"/>
                                 <state key="normal" title="Sign In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -206,6 +206,7 @@
                         <viewLayoutGuide key="safeArea" id="peX-u9-fKR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="g4s-o9-A7L" firstAttribute="leading" secondItem="peX-u9-fKR" secondAttribute="leading" constant="60" id="1ZN-hv-NIV"/>
                             <constraint firstItem="I8e-AL-KuR" firstAttribute="top" secondItem="yYN-W6-haf" secondAttribute="bottom" constant="35" id="BMQ-oi-Mvi"/>
                             <constraint firstItem="peX-u9-fKR" firstAttribute="bottom" secondItem="E8d-rV-7Ia" secondAttribute="bottom" id="C0l-Ig-tl5"/>
                             <constraint firstItem="yYN-W6-haf" firstAttribute="leading" secondItem="peX-u9-fKR" secondAttribute="leading" constant="25" id="F1Y-Sb-rYz"/>
@@ -215,7 +216,8 @@
                             <constraint firstItem="yYN-W6-haf" firstAttribute="top" secondItem="peX-u9-fKR" secondAttribute="top" constant="125" id="Rvx-fh-5d0"/>
                             <constraint firstItem="g4s-o9-A7L" firstAttribute="centerX" secondItem="peX-u9-fKR" secondAttribute="centerX" id="b0r-Wv-Qy3"/>
                             <constraint firstItem="n2z-8V-JrN" firstAttribute="leading" secondItem="peX-u9-fKR" secondAttribute="leading" constant="25" id="fFq-Ak-1PM"/>
-                            <constraint firstItem="g4s-o9-A7L" firstAttribute="top" secondItem="I8e-AL-KuR" secondAttribute="bottom" constant="100" id="gZu-Oh-90A"/>
+                            <constraint firstItem="g4s-o9-A7L" firstAttribute="top" secondItem="I8e-AL-KuR" secondAttribute="bottom" constant="120" id="gZu-Oh-90A"/>
+                            <constraint firstItem="peX-u9-fKR" firstAttribute="trailing" secondItem="g4s-o9-A7L" secondAttribute="trailing" constant="60" id="lsr-nX-wfU"/>
                             <constraint firstItem="E8d-rV-7Ia" firstAttribute="leading" secondItem="peX-u9-fKR" secondAttribute="leading" id="qv4-DK-Evi"/>
                             <constraint firstItem="peX-u9-fKR" firstAttribute="trailing" secondItem="E8d-rV-7Ia" secondAttribute="trailing" id="yR3-C3-bGu"/>
                         </constraints>
