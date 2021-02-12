@@ -18,7 +18,7 @@ class RecipeController {
     static private let appKeyValue = "48c7deafe28862ded87866c21e220a3f"
     static private let searchKey = "q"
     
-    static private var recipes: [Recipe] = []
+    static var recipes: [Recipe] = []
     
     static func fetchRecipe(searchTerm: String, completion: @escaping (Result<[Recipe], RecipeError>) -> Void) {
         

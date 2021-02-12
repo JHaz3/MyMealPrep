@@ -26,8 +26,12 @@
 		EB94E29A25D482D0000A518C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E29925D482D0000A518C /* SignUpViewController.swift */; };
 		EB94E29D25D482DB000A518C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E29C25D482DB000A518C /* SignInViewController.swift */; };
 		EB94E2B925D49285000A518C /* HomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB94E2B825D49285000A518C /* HomeScreen.storyboard */; };
-		EB94E32525D5F1E3000A518C /* MealPrep.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E32425D5F1E3000A518C /* MealPrep.swift */; };
+		EB94E32525D5F1E3000A518C /* MealPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E32425D5F1E3000A518C /* MealPlan.swift */; };
 		EB94E32825D5F35C000A518C /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E32725D5F35C000A518C /* ShoppingList.swift */; };
+		EB94E32D25D633A4000A518C /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB94E32C25D633A4000A518C /* Profile.storyboard */; };
+		EB94E33025D633BA000A518C /* ShoppingList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB94E32F25D633BA000A518C /* ShoppingList.storyboard */; };
+		EB94E33325D633D0000A518C /* RecipeBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB94E33225D633D0000A518C /* RecipeBook.storyboard */; };
+		EB94E33725D6349F000A518C /* MealPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB94E33625D6349F000A518C /* MealPlan.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,8 +58,12 @@
 		EB94E29925D482D0000A518C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		EB94E29C25D482DB000A518C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		EB94E2B825D49285000A518C /* HomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScreen.storyboard; sourceTree = "<group>"; };
-		EB94E32425D5F1E3000A518C /* MealPrep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPrep.swift; sourceTree = "<group>"; };
+		EB94E32425D5F1E3000A518C /* MealPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlan.swift; sourceTree = "<group>"; };
 		EB94E32725D5F35C000A518C /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
+		EB94E32C25D633A4000A518C /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		EB94E32F25D633BA000A518C /* ShoppingList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShoppingList.storyboard; sourceTree = "<group>"; };
+		EB94E33225D633D0000A518C /* RecipeBook.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecipeBook.storyboard; sourceTree = "<group>"; };
+		EB94E33625D6349F000A518C /* MealPlan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MealPlan.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +130,7 @@
 			children = (
 				EB3CF63C25D3621000AF6B91 /* User.swift */,
 				EB94E28E25D4578C000A518C /* Recipe.swift */,
-				EB94E32425D5F1E3000A518C /* MealPrep.swift */,
+				EB94E32425D5F1E3000A518C /* MealPlan.swift */,
 				EB94E32725D5F35C000A518C /* ShoppingList.swift */,
 			);
 			path = Models;
@@ -184,6 +192,10 @@
 			children = (
 				EB3CF60A25D34F7F00AF6B91 /* Main.storyboard */,
 				EB94E2B825D49285000A518C /* HomeScreen.storyboard */,
+				EB94E33225D633D0000A518C /* RecipeBook.storyboard */,
+				EB94E33625D6349F000A518C /* MealPlan.storyboard */,
+				EB94E32F25D633BA000A518C /* ShoppingList.storyboard */,
+				EB94E32C25D633A4000A518C /* Profile.storyboard */,
 				EB3CF60F25D34F7F00AF6B91 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -282,10 +294,14 @@
 			files = (
 				EB3CF64C25D379F600AF6B91 /* Colors.xcassets in Resources */,
 				EB3CF61125D34F7F00AF6B91 /* LaunchScreen.storyboard in Resources */,
+				EB94E33725D6349F000A518C /* MealPlan.storyboard in Resources */,
+				EB94E33025D633BA000A518C /* ShoppingList.storyboard in Resources */,
 				EB3CF62625D350B000AF6B91 /* GoogleService-Info.plist in Resources */,
 				EB94E2B925D49285000A518C /* HomeScreen.storyboard in Resources */,
 				EB3CF60E25D34F7F00AF6B91 /* Assets.xcassets in Resources */,
+				EB94E33325D633D0000A518C /* RecipeBook.storyboard in Resources */,
 				EB3CF60C25D34F7F00AF6B91 /* Main.storyboard in Resources */,
+				EB94E32D25D633A4000A518C /* Profile.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,7 +359,7 @@
 				EB94E32825D5F35C000A518C /* ShoppingList.swift in Sources */,
 				EB3CF60725D34F7F00AF6B91 /* SceneDelegate.swift in Sources */,
 				EB94E29225D45E27000A518C /* RecipeController.swift in Sources */,
-				EB94E32525D5F1E3000A518C /* MealPrep.swift in Sources */,
+				EB94E32525D5F1E3000A518C /* MealPlan.swift in Sources */,
 				EB3CF64725D364FD00AF6B91 /* UserController.swift in Sources */,
 				EB94E28F25D4578C000A518C /* Recipe.swift in Sources */,
 				EB3CF63D25D3621000AF6B91 /* User.swift in Sources */,
