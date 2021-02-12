@@ -26,6 +26,8 @@
 		EB94E29A25D482D0000A518C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E29925D482D0000A518C /* SignUpViewController.swift */; };
 		EB94E29D25D482DB000A518C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E29C25D482DB000A518C /* SignInViewController.swift */; };
 		EB94E2B925D49285000A518C /* HomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB94E2B825D49285000A518C /* HomeScreen.storyboard */; };
+		EB94E32525D5F1E3000A518C /* MealPrep.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E32425D5F1E3000A518C /* MealPrep.swift */; };
+		EB94E32825D5F35C000A518C /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E32725D5F35C000A518C /* ShoppingList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		EB94E29925D482D0000A518C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		EB94E29C25D482DB000A518C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		EB94E2B825D49285000A518C /* HomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScreen.storyboard; sourceTree = "<group>"; };
+		EB94E32425D5F1E3000A518C /* MealPrep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPrep.swift; sourceTree = "<group>"; };
+		EB94E32725D5F35C000A518C /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,8 @@
 			children = (
 				EB3CF63C25D3621000AF6B91 /* User.swift */,
 				EB94E28E25D4578C000A518C /* Recipe.swift */,
+				EB94E32425D5F1E3000A518C /* MealPrep.swift */,
+				EB94E32725D5F35C000A518C /* ShoppingList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -334,8 +340,10 @@
 			files = (
 				3585FC6425D5E53400B0AFEC /* RecipeBookViewController.swift in Sources */,
 				EB3CF60525D34F7F00AF6B91 /* AppDelegate.swift in Sources */,
+				EB94E32825D5F35C000A518C /* ShoppingList.swift in Sources */,
 				EB3CF60725D34F7F00AF6B91 /* SceneDelegate.swift in Sources */,
 				EB94E29225D45E27000A518C /* RecipeController.swift in Sources */,
+				EB94E32525D5F1E3000A518C /* MealPrep.swift in Sources */,
 				EB3CF64725D364FD00AF6B91 /* UserController.swift in Sources */,
 				EB94E28F25D4578C000A518C /* Recipe.swift in Sources */,
 				EB3CF63D25D3621000AF6B91 /* User.swift in Sources */,
