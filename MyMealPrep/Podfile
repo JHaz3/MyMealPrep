@@ -9,7 +9,7 @@ target 'MyMealPrep' do
 
 pod 'Firebase/Firestore'
 pod 'Firebase/Auth'
- pod 'Firebase/Storage'
+pod 'Firebase/Storage'
 
 # add the Firebase pod for Google Analytics
 pod 'Firebase/Analytics'

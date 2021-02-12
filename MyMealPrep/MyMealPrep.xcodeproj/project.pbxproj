@@ -30,6 +30,7 @@
 		EB94E33025D633BA000A518C /* ShoppingList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB94E32F25D633BA000A518C /* ShoppingList.storyboard */; };
 		EB94E33325D633D0000A518C /* RecipeBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB94E33225D633D0000A518C /* RecipeBook.storyboard */; };
 		EB94E33725D6349F000A518C /* MealPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB94E33625D6349F000A518C /* MealPlan.storyboard */; };
+		EB94E33F25D738DE000A518C /* MealPlanListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E33E25D738DE000A518C /* MealPlanListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		EB94E32F25D633BA000A518C /* ShoppingList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShoppingList.storyboard; sourceTree = "<group>"; };
 		EB94E33225D633D0000A518C /* RecipeBook.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecipeBook.storyboard; sourceTree = "<group>"; };
 		EB94E33625D6349F000A518C /* MealPlan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MealPlan.storyboard; sourceTree = "<group>"; };
+		EB94E33E25D738DE000A518C /* MealPlanListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 			children = (
 				EB94E29925D482D0000A518C /* SignUpViewController.swift */,
 				EB94E29C25D482DB000A518C /* SignInViewController.swift */,
+				EB94E33E25D738DE000A518C /* MealPlanListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				EB94E29525D46046000A518C /* RecipeError.swift in Sources */,
 				EB94E29D25D482DB000A518C /* SignInViewController.swift in Sources */,
 				EB3CF64125D363B000AF6B91 /* UserError.swift in Sources */,
+				EB94E33F25D738DE000A518C /* MealPlanListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
