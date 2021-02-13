@@ -8,11 +8,21 @@
 import UIKit
 
 class MealPlanListViewController: UIViewController {
-
+    
+    // MARK: - Outlets
+    
+    
+    // MARK: -Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+    
+    // MARK: - Actions
+    @IBAction func startNewMealPlanButtonTapped(_ sender: Any) {
+    }
+    
+    // MARK: - Methods
     
 
     /*
@@ -25,4 +35,4 @@ class MealPlanListViewController: UIViewController {
     }
     */
 
-}
+}// End of Class

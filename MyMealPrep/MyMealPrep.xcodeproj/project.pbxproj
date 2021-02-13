@@ -31,6 +31,7 @@
 		EB94E33325D633D0000A518C /* RecipeBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB94E33225D633D0000A518C /* RecipeBook.storyboard */; };
 		EB94E33725D6349F000A518C /* MealPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB94E33625D6349F000A518C /* MealPlan.storyboard */; };
 		EB94E33F25D738DE000A518C /* MealPlanListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E33E25D738DE000A518C /* MealPlanListViewController.swift */; };
+		EB94E37825D759FA000A518C /* MealPlanListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E37725D759FA000A518C /* MealPlanListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		EB94E33225D633D0000A518C /* RecipeBook.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecipeBook.storyboard; sourceTree = "<group>"; };
 		EB94E33625D6349F000A518C /* MealPlan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MealPlan.storyboard; sourceTree = "<group>"; };
 		EB94E33E25D738DE000A518C /* MealPlanListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanListViewController.swift; sourceTree = "<group>"; };
+		EB94E37725D759FA000A518C /* MealPlanListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 		EB3CF65125D3A39000AF6B91 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
+				EB94E37725D759FA000A518C /* MealPlanListTableViewCell.swift */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				EB94E28F25D4578C000A518C /* Recipe.swift in Sources */,
 				EB3CF63D25D3621000AF6B91 /* User.swift in Sources */,
 				EB94E29A25D482D0000A518C /* SignUpViewController.swift in Sources */,
+				EB94E37825D759FA000A518C /* MealPlanListTableViewCell.swift in Sources */,
 				EB94E29525D46046000A518C /* RecipeError.swift in Sources */,
 				EB94E29D25D482DB000A518C /* SignInViewController.swift in Sources */,
 				EB3CF64125D363B000AF6B91 /* UserError.swift in Sources */,

@@ -9,11 +9,13 @@ import Foundation
 
 class MealPlan {
     
+    var mealPlanName: String
     var startDate: Date
     var endDate: Date
     var recipes: [Recipe]
     
-    init(startDate: Date = Date(), endDate: Date = Date(), recipes: [Recipe]) {
+    init(mealPlanName: String, startDate: Date = Date(), endDate: Date = Date(), recipes: [Recipe]) {
+        self.mealPlanName = mealPlanName
         self.startDate = startDate
         self.endDate = endDate
         self.recipes = recipes
@@ -26,5 +28,6 @@ extension MealPlan: Equatable {
         return lhs.startDate == rhs.startDate
             && lhs.endDate == rhs.endDate
             && lhs.recipes == rhs.recipes
+            && lhs.mealPlanName == rhs.mealPlanName
     }
 }
