@@ -119,10 +119,10 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="75.669642857142847"/>
         </scene>
-        <!--View Controller-->
+        <!--Select Meal Plan Date View Controller-->
         <scene sceneID="8Ke-lC-JbL">
             <objects>
-                <viewController id="gP6-9L-FbS" sceneMemberID="viewController">
+                <viewController id="gP6-9L-FbS" customClass="SelectMealPlanDateViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ru2-Fa-gBt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -180,6 +180,7 @@
                                     <color key="titleColor" name="offWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="selectRecipeButtonTapped:" destination="gP6-9L-FbS" eventType="touchUpInside" id="byw-ek-gMB"/>
                                     <segue destination="uUU-ZP-gUo" kind="show" id="khh-i8-dgP"/>
                                 </connections>
                             </button>
@@ -211,6 +212,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SgA-Qz-mlW"/>
+                    <connections>
+                        <outlet property="endDatePicker" destination="mb8-ql-KHT" id="1TN-Mu-h4c"/>
+                        <outlet property="startDatePicker" destination="hzH-5A-BKx" id="PgC-QV-IKK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kjl-dB-23Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
