@@ -36,6 +36,7 @@
 		EB94E37825D759FA000A518C /* MealPlanListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E37725D759FA000A518C /* MealPlanListTableViewCell.swift */; };
 		EB94E37B25D77FA7000A518C /* SelectMealPlanDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E37A25D77FA7000A518C /* SelectMealPlanDateViewController.swift */; };
 		EB94E37E25D781AB000A518C /* MealPlanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E37D25D781AB000A518C /* MealPlanController.swift */; };
+		EB94E38A25D78BA9000A518C /* MealPlanDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E38925D78BA9000A518C /* MealPlanDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		EB94E37725D759FA000A518C /* MealPlanListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanListTableViewCell.swift; sourceTree = "<group>"; };
 		EB94E37A25D77FA7000A518C /* SelectMealPlanDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMealPlanDateViewController.swift; sourceTree = "<group>"; };
 		EB94E37D25D781AB000A518C /* MealPlanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanController.swift; sourceTree = "<group>"; };
+		EB94E38925D78BA9000A518C /* MealPlanDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,7 +193,13 @@
 			children = (
 				EB94E29925D482D0000A518C /* SignUpViewController.swift */,
 				EB94E29C25D482DB000A518C /* SignInViewController.swift */,
+saveMe
+				EB94E33E25D738DE000A518C /* MealPlanListViewController.swift */,
+				EB94E37A25D77FA7000A518C /* SelectMealPlanDateViewController.swift */,
+				EB94E38925D78BA9000A518C /* MealPlanDetailViewController.swift */,
 
+
+develop
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -363,7 +371,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+saveMe
+				EB94E38A25D78BA9000A518C /* MealPlanDetailViewController.swift in Sources */,
+
 				3585FC6425D5E53400B0AFEC /* RecipeBookViewController.swift in Sources */,
+ develop
 				EB3CF60525D34F7F00AF6B91 /* AppDelegate.swift in Sources */,
 				EB94E37E25D781AB000A518C /* MealPlanController.swift in Sources */,
 				EB94E32825D5F35C000A518C /* ShoppingList.swift in Sources */,
