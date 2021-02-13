@@ -37,6 +37,7 @@
 		EB94E37B25D77FA7000A518C /* SelectMealPlanDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E37A25D77FA7000A518C /* SelectMealPlanDateViewController.swift */; };
 		EB94E37E25D781AB000A518C /* MealPlanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E37D25D781AB000A518C /* MealPlanController.swift */; };
 		EB94E38A25D78BA9000A518C /* MealPlanDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E38925D78BA9000A518C /* MealPlanDetailViewController.swift */; };
+		EB94E39325D791EC000A518C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E39225D791EC000A518C /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		EB94E37A25D77FA7000A518C /* SelectMealPlanDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMealPlanDateViewController.swift; sourceTree = "<group>"; };
 		EB94E37D25D781AB000A518C /* MealPlanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanController.swift; sourceTree = "<group>"; };
 		EB94E38925D78BA9000A518C /* MealPlanDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanDetailViewController.swift; sourceTree = "<group>"; };
+		EB94E39225D791EC000A518C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,9 +199,13 @@ saveMe
 				EB94E33E25D738DE000A518C /* MealPlanListViewController.swift */,
 				EB94E37A25D77FA7000A518C /* SelectMealPlanDateViewController.swift */,
 				EB94E38925D78BA9000A518C /* MealPlanDetailViewController.swift */,
+test
+				EB94E39225D791EC000A518C /* ProfileViewController.swift */,
+=======
 
 
 develop
+ develop
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -381,6 +387,7 @@ saveMe
 				EB94E32825D5F35C000A518C /* ShoppingList.swift in Sources */,
 				EB3CF60725D34F7F00AF6B91 /* SceneDelegate.swift in Sources */,
 				EB94E29225D45E27000A518C /* RecipeController.swift in Sources */,
+				EB94E39325D791EC000A518C /* ProfileViewController.swift in Sources */,
 				EB94E32525D5F1E3000A518C /* MealPlan.swift in Sources */,
 				EB3CF64725D364FD00AF6B91 /* UserController.swift in Sources */,
 				EB94E28F25D4578C000A518C /* Recipe.swift in Sources */,
