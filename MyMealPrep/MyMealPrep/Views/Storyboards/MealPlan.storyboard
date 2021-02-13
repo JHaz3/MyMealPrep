@@ -12,18 +12,22 @@
         <!--Item-->
         <scene sceneID="KIQ-QY-krH">
             <objects>
-                <viewController id="kEz-Y1-G6r" sceneMemberID="viewController">
+                <viewController id="kEz-Y1-G6r" customClass="MealPlanListViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hHT-mk-nBa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STi-Da-ZOU">
                                 <rect key="frame" x="15" y="113" width="384" height="35"/>
+                                <color key="backgroundColor" name="darkGreen"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="wSe-uO-WyZ"/>
                                 </constraints>
-                                <state key="normal" title="Start a New Meal Plan"/>
+                                <state key="normal" title="Start a New Meal Plan">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
+                                    <action selector="startNewMealPlanButtonTapped:" destination="kEz-Y1-G6r" eventType="touchUpInside" id="1Ss-QX-CB5"/>
                                     <segue destination="gP6-9L-FbS" kind="show" id="0xF-b3-Vvs"/>
                                 </connections>
                             </button>
@@ -37,13 +41,58 @@
                                 <rect key="frame" x="0.0" y="178" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6AS-6x-lg8">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="6AS-6x-lg8" customClass="MealPlanListTableViewCell" customModule="MyMealPrep" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6AS-6x-lg8" id="tna-8C-nJ7">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Salad Icon 1x" translatesAutoresizingMaskIntoConstraints="NO" id="fHr-YT-QPo">
+                                                    <rect key="frame" x="10" y="10" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="fHr-YT-QPo" secondAttribute="height" multiplier="1:1" id="cIX-a0-pXv"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="jEh-ij-zVh">
+                                                    <rect key="frame" x="90" y="12" width="120" height="61.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Plan name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O91-D8-LdT">
+                                                            <rect key="frame" x="0.0" y="0.0" width="120" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEd-HW-LjM">
+                                                            <rect key="frame" x="0.0" y="20.5" width="77.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hP-bk-96o">
+                                                            <rect key="frame" x="0.0" y="41" width="69.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="fHr-YT-QPo" secondAttribute="bottom" constant="10" id="4ev-qW-5nM"/>
+                                                <constraint firstItem="fHr-YT-QPo" firstAttribute="leading" secondItem="tna-8C-nJ7" secondAttribute="leading" constant="10" id="5cP-Un-kN5"/>
+                                                <constraint firstItem="fHr-YT-QPo" firstAttribute="top" secondItem="tna-8C-nJ7" secondAttribute="top" constant="10" id="7X1-dS-0Q4"/>
+                                                <constraint firstItem="jEh-ij-zVh" firstAttribute="leading" secondItem="fHr-YT-QPo" secondAttribute="trailing" constant="20" id="VQK-aD-44G"/>
+                                                <constraint firstItem="jEh-ij-zVh" firstAttribute="top" secondItem="tna-8C-nJ7" secondAttribute="top" constant="12" id="lDV-gL-SOw"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="endDateLabel" destination="8hP-bk-96o" id="FIE-tT-Isc"/>
+                                            <outlet property="mealPlanImage" destination="fHr-YT-QPo" id="Xh7-Og-Vdb"/>
+                                            <outlet property="mealPlanNameLabel" destination="O91-D8-LdT" id="yPP-KL-1rT"/>
+                                            <outlet property="startDateLabel" destination="KEd-HW-LjM" id="DfN-RQ-C83"/>
+                                            <segue destination="zv6-F7-cwJ" kind="show" id="Rp5-Ub-5mh"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -107,7 +156,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hzH-5A-BKx">
-                                <rect key="frame" x="20" y="199" width="374" height="175"/>
+                                <rect key="frame" x="20" y="198.5" width="374" height="175"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="175" id="Gq6-1f-kEu"/>
                                 </constraints>
@@ -296,7 +345,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSm-yQ-sws" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3600" y="76"/>
+            <point key="canvasLocation" x="2770" y="855"/>
         </scene>
         <!--Item-->
         <scene sceneID="uwY-Rd-6Kf">
@@ -318,12 +367,16 @@
             <point key="canvasLocation" x="137.68115942028987" y="75.669642857142847"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Rp5-Ub-5mh"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Account Icon 1x" width="20" height="20"/>
         <image name="Calendar Icon 1x" width="20" height="20"/>
         <image name="Empty Checkbox 1x" width="18" height="18"/>
         <image name="Juice 2x" width="624" height="636"/>
         <image name="Salad 1x" width="312" height="271"/>
+        <image name="Salad Icon 1x" width="108" height="108"/>
         <namedColor name="black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
