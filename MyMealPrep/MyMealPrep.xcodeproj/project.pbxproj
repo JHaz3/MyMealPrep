@@ -36,6 +36,7 @@
 		EB94E37E25D781AB000A518C /* MealPlanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E37D25D781AB000A518C /* MealPlanController.swift */; };
 		EB94E38A25D78BA9000A518C /* MealPlanDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E38925D78BA9000A518C /* MealPlanDetailViewController.swift */; };
 		EB94E3C225D79A05000A518C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E3C125D79A05000A518C /* ProfileViewController.swift */; };
+		EB94E47725DAFDD3000A518C /* SelectMealPlanRecipesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E47625DAFDD3000A518C /* SelectMealPlanRecipesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		EB94E37D25D781AB000A518C /* MealPlanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanController.swift; sourceTree = "<group>"; };
 		EB94E38925D78BA9000A518C /* MealPlanDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanDetailViewController.swift; sourceTree = "<group>"; };
 		EB94E3C125D79A05000A518C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EB94E47625DAFDD3000A518C /* SelectMealPlanRecipesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMealPlanRecipesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,12 +191,10 @@
 		EB3CF61F25D34FE100AF6B91 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				EB94E29925D482D0000A518C /* SignUpViewController.swift */,
-				EB94E29C25D482DB000A518C /* SignInViewController.swift */,
-				EB94E33E25D738DE000A518C /* MealPlanListViewController.swift */,
-				EB94E37A25D77FA7000A518C /* SelectMealPlanDateViewController.swift */,
-				EB94E38925D78BA9000A518C /* MealPlanDetailViewController.swift */,
-				EB94E3C125D79A05000A518C /* ProfileViewController.swift */,
+				EB94E47B25DAFDD8000A518C /* HomeScreenVCs */,
+				EB94E47A25DAFDD7000A518C /* RecipeBookVCs */,
+				EB94E47C25DAFDD8000A518C /* MealPlanVCs */,
+				EB94E47925DAFDD7000A518C /* ProfileVCs */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -243,6 +243,41 @@
 				EB94E37725D759FA000A518C /* MealPlanListTableViewCell.swift */,
 			);
 			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		EB94E47925DAFDD7000A518C /* ProfileVCs */ = {
+			isa = PBXGroup;
+			children = (
+				EB94E29925D482D0000A518C /* SignUpViewController.swift */,
+				EB94E29C25D482DB000A518C /* SignInViewController.swift */,
+				EB94E3C125D79A05000A518C /* ProfileViewController.swift */,
+			);
+			path = ProfileVCs;
+			sourceTree = "<group>";
+		};
+		EB94E47A25DAFDD7000A518C /* RecipeBookVCs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RecipeBookVCs;
+			sourceTree = "<group>";
+		};
+		EB94E47B25DAFDD8000A518C /* HomeScreenVCs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomeScreenVCs;
+			sourceTree = "<group>";
+		};
+		EB94E47C25DAFDD8000A518C /* MealPlanVCs */ = {
+			isa = PBXGroup;
+			children = (
+				EB94E33E25D738DE000A518C /* MealPlanListViewController.swift */,
+				EB94E37A25D77FA7000A518C /* SelectMealPlanDateViewController.swift */,
+				EB94E38925D78BA9000A518C /* MealPlanDetailViewController.swift */,
+				EB94E47625DAFDD3000A518C /* SelectMealPlanRecipesTableViewController.swift */,
+			);
+			path = MealPlanVCs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +415,7 @@
 				EB94E29A25D482D0000A518C /* SignUpViewController.swift in Sources */,
 				EB94E37825D759FA000A518C /* MealPlanListTableViewCell.swift in Sources */,
 				EB94E29525D46046000A518C /* RecipeError.swift in Sources */,
+				EB94E47725DAFDD3000A518C /* SelectMealPlanRecipesTableViewController.swift in Sources */,
 				EB94E29D25D482DB000A518C /* SignInViewController.swift in Sources */,
 				EB94E37B25D77FA7000A518C /* SelectMealPlanDateViewController.swift in Sources */,
 				EB3CF64125D363B000AF6B91 /* UserError.swift in Sources */,

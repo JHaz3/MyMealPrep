@@ -20,6 +20,14 @@ class MealPlanListViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func startNewMealPlanButtonTapped(_ sender: Any) {
+        // TODO: -Instead add after recipes are selected down the line- Add alerts to create a meal plan name?
+//        let alert = UIAlertController(title: "Name Meal Plan", message: "Name Meal Plan", preferredStyle: .alert)
+//        alert.addTextField(configurationHandler: nil)
+//        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//        let addButton = UIAlertAction(title: "Create Meal Plan", style: .default) { (_) in
+//            guard let mealPlanTitle = alert.textFields?[0].text, mealPlanTitle != "" else { return }
+//            
+//        }
     }
     
     // MARK: - Methods
