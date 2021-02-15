@@ -27,6 +27,7 @@ class SelectMealPlanDateViewController: UIViewController {
         guard endDate > startDate else { return } // add alert about error if user goes against logic
         
         MealPlanController.shared.createTempMealPlan(with: startDate, endDate: endDate)
+        
     }
     
     // MARK: - Methods
