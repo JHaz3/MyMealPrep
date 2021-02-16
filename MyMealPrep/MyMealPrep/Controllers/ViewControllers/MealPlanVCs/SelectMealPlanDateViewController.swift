@@ -28,6 +28,8 @@ class SelectMealPlanDateViewController: UIViewController {
         
         MealPlanController.shared.createTempMealPlan(with: startDate, endDate: endDate)
         
+        self.performSegue(withIdentifier: "showRecipeSelect", sender: nil)
+        
     }
     
     // MARK: - Methods
@@ -36,15 +38,10 @@ class SelectMealPlanDateViewController: UIViewController {
         endDatePicker.minimumDate = Date()
     }
     
-    
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//    }
 
 }// End of Class

@@ -37,7 +37,7 @@ class SignInViewController: UIViewController {
                 case .success(let fetchedUser):
                     UserController.shared.currentUser = fetchedUser
                     self.defaults.set(UserController.shared.currentUser?.username, forKey: "savedUsername")
-                    self.toHomeScreen()
+                    self.transitionToHome()
                 case .failure(let userError):
                     print(userError.errorDescription)
                     
@@ -54,7 +54,9 @@ class SignInViewController: UIViewController {
             self.present(viewController, animated: true, completion: nil)
         }
         
-        
-        
     }
-}
+    private func transitionToHome() {
+        performSegue(withIdentifier: "toTabBarController", sender: self)
+    }
+    
+}// End of Class

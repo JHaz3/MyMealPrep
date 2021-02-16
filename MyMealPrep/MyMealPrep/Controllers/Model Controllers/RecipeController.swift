@@ -56,7 +56,7 @@ class RecipeController {
         }.resume()
     }
     
-    func fetchImage(for recipe: Recipe, completion: @escaping (Result<UIImage,RecipeError>) -> Void) {
+    static func fetchImage(for recipe: Recipe, completion: @escaping (Result<UIImage, RecipeError>) -> Void) {
         
         guard let recipeImageURL = URL(string: recipe.image ?? "\(print("Image Not Found"))") else {
             return completion(.failure(.noData)) }
@@ -73,6 +73,10 @@ class RecipeController {
             }
             completion(.success(image))
         }.resume()
+    }
+    
+    static func toggleBoxChecked(recipe: inout Recipe) {
+        recipe.isChecked.toggle()
     }
     
 }// End of Class
