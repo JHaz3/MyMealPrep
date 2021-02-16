@@ -25,6 +25,7 @@ struct Recipe: Codable {
     var users: [String]?
     var uid: String?
     var isChecked: Bool = false
+    var dateToEat: Date = Date()
     
     enum CodingKeys: String, CodingKey {
         case label

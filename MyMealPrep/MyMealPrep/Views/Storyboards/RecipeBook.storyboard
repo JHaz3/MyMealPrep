@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uNk-w2-2dQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="0Lc-kH-yfr">
             <objects>
                 <viewController id="Mac-ja-eGo" sceneMemberID="viewController">
@@ -18,12 +18,31 @@
                         <viewLayoutGuide key="safeArea" id="VXA-1g-Su8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="Recipe Icon 1x" id="HWF-ZD-H1V"/>
+                    <navigationItem key="navigationItem" id="o3b-Iw-YeF"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="256-za-lKf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="34"/>
+            <point key="canvasLocation" x="944.92753623188412" y="33.482142857142854"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="MxZ-nX-MjJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uNk-w2-2dQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="Recipe Icon 1x" id="HWF-ZD-H1V"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6aR-CQ-B8h">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Mac-ja-eGo" kind="relationship" relationship="rootViewController" id="N70-c8-cQk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ue3-PW-YgQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="33.482142857142854"/>
         </scene>
     </scenes>
     <resources>
