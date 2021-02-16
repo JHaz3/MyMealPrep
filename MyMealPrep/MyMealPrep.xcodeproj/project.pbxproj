@@ -283,8 +283,8 @@
 			children = (
 				EB94E33E25D738DE000A518C /* MealPlanListViewController.swift */,
 				EB94E37A25D77FA7000A518C /* SelectMealPlanDateViewController.swift */,
-				EB94E38925D78BA9000A518C /* MealPlanDetailViewController.swift */,
 				EB94E47625DAFDD3000A518C /* SelectMealPlanRecipesViewController.swift */,
+				EB94E38925D78BA9000A518C /* MealPlanDetailViewController.swift */,
 			);
 			path = MealPlanVCs;
 			sourceTree = "<group>";

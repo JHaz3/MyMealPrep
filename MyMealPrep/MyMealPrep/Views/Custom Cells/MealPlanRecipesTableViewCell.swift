@@ -7,17 +7,39 @@
 
 import UIKit
 
-class MealPlanRecipesTableViewCell: UITableViewCell {
+// MARK: - Protocols
+protocol MealPLanRecipesTableViewCellDelegate: class {
+    func assignDateToEat(_ sender: MealPlanRecipesTableViewCell)
+    
+}
 
+
+class MealPlanRecipesTableViewCell: UITableViewCell {
+    
+    // MARK: - Outlets
+    @IBOutlet weak var recipeImageView: UIImageView!
+    @IBOutlet weak var recipeNameLabel: UILabel!
+    @IBOutlet weak var assignDateButton: UIButton!
+    
+    // MARK: - Properties
+    var recipe: Recipe?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
-
+    
+    // MARK: - Actions
+    @IBAction func assignDateButtonTapped(_ sender: Any) {
+        
+        
+    }
+    
+    
+    // MARK: -Methods
 }
