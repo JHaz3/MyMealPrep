@@ -20,6 +20,7 @@ class RecipeController {
     
     static var recipes: [Recipe] = []
     
+    
     static func fetchRecipe(searchTerm: String, completion: @escaping (Result<[Recipe], RecipeError>) -> Void) {
         
         guard let baseURL = baseURL else { return completion(.failure(.invalidURL)) }

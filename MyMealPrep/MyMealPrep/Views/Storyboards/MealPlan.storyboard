@@ -277,13 +277,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EtZ-2B-eOc">
                                                     <rect key="frame" x="140" y="25" width="122" height="53.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBq-cY-dCx">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBq-cY-dCx">
                                                             <rect key="frame" x="0.0" y="0.0" width="122" height="25.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Cook TIme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwO-Y0-5dY">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cook TIme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwO-Y0-5dY">
                                                             <rect key="frame" x="0.0" y="35.5" width="74" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
@@ -386,7 +386,7 @@
                                 <rect key="frame" x="0.0" y="174" width="414" height="559"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="87" id="z0k-AT-I8U">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="87" id="z0k-AT-I8U" customClass="MealPlanRecipesTableViewCell" customModule="MyMealPrep" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z0k-AT-I8U" id="z7D-ag-Rpu">
@@ -408,6 +408,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLm-hg-IW6">
                                                     <rect key="frame" x="112" y="49.5" width="82" height="30"/>
                                                     <state key="normal" title="Assign Date"/>
+                                                    <connections>
+                                                        <action selector="assignDateButtonTapped:" destination="z0k-AT-I8U" eventType="touchUpInside" id="5OS-dX-v42"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -420,6 +423,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="Y29-2h-0T0" secondAttribute="bottom" constant="10" id="nUa-sx-s33"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="assignDateButton" destination="fLm-hg-IW6" id="GcD-1Z-hem"/>
+                                            <outlet property="recipeImageView" destination="Y29-2h-0T0" id="LdR-Xh-iT9"/>
+                                            <outlet property="recipeNameLabel" destination="mZ7-5x-n14" id="TQA-Wl-w6F"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -429,6 +437,9 @@
                                 <state key="normal" title="See Shopping List">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="seeShoppingListButtonTapped:" destination="zv6-F7-cwJ" eventType="touchUpInside" id="Uo1-u9-JYn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PLk-HN-apZ"/>
@@ -448,6 +459,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pdx-GA-JN7"/>
+                    <connections>
+                        <outlet property="endDateLabel" destination="YPH-wY-QQm" id="lLB-BY-HqR"/>
+                        <outlet property="mealPlanNameLabel" destination="KWZ-CR-gUU" id="X89-2R-fMb"/>
+                        <outlet property="startDateLabel" destination="Dpb-eJ-NCh" id="wlj-5k-FBA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSm-yQ-sws" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
