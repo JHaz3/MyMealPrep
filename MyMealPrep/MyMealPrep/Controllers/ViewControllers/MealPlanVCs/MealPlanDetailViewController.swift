@@ -27,9 +27,10 @@ class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UIT
         
     }
     
-    // MARK: - Methods
+    // MARK: - Table View Data Source 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        
+        return mealPlan?.recipes.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,6 +41,9 @@ class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UIT
         return cell
     }
 
+    // MARK: - Methods
+    
+    
 }// End of Class 
 
     // MARK: - Extensions
