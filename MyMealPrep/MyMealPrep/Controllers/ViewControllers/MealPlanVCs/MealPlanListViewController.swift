@@ -17,12 +17,12 @@ class MealPlanListViewController: UIViewController, UITableViewDataSource, UITab
     // MARK: -Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     // MARK: - Actions
     @IBAction func startNewMealPlanButtonTapped(_ sender: Any) {
-       
+        
     }
     
     // MARK: - TableView Data Source
@@ -38,17 +38,25 @@ class MealPlanListViewController: UIViewController, UITableViewDataSource, UITab
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let mealPlan = MealPlanController.shared.mealPlans[indexPath.row]
+            MealPlanController.shared.deleteMealPlan(mealPlan: mealPlan)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     // MARK: - Methods
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }// End of Class
