@@ -41,7 +41,7 @@
                                 <rect key="frame" x="0.0" y="178" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="6AS-6x-lg8" customClass="MealPlanListTableViewCell" customModule="MyMealPrep" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mealPlanCell" rowHeight="80" id="6AS-6x-lg8" customClass="MealPlanListTableViewCell" customModule="MyMealPrep" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6AS-6x-lg8" id="tna-8C-nJ7">
@@ -114,6 +114,9 @@
                     <tabBarItem key="tabBarItem" title="Item" image="Calendar Icon 1x" id="aif-ml-fBt"/>
                     <navigationItem key="navigationItem" id="vbm-SO-Cf1"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mealPlanListTableView" destination="4Jt-94-pnO" id="joH-Gs-J1r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUi-NI-Dea" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -318,7 +321,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="zv6-F7-cwJ" kind="show" id="YLn-Ix-75W"/>
+                                    <action selector="saveRecipesButtonTapped:" destination="uUU-ZP-gUo" eventType="touchUpInside" id="1IL-jy-Tld"/>
+                                    <segue destination="zv6-F7-cwJ" kind="show" identifier="showMealPlan" id="YLn-Ix-75W"/>
                                 </connections>
                             </button>
                         </subviews>

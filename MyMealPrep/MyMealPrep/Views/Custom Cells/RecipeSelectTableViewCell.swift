@@ -31,16 +31,6 @@ class RecipeSelectTableViewCell: UITableViewCell {
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-    }
-    
     // MARK: - Actions
     @IBAction func checkBoxButtonTapped(_ sender: Any) {
         checkBoxChecked(false)
@@ -53,7 +43,7 @@ class RecipeSelectTableViewCell: UITableViewCell {
         recipeCheckboxButton.setImage(isComplete ? #imageLiteral(resourceName: "Checked Box 1x"): #imageLiteral(resourceName: "Empty Checkbox 1x"), for: .normal)
         
     }
-    
+    // if take in a recipe then dont need everything here 
     func updateViews() {
         guard let recipe = recipe else { return }
         checkBoxChecked(false)

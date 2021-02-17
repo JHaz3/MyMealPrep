@@ -9,36 +9,49 @@ import UIKit
 
 class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    // MARK: - Properties
-    
-    
     // MARK: - Outlets
     @IBOutlet weak var recipeSearchBar: UISearchBar!
     @IBOutlet weak var savedRecipesTableView: UITableView!
     
+    // MARK: - Properties
+    var mealPlan: MealPlan?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     // MARK: - Actions
-
+    @IBAction func saveRecipesButtonTapped(_ sender: Any) {
+        guard let mealPlan = mealPlan else { return }
+        // Will I need to set all saved recipes isChecked value back to false?
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let recipesChecked = RecipeController.savedRecipes[indexPath.row]
+            if recipesChecked.isChecked == true {
+                mealPlan.recipes.append(recipesChecked)
+            } else {
+                return //add alert saying failed to save recipes?
+            }
+        }
+        
+    }
+    
     // MARK: - Table view data source
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return RecipeController.recipes.count
+        return RecipeController.savedRecipes.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-
+    // MARK: - Does this work?
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "selectRecipeCell", for: indexPath) as? RecipeSelectTableViewCell else { return UITableViewCell() }
-        let recipe = RecipeController.recipes[indexPath.row]
+        let recipe = RecipeController.savedRecipes[indexPath.row]
         cell.recipe = recipe
         
         return cell
@@ -56,7 +69,7 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
 
 }// End of Class
 
-// MARK: - Delegate Extensions ToDo
+// MARK: - Delegate Extensions
 extension SelectMealPlanRecipesViewController: RecipeSelectTableViewCellDelegate {
     func toggleRecipeChecked(_ sender: RecipeSelectTableViewCell) {
         guard var recipe = sender.recipe else { return }

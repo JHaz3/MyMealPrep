@@ -8,29 +8,26 @@
 import Foundation
 
 class MealPlan {
-    
+
     var mealPlanName: String
-    var mealPlanDates: [Date]
-   // var startDate: Date
-   // var endDate: Date
+    var startDate: Date
+    var endDate: Date
     var recipes: [Recipe]
-    
-    init(mealPlanName: String = String(), mealPlanDates: [Date], recipes: [Recipe]) {
+    // MARK: -TODO remove mealPlanDates and add star/end date
+    init(mealPlanName: String = "", startDate: Date = Date(), endDate: Date = Date(), recipes: [Recipe] = []) {
         self.mealPlanName = mealPlanName
-       // self.startDate = startDate
-       // self.endDate = endDate
+        self.startDate = startDate
+        self.endDate = endDate
         self.recipes = recipes
-        self.mealPlanDates = mealPlanDates
     }
     
 }
 
 extension MealPlan: Equatable {
     static func == (lhs: MealPlan, rhs: MealPlan) -> Bool {
-        return //lhs.startDate == rhs.startDate
-            //&& lhs.endDate == rhs.endDate
-            lhs.recipes == rhs.recipes
+        return lhs.startDate == rhs.startDate
+            && lhs.endDate == rhs.endDate
+            && lhs.recipes == rhs.recipes
             && lhs.mealPlanName == rhs.mealPlanName
-            && lhs.mealPlanDates == rhs.mealPlanDates
     }
 }

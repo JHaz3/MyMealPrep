@@ -26,7 +26,7 @@ class SelectMealPlanDateViewController: UIViewController {
         let endDate = endDatePicker.date
         guard endDate > startDate else { return } // add alert about error if user goes against logic
         
-        MealPlanController.shared.createTempMealPlan(with: startDate, endDate: endDate)
+        MealPlanController.shared.createMealPlan(with: startDate, endDate: endDate)
         
         self.performSegue(withIdentifier: "showRecipeSelect", sender: nil)
         
@@ -38,10 +38,5 @@ class SelectMealPlanDateViewController: UIViewController {
         endDatePicker.minimumDate = Date()
     }
     
-    // MARK: - Navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destination.
-//        // Pass the selected object to the new view controller.
-//    }
 
 }// End of Class
