@@ -21,7 +21,8 @@ class MealPlanListTableViewCell: UITableViewCell {
         didSet {
             guard let mealPlan = mealPlan else { return }
             mealPlanNameLabel.text = mealPlan.mealPlanName
-            
+            startDateLabel.text = "\(mealPlan.startDate)"
+            endDateLabel.text = "\(mealPlan.endDate)"
         }
     }
     
