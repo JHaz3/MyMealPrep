@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3585FE4025DC8C0A00B0AFEC /* RecipeBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585FE3F25DC8C0A00B0AFEC /* RecipeBookViewController.swift */; };
+		3585FE4525DC8DE300B0AFEC /* RecipeBookDropDownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585FE4425DC8DE300B0AFEC /* RecipeBookDropDownTableViewCell.swift */; };
 		7CA029FF6490D7B1AD8DE3D1 /* Pods_MyMealPrep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594590204B3C45938088DE5D /* Pods_MyMealPrep.framework */; };
 		EB3CF60525D34F7F00AF6B91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3CF60425D34F7F00AF6B91 /* AppDelegate.swift */; };
 		EB3CF60725D34F7F00AF6B91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3CF60625D34F7F00AF6B91 /* SceneDelegate.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		010CCC4B42CD8BCBCF168AFD /* Pods-MyMealPrep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMealPrep.debug.xcconfig"; path = "Target Support Files/Pods-MyMealPrep/Pods-MyMealPrep.debug.xcconfig"; sourceTree = "<group>"; };
 		3585FE3F25DC8C0A00B0AFEC /* RecipeBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeBookViewController.swift; path = MyMealPrep/Controllers/ViewControllers/RecipeBookViewController.swift; sourceTree = SOURCE_ROOT; };
+		3585FE4425DC8DE300B0AFEC /* RecipeBookDropDownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeBookDropDownTableViewCell.swift; sourceTree = "<group>"; };
 		594590204B3C45938088DE5D /* Pods_MyMealPrep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMealPrep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16BE7CC59D54E9FD50F2B1D /* Pods-MyMealPrep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMealPrep.release.xcconfig"; path = "Target Support Files/Pods-MyMealPrep/Pods-MyMealPrep.release.xcconfig"; sourceTree = "<group>"; };
 		EB3CF60125D34F7F00AF6B91 /* MyMealPrep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMealPrep.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,6 +253,7 @@
 				EB94E37725D759FA000A518C /* MealPlanListTableViewCell.swift */,
 				EB94E48025DB154B000A518C /* RecipeSelectTableViewCell.swift */,
 				EB94E48725DB5601000A518C /* MealPlanRecipesTableViewCell.swift */,
+				3585FE4425DC8DE300B0AFEC /* RecipeBookDropDownTableViewCell.swift */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				EB94E3C225D79A05000A518C /* ProfileViewController.swift in Sources */,
 				EB94E32525D5F1E3000A518C /* MealPlan.swift in Sources */,
 				EB3CF64725D364FD00AF6B91 /* UserController.swift in Sources */,
+				3585FE4525DC8DE300B0AFEC /* RecipeBookDropDownTableViewCell.swift in Sources */,
 				EB94E28F25D4578C000A518C /* Recipe.swift in Sources */,
 				EB3CF63D25D3621000AF6B91 /* User.swift in Sources */,
 				EB94E29A25D482D0000A518C /* SignUpViewController.swift in Sources */,
@@ -584,7 +588,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7C8HG37K7Q;
+				DEVELOPMENT_TEAM = 97JSCUVT38;
 				INFOPLIST_FILE = "$(SRCROOT)/MyMealPrep/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -604,7 +608,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7C8HG37K7Q;
+				DEVELOPMENT_TEAM = 97JSCUVT38;
 				INFOPLIST_FILE = "$(SRCROOT)/MyMealPrep/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
