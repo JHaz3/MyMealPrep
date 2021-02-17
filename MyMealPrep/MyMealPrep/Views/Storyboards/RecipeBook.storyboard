@@ -93,10 +93,10 @@
             </objects>
             <point key="canvasLocation" x="944.92753623188412" y="33.482142857142854"/>
         </scene>
-        <!--View Controller-->
+        <!--Search Recipe View Controller-->
         <scene sceneID="IKK-xK-wtr">
             <objects>
-                <viewController id="ClX-Z2-pcg" sceneMemberID="viewController">
+                <viewController id="ClX-Z2-pcg" customClass="SearchRecipeViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="41h-F5-4ck">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,10 +117,10 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ZAe-pw-hsg">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZAe-pw-hsg" id="AiR-mV-ESt">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -141,6 +141,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DR0-ej-9VJ"/>
+                    <connections>
+                        <outlet property="searchRecipeResultsTableView" destination="16D-Tu-PFp" id="sIH-y5-OvV"/>
+                        <outlet property="searchRecipeSearchBar" destination="Kcg-j2-HTO" id="Wcy-zP-bqo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ft1-pK-2MZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
