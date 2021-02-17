@@ -38,9 +38,6 @@ class SelectMealPlanDateViewController: UIViewController {
         endDatePicker.minimumDate = Date()
     }
     
-    // MARK: - TODO
-    // create name after getting dates but before creating the meal plan object
-    
     
     // MARK: - Navigation
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

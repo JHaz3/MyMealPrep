@@ -19,12 +19,22 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     // MARK: - Actions
     @IBAction func saveRecipesButtonTapped(_ sender: Any) {
         guard let mealPlan = mealPlan else { return }
+        // Will I need to set all saved recipes isChecked value back to false?
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let recipesChecked = RecipeController.savedRecipes[indexPath.row]
+            if recipesChecked.isChecked == true {
+                mealPlan.recipes.append(recipesChecked)
+            } else {
+                return //add alert saying failed to save recipes?
+            }
+        }
+        
     }
     
     // MARK: - Table view data source
@@ -37,7 +47,8 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-
+    // MARK: - Does this work?
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "selectRecipeCell", for: indexPath) as? RecipeSelectTableViewCell else { return UITableViewCell() }
         let recipe = RecipeController.savedRecipes[indexPath.row]
