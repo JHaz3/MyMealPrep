@@ -30,7 +30,7 @@ extension SearchRecipeViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath) as? DropDownTableViewCell else {return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath) as? RecipeBookTableViewCell else {return UITableViewCell()}
         let recipe = recipes[indexPath.row]
         cell.configure(with: recipe)
         return cell

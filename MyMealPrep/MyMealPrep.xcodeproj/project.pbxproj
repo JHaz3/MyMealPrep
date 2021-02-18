@@ -182,7 +182,6 @@
 		EB3CF61C25D34FD000AF6B91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EB3CF62125D34FF400AF6B91 /* CustomUI */,
 				EB3CF65125D3A39000AF6B91 /* Custom Cells */,
 				EB3CF62025D34FF300AF6B91 /* Storyboards */,
 			);
@@ -217,7 +216,6 @@
 			children = (
 				35B142FC25DDB5B4007D7D1B /* RecipeBookViewController */,
 				EB94E47B25DAFDD8000A518C /* HomeScreenVCs */,
-				EB94E47A25DAFDD7000A518C /* RecipeBookVCs */,
 				EB94E47C25DAFDD8000A518C /* MealPlanVCs */,
 				EB94E47925DAFDD7000A518C /* ProfileVCs */,
 			);
@@ -236,13 +234,6 @@
 				EB3CF60F25D34F7F00AF6B91 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		EB3CF62125D34FF400AF6B91 /* CustomUI */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomUI;
 			sourceTree = "<group>";
 		};
 		EB3CF63F25D3637100AF6B91 /* Helpers + Extensions */ = {
@@ -281,13 +272,6 @@
 				EB94E3C125D79A05000A518C /* ProfileViewController.swift */,
 			);
 			path = ProfileVCs;
-			sourceTree = "<group>";
-		};
-		EB94E47A25DAFDD7000A518C /* RecipeBookVCs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = RecipeBookVCs;
 			sourceTree = "<group>";
 		};
 		EB94E47B25DAFDD8000A518C /* HomeScreenVCs */ = {

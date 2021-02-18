@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DropDownTableViewCell: UITableViewCell {
+class RecipeBookTableViewCell: UITableViewCell {
     
     static let identifier = "DropDownTableViewCell"
 
