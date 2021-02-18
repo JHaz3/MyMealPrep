@@ -47,6 +47,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ghI-np-xcA" kind="show" id="EGF-Or-OZv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -92,6 +95,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="256-za-lKf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="944.92753623188412" y="33.482142857142854"/>
+        </scene>
+        <!--Recipe Detail View Controller-->
+        <scene sceneID="kcf-ux-Dkj">
+            <objects>
+                <viewController id="ghI-np-xcA" customClass="RecipeDetailViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h3u-0a-OP9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="70D-wE-8nz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="l1A-tc-uB0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qN1-5g-zEm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1910" y="33"/>
         </scene>
         <!--Search Recipe View Controller-->
         <scene sceneID="IKK-xK-wtr">
@@ -148,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ft1-pK-2MZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1723" y="33"/>
+            <point key="canvasLocation" x="945" y="-744"/>
         </scene>
         <!--Item-->
         <scene sceneID="MxZ-nX-MjJ">
