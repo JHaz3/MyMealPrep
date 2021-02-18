@@ -10,6 +10,11 @@ import Foundation
 struct TopLevelObject: Codable {
     let searchTerm: String
     let hits: [RecipeContainer]
+    
+    enum CodingKeys: String, CodingKey {
+        case searchTerm = "q"
+        case hits
+    }
 }
 struct RecipeContainer: Codable {
     let recipe: Recipe

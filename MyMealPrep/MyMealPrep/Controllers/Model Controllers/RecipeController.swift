@@ -11,7 +11,7 @@ import Firebase
 class RecipeController {
     
     // MARK: - Properties
-    static private let baseURL = URL(string: "https:api.edamam.com/search")
+    static private let baseURL = URL(string: "https://api.edamam.com/search")
     static private let appID = "app_id"
     static private let appIDValue = "d4009615"
     static private let appKey = "app_key"
@@ -28,9 +28,9 @@ class RecipeController {
         
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.queryItems = [
+            URLQueryItem(name: searchKey, value: searchTerm),
             URLQueryItem(name: appID, value: appIDValue),
-            URLQueryItem(name: appKey, value: appKeyValue),
-            URLQueryItem(name: searchKey, value: searchTerm)
+            URLQueryItem(name: appKey, value: appKeyValue)
         ]
         
         guard let finalURL = urlComponents?.url else { return completion(.failure(.invalidURL)) }

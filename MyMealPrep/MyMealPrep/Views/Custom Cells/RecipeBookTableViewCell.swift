@@ -9,31 +9,30 @@ import UIKit
 
 class RecipeBookTableViewCell: UITableViewCell {
     
-    static let identifier = "DropDownTableViewCell"
-
-    private let recipeLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
+    // Mark: - Outlets
+    @IBOutlet weak var recipeImageView: UIImageView!
+    @IBOutlet weak var recipeNameLabel: UILabel!
+    @IBOutlet weak var recipeYieldLabel: UILabel!
+    @IBOutlet weak var recipeCookTimeLabel: UILabel!
     
-    private let recipeImageView: UIImageView = {
-        let image = UIImageView()
-        return image
-    }()
-
-    public func configure(with recipe: Recipe) {
-        contentView.addSubview(recipeLabel)
-        contentView.addSubview(recipeImageView)
-        recipeLabel.text = recipe.label
-        recipeLabel.textAlignment = .center
-        guard let recipeImageName = recipe.image else {return}
-        recipeImageView.image = UIImage(named: recipeImageName)
-        recipeImageView.contentMode = .scaleAspectFill
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        recipeImageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        recipeLabel.frame = CGRect(x: 105, y: 5, width: contentView.frame.size.width - 105, height: 100)
+    // Mark: - Properties
+    var recipe: Recipe? {
+        didSet {
+            guard let recipe = recipe else {return}
+            recipeNameLabel.text = recipe.label
+            recipeYieldLabel.text = "Yield: \(recipe.yield)"
+            recipeCookTimeLabel.text = "\(recipe.totalTime) min"
+            
+            RecipeController.fetchImage(for: recipe) { (result) in
+                switch result {
+                case .success(let image):
+                    DispatchQueue.main.async {
+                        self.recipeImageView.image = image
+                    }
+                case .failure(let error):
+                    print(error, error.localizedDescription)
+                }
+            }
+        }
     }
 }

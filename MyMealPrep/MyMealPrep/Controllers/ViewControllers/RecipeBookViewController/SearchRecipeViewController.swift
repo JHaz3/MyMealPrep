@@ -20,6 +20,7 @@ class SearchRecipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchRecipeSearchBar.delegate = self
+        searchRecipeResultsTableView.rowHeight = 100
     }
 }
 
@@ -30,19 +31,19 @@ extension SearchRecipeViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath) as? RecipeBookTableViewCell else {return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as? RecipeBookTableViewCell else {return UITableViewCell()}
         let recipe = recipes[indexPath.row]
-        cell.configure(with: recipe)
+        cell.recipe = recipe
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let selectedRecipe = recipes[indexPath.row]
-//        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-//        if let viewController = storyboard.instantiateViewController(identifier: "") as? RecipeDetailVC {
-//        viewController.recipe = selectedRecipe
-//        navigationController?.popToViewController(viewController, animated: true)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedRecipe = recipes[indexPath.row]
+        if let viewController = storyboard?.instantiateViewController(identifier: "recipeDetailVC") as? RecipeDetailViewController {
+            viewController.recipe = selectedRecipe
+            navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
 }
 
 extension SearchRecipeViewController: UISearchBarDelegate {
