@@ -28,6 +28,7 @@ class MealPlanRecipesTableViewCell: UITableViewCell {
         }
     }
     
+    let datePicker = UIDatePicker()
     
     
     // MARK: - Actions
@@ -53,4 +54,27 @@ class MealPlanRecipesTableViewCell: UITableViewCell {
             }
         }
     }
+    
+    // MARK: - FIXES MAY BE REQUIRED 
+    func createDatePicker() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneTapped))
+        toolbar.setItems([doneBtn], animated: true)
+//        assignDateButton.inputAccessoryView = toolbar
+//        assignDateButton.inputView = datePicker
+        datePicker.datePickerMode = .date
+        
+    }
+    
+    @objc func doneTapped() {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        
+        assignDateButton.setTitle("\(formatter.string(from: datePicker.date))", for: .normal)
+        self.inputView?.endEditing(true)
+    }
+    
 }// End of Class
