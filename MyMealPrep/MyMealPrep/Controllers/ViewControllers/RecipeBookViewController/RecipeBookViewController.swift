@@ -13,17 +13,24 @@ class RecipeBookViewController: UIViewController {
     @IBOutlet weak var backgroundSalad: UIImageView!
     @IBOutlet weak var savedRecipesButton: UIButton!
     @IBOutlet weak var savedRecipesTV: UITableView!
+    @IBOutlet weak var arrowImageView: UIImageView!
+    
     // Mark: - Properties
     var showTV = false
     
     // Mark: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        savedRecipesTV.isHidden = true
         savedRecipesButton.layer.borderColor = UIColor.darkGray.cgColor
-        savedRecipesButton.layer.borderWidth = 0.8
-        savedRecipesTV.layer.borderWidth = 0.8
+        savedRecipesButton.layer.borderWidth = 0.2
+        savedRecipesTV.layer.borderWidth = 0.5
         savedRecipesTV.layer.borderColor = UIColor.darkGray.cgColor
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        savedRecipesTV.isHidden = true
+        savedRecipesTV.reloadData()
     }
     
     // Mark: - Actions
@@ -34,25 +41,21 @@ class RecipeBookViewController: UIViewController {
             UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
                 self.savedRecipesTV.isHidden = false
             }, completion: nil)
+            
+            UIView.animate(withDuration: 0.2) {
+                self.arrowImageView.transform = CGAffineTransform(rotationAngle: (90.0 * .pi) / 180.0)
+            }
         } else {
             savedRecipesTV.isHidden = true
+            UIView.animate(withDuration: 0.2) {
+                self.arrowImageView.transform = CGAffineTransform(rotationAngle: (0.0 * .pi) / 180.0)
+            }
         }
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension RecipeBookViewController: UITableViewDataSource, UITableViewDelegate {
@@ -62,8 +65,8 @@ extension RecipeBookViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "savedRecipeCell", for: indexPath) as? RecipeBookTableViewCell else {return UITableViewCell()}
-        let recipe = RecipeController.recipes[indexPath.row]
-        cell.configure(with: recipe)
+        let savedRecipes = RecipeController.savedRecipes[indexPath.row]
+        cell.recipe = savedRecipes
         return cell
     }
     

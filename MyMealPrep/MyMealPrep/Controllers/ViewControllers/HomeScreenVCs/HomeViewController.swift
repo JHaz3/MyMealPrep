@@ -8,14 +8,31 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
+    // Mark: - Outlets
+    @IBOutlet weak var recipeImageView: UIImageView!
+    @IBOutlet weak var recipeNameLabel: UILabel!
+    @IBOutlet weak var recipeYieldLabel: UILabel!
+    @IBOutlet weak var recipeCookTimeLabel: UILabel!
+    @IBOutlet weak var recipeNameAndYieldView: UIView!
+    
+    // Mark: - Properties
+    
+    // Mark: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        recipeImageView.layer.cornerRadius = 5
+        recipeNameAndYieldView.layer.borderWidth = 0.5
+        recipeNameAndYieldView.layer.cornerRadius = 5
     }
     
-
+    // Mark: - Actions
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        let viewController: UIViewController = UIStoryboard(name: "RecipeBook", bundle: nil).instantiateViewController(withIdentifier: "SearchRecipeVC") as UIViewController
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    
     /*
     // MARK: - Navigation
 
@@ -26,4 +43,17 @@ class HomeViewController: UIViewController {
     }
     */
 
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "homeScreenCell", for: indexPath) as? RecipeBookTableViewCell else {return UITableViewCell()}
+        return cell
+    }
+    
+    
 }
