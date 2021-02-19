@@ -302,7 +302,7 @@
         <!--Search Recipe View Controller-->
         <scene sceneID="IKK-xK-wtr">
             <objects>
-                <viewController id="ClX-Z2-pcg" customClass="SearchRecipeViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchRecipeVC" id="ClX-Z2-pcg" customClass="SearchRecipeViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="41h-F5-4ck">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
