@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="cQG-I2-AQV">
             <objects>
                 <viewController id="LKm-dk-QHH" customClass="HomeViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <viewLayoutGuide key="safeArea" id="YrO-Jy-HLp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="house" catalog="system" id="6hn-xn-IOW"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="6hn-xn-IOW"/>
                     <navigationItem key="navigationItem" id="zWj-sf-S9I"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
@@ -29,7 +29,6 @@
         <!--Navigation Controller-->
         <scene sceneID="98W-29-37T">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nf0-bq-4tH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FCf-Hd-seu" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="BTV-NS-S2f"/>
@@ -42,6 +41,7 @@
                         <segue destination="LKm-dk-QHH" kind="relationship" relationship="rootViewController" id="Hf7-G4-g71"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nf0-bq-4tH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1105.7971014492755" y="178.79464285714286"/>
         </scene>

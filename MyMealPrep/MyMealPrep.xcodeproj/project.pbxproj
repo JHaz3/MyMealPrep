@@ -44,6 +44,7 @@
 		EB94E48525DB487F000A518C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E48425DB487F000A518C /* HomeViewController.swift */; };
 		EB94E48825DB5601000A518C /* MealPlanRecipesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E48725DB5601000A518C /* MealPlanRecipesTableViewCell.swift */; };
 		EB94E6E725DDDC61000A518C /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E6E625DDDC61000A518C /* RecipeDetailViewController.swift */; };
+		EB94E74125DF5428000A518C /* SignUpAndInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E74025DF5428000A518C /* SignUpAndInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		EB94E48425DB487F000A518C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EB94E48725DB5601000A518C /* MealPlanRecipesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanRecipesTableViewCell.swift; sourceTree = "<group>"; };
 		EB94E6E625DDDC61000A518C /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		EB94E74025DF5428000A518C /* SignUpAndInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAndInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,7 @@
 				EB94E29925D482D0000A518C /* SignUpViewController.swift */,
 				EB94E29C25D482DB000A518C /* SignInViewController.swift */,
 				EB94E3C125D79A05000A518C /* ProfileViewController.swift */,
+				EB94E74025DF5428000A518C /* SignUpAndInViewController.swift */,
 			);
 			path = ProfileVCs;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				35B1430425DDB792007D7D1B /* RecipeBookViewController.swift in Sources */,
 				EB94E28F25D4578C000A518C /* Recipe.swift in Sources */,
 				EB3CF63D25D3621000AF6B91 /* User.swift in Sources */,
+				EB94E74125DF5428000A518C /* SignUpAndInViewController.swift in Sources */,
 				EB94E29A25D482D0000A518C /* SignUpViewController.swift in Sources */,
 				EB94E37825D759FA000A518C /* MealPlanListTableViewCell.swift in Sources */,
 				EB94E48125DB154B000A518C /* RecipeSelectTableViewCell.swift in Sources */,

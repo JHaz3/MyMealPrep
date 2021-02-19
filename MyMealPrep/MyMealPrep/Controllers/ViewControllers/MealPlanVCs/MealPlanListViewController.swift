@@ -22,7 +22,9 @@ class MealPlanListViewController: UIViewController, UITableViewDataSource, UITab
     
     // MARK: - Actions
     @IBAction func startNewMealPlanButtonTapped(_ sender: Any) {
-        
+        guard let vc = storyboard?.instantiateViewController(identifier: "SelectMealPlanDate") as? SelectMealPlanDateViewController else { return }
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - TableView Data Source
@@ -49,17 +51,17 @@ class MealPlanListViewController: UIViewController, UITableViewDataSource, UITab
     // MARK: - Methods
     
     
-
-     // MARK: - Navigation
-     
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       if segue.identifier == "showMealPlan" {
-        guard let index = mealPlanListTableView.indexPathForSelectedRow,
-              let destination = segue.destination as? MealPlanDetailViewController else { return }
-        let mealPlan = MealPlanController.shared.mealPlans[index.row]
-        destination.mealPlan = mealPlan
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMealPlan" {
+            guard let index = mealPlanListTableView.indexPathForSelectedRow,
+                  let destination = segue.destination as? MealPlanDetailViewController else { return }
+            let mealPlan = MealPlanController.shared.mealPlans[index.row]
+            destination.mealPlan = mealPlan
         }
-     }
-
+    }
+    
     
 }// End of Class
