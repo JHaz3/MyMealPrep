@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Recipe Book View Controller-->
+        <!--Recipe Book-->
         <scene sceneID="0Lc-kH-yfr">
             <objects>
                 <viewController id="Mac-ja-eGo" customClass="RecipeBookViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
@@ -124,6 +124,7 @@
                             <constraint firstItem="2wQ-DE-FYP" firstAttribute="centerX" secondItem="VXA-1g-Su8" secondAttribute="centerX" multiplier="1.8" id="xta-NF-6n1"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Recipe Book" selectedImage="Recipe Icon 1x" id="jfl-xK-cSa"/>
                     <navigationItem key="navigationItem" id="o3b-Iw-YeF">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="Back 1x" id="hs2-rd-ljM">
                             <connections>

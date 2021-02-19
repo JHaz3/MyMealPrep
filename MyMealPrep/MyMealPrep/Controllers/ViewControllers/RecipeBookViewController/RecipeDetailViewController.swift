@@ -49,6 +49,13 @@ class RecipeDetailViewController: UIViewController, WKUIDelegate {
         navigationController?.popViewController(animated: true)
     }
     
+
+    // TODO! Fetch images for searched recipes
+
+    
+
+}
+
     @IBAction func seeDirectionsButtonTapped(_ sender: Any) {
         loadWebView()
     }
@@ -77,6 +84,7 @@ class RecipeDetailViewController: UIViewController, WKUIDelegate {
         webView.allowsBackForwardNavigationGestures = true
     }
 } //End of class
+
 
 extension RecipeDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

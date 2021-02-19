@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Shopping List-->
         <scene sceneID="qzO-id-VSy">
             <objects>
                 <viewController id="ZNV-j7-NE2" sceneMemberID="viewController">
@@ -18,6 +18,7 @@
                         <viewLayoutGuide key="safeArea" id="vnr-a4-WSJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Shopping List" selectedImage="List Icon 1x" id="ppv-EV-Ku4"/>
                     <navigationItem key="navigationItem" id="jm4-WC-8I1"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
