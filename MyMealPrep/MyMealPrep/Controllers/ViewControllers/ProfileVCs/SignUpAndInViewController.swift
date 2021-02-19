@@ -73,7 +73,7 @@ class SignUpAndInViewController: UIViewController {
                 case.success(let user):
                     UserController.shared.currentUser = user
                     self.defaults.setValue(UserController.shared.currentUser?.username, forKey: "savedUsername")
-                    self.toHomeScreen()
+                    self.tabBarSetUp()
                 case .failure(let userError):
                     print(userError.errorDescription)
                 }
@@ -84,7 +84,7 @@ class SignUpAndInViewController: UIViewController {
                 case .success(let fetchedUser):
                     UserController.shared.currentUser = fetchedUser
                     self.defaults.set(UserController.shared.currentUser?.username, forKey: "savedUsername")
-                    self.toHomeScreen()
+                    self.tabBarSetUp()
                 case .failure(let userError):
                     print(userError.errorDescription)
                     
@@ -102,7 +102,7 @@ class SignUpAndInViewController: UIViewController {
     
     private func toggleToLogin(username: String?) {
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.3) {
+            UIView.animate(withDuration: 0.2) {
                 self.statusIsSignUp = false
                 self.confirmPasswordTextField.isHidden = true
                 self.userNamePasswordStackView.spacing = 24
@@ -117,7 +117,7 @@ class SignUpAndInViewController: UIViewController {
     
     private func toggleToSignUp() {
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.3) {
+            UIView.animate(withDuration: 0.2) {
                 self.statusIsSignUp = true
                 self.userNamePasswordStackView.spacing = 8
                 self.userNamePasswordStackView.alignment = .fill
@@ -139,9 +139,16 @@ class SignUpAndInViewController: UIViewController {
         }
     }
     
-    // MARK: - ToDo change Identifier to Home?
+    // MARK: -
     private func transitionToHome() {
-        performSegue(withIdentifier: "toTabBarController", sender: self)
+        performSegue(withIdentifier: "tabBarController", sender: self)
+    }
+    
+    private func tabBarSetUp() {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let tabBar = sb.instantiateViewController(identifier: "tabBarController")
+        tabBar.modalPresentationStyle = .fullScreen
+        present(tabBar, animated: true)
     }
     
     func setupViews() {
