@@ -154,8 +154,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="cjI-qf-O5K">
-                                <rect key="frame" x="40" y="398" width="402" height="110"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="cjI-qf-O5K" userLabel="mainStackView">
+                                <rect key="frame" x="28" y="398" width="402" height="110"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gZs-PG-sZM">
                                         <rect key="frame" x="0.0" y="0.0" width="102.5" height="110"/>
@@ -207,8 +207,8 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6IM-7c-6fm" userLabel="welcomLabelSV">
-                                <rect key="frame" x="57.5" y="212" width="288.5" height="46"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6IM-7c-6fm" userLabel="welcomLabelSV">
+                                <rect key="frame" x="41.5" y="252" width="288.5" height="46"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to your Meal Prep!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGc-Ik-7y3">
                                         <rect key="frame" x="0.0" y="0.0" width="288.5" height="29"/>
@@ -226,9 +226,8 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whS-S9-3FW">
-                                <rect key="frame" x="100" y="657" width="212" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whS-S9-3FW">
+                                <rect key="frame" x="279" y="657" width="113" height="30"/>
                                 <color key="backgroundColor" name="red"/>
                                 <state key="normal" title="Sign Up / Sign In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -237,7 +236,7 @@
                                     <action selector="signUpSignInButtonTapped:" destination="GnY-AU-ALx" eventType="touchUpInside" id="ZhD-Cb-awf"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Csd-n9-mhU">
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Csd-n9-mhU">
                                 <rect key="frame" x="273" y="528" width="119" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kus-Cb-Eon">
@@ -249,13 +248,31 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Prep 120 1x" translatesAutoresizingMaskIntoConstraints="NO" id="cCg-xk-Ezz">
-                                <rect key="frame" x="57.5" y="124" width="73" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Prep 120 1x" translatesAutoresizingMaskIntoConstraints="NO" id="cCg-xk-Ezz">
+                                <rect key="frame" x="41.5" y="169" width="73" height="73"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cCg-xk-Ezz" secondAttribute="height" multiplier="1:1" id="0Fs-ts-RbW"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KkF-rx-zBP"/>
                         <color key="backgroundColor" name="lightGreen"/>
+                        <constraints>
+                            <constraint firstItem="cCg-xk-Ezz" firstAttribute="height" secondItem="mlh-Tc-NNn" secondAttribute="height" multiplier="0.0814732" id="0W8-0R-Sln"/>
+                            <constraint firstItem="6IM-7c-6fm" firstAttribute="trailing" secondItem="cjI-qf-O5K" secondAttribute="trailing" constant="-100" id="Aqr-jG-8L4"/>
+                            <constraint firstItem="KkF-rx-zBP" firstAttribute="trailing" secondItem="cjI-qf-O5K" secondAttribute="trailing" constant="-16" id="Ax2-sw-G8H"/>
+                            <constraint firstItem="whS-S9-3FW" firstAttribute="top" secondItem="Csd-n9-mhU" secondAttribute="bottom" constant="99" id="Ba9-ic-1JT"/>
+                            <constraint firstItem="KkF-rx-zBP" firstAttribute="trailing" secondItem="Csd-n9-mhU" secondAttribute="trailing" constant="22" id="T2S-qT-xbW"/>
+                            <constraint firstItem="Csd-n9-mhU" firstAttribute="trailing" secondItem="whS-S9-3FW" secondAttribute="trailing" id="Ub8-SU-0E7"/>
+                            <constraint firstItem="cCg-xk-Ezz" firstAttribute="leading" secondItem="6IM-7c-6fm" secondAttribute="leading" id="Wya-bM-ic4"/>
+                            <constraint firstItem="6IM-7c-6fm" firstAttribute="firstBaseline" secondItem="cCg-xk-Ezz" secondAttribute="baseline" constant="33" symbolType="layoutAnchor" id="cm2-Ia-SmN"/>
+                            <constraint firstItem="cjI-qf-O5K" firstAttribute="centerY" secondItem="KkF-rx-zBP" secondAttribute="centerY" id="dLb-Zp-9vq"/>
+                            <constraint firstItem="cjI-qf-O5K" firstAttribute="width" secondItem="mlh-Tc-NNn" secondAttribute="width" multiplier="0.971014" id="f0Z-nZ-Xef"/>
+                            <constraint firstItem="cjI-qf-O5K" firstAttribute="height" secondItem="mlh-Tc-NNn" secondAttribute="height" multiplier="0.122768" id="ggs-Y7-9V3"/>
+                            <constraint firstItem="6IM-7c-6fm" firstAttribute="width" secondItem="mlh-Tc-NNn" secondAttribute="width" multiplier="0.69686" id="j9J-dJ-zgv"/>
+                            <constraint firstItem="cjI-qf-O5K" firstAttribute="top" secondItem="6IM-7c-6fm" secondAttribute="bottom" constant="100" id="pXe-NC-uKh"/>
+                            <constraint firstItem="Csd-n9-mhU" firstAttribute="top" secondItem="zPp-gJ-mGs" secondAttribute="bottom" constant="20" id="zNg-Xq-zbe"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="1Py-Zo-n5P" id="kNm-gQ-Gig"/>
