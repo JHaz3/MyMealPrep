@@ -52,10 +52,6 @@ class RecipeDetailViewController: UIViewController, WKUIDelegate {
 
     // TODO! Fetch images for searched recipes
 
-    
-
-}
-
     @IBAction func seeDirectionsButtonTapped(_ sender: Any) {
         loadWebView()
     }
