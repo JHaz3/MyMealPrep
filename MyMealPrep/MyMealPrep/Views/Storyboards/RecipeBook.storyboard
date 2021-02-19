@@ -18,27 +18,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Salad 2x" translatesAutoresizingMaskIntoConstraints="NO" id="zfC-MK-KaD">
-                                <rect key="frame" x="41.5" y="412" width="331" height="257"/>
+                                <rect key="frame" x="41.5" y="384" width="331" height="313.5"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iY-wi-fgn">
-                                <rect key="frame" x="0.0" y="149" width="414" height="62.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                <rect key="frame" x="0.0" y="176" width="414" height="62.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="    Saved Recipes"/>
+                                <state key="normal" title="   My Saved Recipes"/>
                                 <connections>
                                     <action selector="savedRecipesButtonTapped:" destination="Mac-ja-eGo" eventType="touchUpInside" id="bYm-Wy-FNO"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2wQ-DE-FYP">
-                                <rect key="frame" x="360" y="169.5" width="25" height="21.5"/>
+                                <rect key="frame" x="362.5" y="199" width="20" height="16.5"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="XpH-mD-WUy"/>
-                                    <constraint firstAttribute="height" constant="25" id="dux-PN-emX"/>
+                                    <constraint firstAttribute="width" constant="20" id="XpH-mD-WUy"/>
+                                    <constraint firstAttribute="height" constant="20" id="dux-PN-emX"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WQ0-fL-o7f">
-                                <rect key="frame" x="0.0" y="211.5" width="414" height="269"/>
+                                <rect key="frame" x="0.0" y="238.5" width="414" height="269"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="savedRecipeCell" rowHeight="71" id="kJi-Vo-T5c" customClass="RecipeBookTableViewCell" customModule="MyMealPrep" customModuleProvider="target">
@@ -118,8 +118,8 @@
                             <constraint firstItem="3iY-wi-fgn" firstAttribute="width" secondItem="d4p-uZ-46f" secondAttribute="width" id="ate-MX-tQh"/>
                             <constraint firstItem="zfC-MK-KaD" firstAttribute="centerX" secondItem="VXA-1g-Su8" secondAttribute="centerX" id="grK-W5-3gL"/>
                             <constraint firstItem="WQ0-fL-o7f" firstAttribute="top" secondItem="3iY-wi-fgn" secondAttribute="bottom" id="hyA-bz-koC"/>
-                            <constraint firstItem="zfC-MK-KaD" firstAttribute="height" secondItem="d4p-uZ-46f" secondAttribute="height" multiplier="0.28683" id="iJH-CA-uYY"/>
-                            <constraint firstItem="3iY-wi-fgn" firstAttribute="centerY" secondItem="VXA-1g-Su8" secondAttribute="centerY" multiplier="0.4" id="lXc-46-DfD"/>
+                            <constraint firstItem="zfC-MK-KaD" firstAttribute="height" secondItem="d4p-uZ-46f" secondAttribute="height" multiplier="0.35" id="iJH-CA-uYY"/>
+                            <constraint firstItem="3iY-wi-fgn" firstAttribute="centerY" secondItem="VXA-1g-Su8" secondAttribute="centerY" multiplier="0.46" id="lXc-46-DfD"/>
                             <constraint firstItem="WQ0-fL-o7f" firstAttribute="width" secondItem="d4p-uZ-46f" secondAttribute="width" id="qsQ-Ih-Lv0"/>
                             <constraint firstItem="2wQ-DE-FYP" firstAttribute="centerX" secondItem="VXA-1g-Su8" secondAttribute="centerX" multiplier="1.8" id="xta-NF-6n1"/>
                         </constraints>

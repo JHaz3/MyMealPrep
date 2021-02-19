@@ -22,7 +22,7 @@ class RecipeBookViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         savedRecipesButton.layer.borderColor = UIColor.darkGray.cgColor
-        savedRecipesButton.layer.borderWidth = 0.5
+        savedRecipesButton.layer.borderWidth = 0.2
         savedRecipesTV.layer.borderWidth = 0.5
         savedRecipesTV.layer.borderColor = UIColor.darkGray.cgColor
     }

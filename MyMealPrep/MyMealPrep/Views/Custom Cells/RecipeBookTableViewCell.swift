@@ -22,6 +22,7 @@ class RecipeBookTableViewCell: UITableViewCell {
             recipeNameLabel.text = recipe.label
             recipeYieldLabel.text = "Yield: \(recipe.yield)"
             recipeCookTimeLabel.text = "\(recipe.totalTime) min"
+            recipeImageView.layer.cornerRadius = 5
             
             RecipeController.fetchImage(for: recipe) { (result) in
                 switch result {
