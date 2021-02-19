@@ -100,19 +100,13 @@
                             <constraint firstItem="oNN-h3-7I7" firstAttribute="height" secondItem="gka-eC-1mB" secondAttribute="height" multiplier="0.142857" id="zms-kE-eDl"/>
                         </constraints>
                     </view>
-
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="6hn-xn-IOW"/>
                     <navigationItem key="navigationItem" id="zWj-sf-S9I"/>
-=======
-                    <tabBarItem key="tabBarItem" title="Item" image="house" catalog="system" id="6hn-xn-IOW"/>
-                    <navigationItem key="navigationItem" id="zWj-sf-S9I">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="Search 1x" id="avO-Ey-HZ3">
                             <connections>
                                 <action selector="searchButtonTapped:" destination="LKm-dk-QHH" id="7yg-wC-msh"/>
                             </connections>
                         </barButtonItem>
-                    </navigationItem>
-
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="recipeCookTimeLabel" destination="Tju-ZL-vsV" id="13p-Kz-5zc"/>
