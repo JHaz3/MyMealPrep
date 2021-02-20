@@ -14,7 +14,7 @@ class SearchRecipeViewController: UIViewController {
     @IBOutlet weak var searchRecipeResultsTableView: UITableView!
     
     // Mark: - Properties
-    var recipes: [Recipe] = []
+    // var recipes: [Recipe] = []
     
     // Mark: - Lifecycle
     override func viewDidLoad() {
@@ -22,23 +22,23 @@ class SearchRecipeViewController: UIViewController {
         searchRecipeSearchBar.delegate = self
         searchRecipeResultsTableView.rowHeight = 100
     }
-}
+}// End of Class
 
 extension SearchRecipeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        recipes.count
+        RecipeController.recipes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as? RecipeBookTableViewCell else {return UITableViewCell()}
-        let recipe = recipes[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as? RecipeBookTableViewCell else { return UITableViewCell() }
+        let recipe = RecipeController.recipes[indexPath.row]
         cell.recipe = recipe
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedRecipe = recipes[indexPath.row]
+        let selectedRecipe = RecipeController.recipes[indexPath.row]
         if let viewController = storyboard?.instantiateViewController(identifier: "recipeDetailVC") as? RecipeDetailViewController {
             viewController.recipe = selectedRecipe
             navigationController?.pushViewController(viewController, animated: true)
@@ -53,7 +53,7 @@ extension SearchRecipeViewController: UISearchBarDelegate {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let recipes):
-                    self.recipes = recipes
+                    RecipeController.recipes = recipes
                     self.searchRecipeResultsTableView.reloadData()
                 case .failure(let error):
                     print(error, error.localizedDescription)

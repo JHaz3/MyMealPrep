@@ -30,8 +30,7 @@ class RecipeDetailViewController: UIViewController, WKUIDelegate {
         addToRecipeBookButton.layer.cornerRadius = 5
         recipeIngredientsTableView.delegate = self
         recipeIngredientsTableView.dataSource = self
-        guard let recipe = recipe else {return}
-        fetchImageAndUpdateViews(recipe: recipe)
+        fetchImageAndUpdateViews()
         let webConfig = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfig)
         webView.uiDelegate = self
@@ -49,33 +48,35 @@ class RecipeDetailViewController: UIViewController, WKUIDelegate {
         navigationController?.popViewController(animated: true)
     }
     
-
+    
     // TODO! Fetch images for searched recipes
-
+    
     @IBAction func seeDirectionsButtonTapped(_ sender: Any) {
         loadWebView()
     }
     
-    func fetchImageAndUpdateViews(recipe: Recipe) {
+    func fetchImageAndUpdateViews() {
+        guard let recipe = recipe else { return }
+        recipeNameLabel.text = recipe.label
+        recipeCookTimeLabel.text = "\(recipe.totalTime) min"
+        recipeYieldLabel.text = "Serves: \(recipe.yield)"
+        
         RecipeController.fetchImage(for: recipe) { (result) in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let image):
+            switch result {
+            case .success(let image):
+                DispatchQueue.main.async {
                     self.recipeImageView.image = image
-                    self.recipeNameLabel.text = recipe.label
-                    self.recipeCookTimeLabel.text = "\(recipe.totalTime) min"
-                    self.recipeYieldLabel.text = "Yield: \(recipe.yield)"
-                case .failure(let error):
-                    print(error, error.localizedDescription)
                 }
+            case .failure(let error):
+                print(error, error.localizedDescription)
             }
         }
     }
     
     func loadWebView() {
         view = webView
-        guard let recipe = recipe else {return}
-        let myURL = URL(string: "\(recipe.directions)")!
+        guard let recipe = recipe else { return }
+        guard let myURL = URL(string: "\(recipe.directions)") else { return }
         webView.load(URLRequest(url: myURL))
         webView.allowsBackForwardNavigationGestures = true
     }
@@ -84,7 +85,7 @@ class RecipeDetailViewController: UIViewController, WKUIDelegate {
 
 extension RecipeDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let recipe = recipe else {return 0}
+        guard let recipe = recipe else { return 0 }
         return recipe.ingredients.count
     }
     
