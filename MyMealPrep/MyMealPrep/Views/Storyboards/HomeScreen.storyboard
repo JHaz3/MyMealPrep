@@ -100,7 +100,7 @@
                             <constraint firstItem="oNN-h3-7I7" firstAttribute="height" secondItem="gka-eC-1mB" secondAttribute="height" multiplier="0.142857" id="zms-kE-eDl"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="6hn-xn-IOW"/>
+                    <tabBarItem key="tabBarItem" title="Home" selectedImage="Home Icon 1x" id="6hn-xn-IOW"/>
                     <navigationItem key="navigationItem" id="zWj-sf-S9I"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -136,8 +136,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Home Icon 1x" width="20" height="19"/>
         <image name="Prep Logo 2x" width="88" height="88"/>
-        <image name="house" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

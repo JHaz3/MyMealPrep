@@ -60,17 +60,17 @@ class RecipeBookViewController: UIViewController {
 
 extension RecipeBookViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        RecipeController.recipes.count
+        RecipeController.savedRecipes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "savedRecipeCell", for: indexPath) as? RecipeBookTableViewCell else {return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "savedRecipeCell", for: indexPath) as? RecipeBookTableViewCell else { return UITableViewCell() }
         let savedRecipes = RecipeController.savedRecipes[indexPath.row]
         cell.recipe = savedRecipes
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(RecipeController.recipes[indexPath.row])
+        print(RecipeController.savedRecipes[indexPath.row])
     }
 }
