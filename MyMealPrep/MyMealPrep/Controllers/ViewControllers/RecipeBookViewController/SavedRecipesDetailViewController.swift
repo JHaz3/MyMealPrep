@@ -15,7 +15,7 @@ class SavedRecipesDetailViewController: UIViewController, WKUIDelegate {
     @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var recipeYieldLabel: UILabel!
     @IBOutlet weak var recipeCookTimeLabel: UILabel!
-    @IBOutlet weak var recipeIngredientTableView: UITableView!
+    @IBOutlet weak var recipeIngredientsTableView: UITableView!
     @IBOutlet weak var seeDirectionsButton: UIButton!
     @IBOutlet weak var recipeNameAndYieldView: UIView!
     
@@ -27,29 +27,28 @@ class SavedRecipesDetailViewController: UIViewController, WKUIDelegate {
     // Mark: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        recipeIngredientTableView.delegate = self
-        recipeIngredientTableView.dataSource = self
+        recipeIngredientsTableView.delegate = self
+        recipeIngredientsTableView.dataSource = self
         fetchImageAndUpdateViews()
         let webConfig = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfig)
         webView.uiDelegate = self
         recipeNameAndYieldView.layer.borderWidth = 0.5
         recipeNameAndYieldView.layer.cornerRadius = 5
-        recipeIngredientTableView.layer.borderWidth = 0.5
-        recipeIngredientTableView.layer.cornerRadius = 5
-        recipeIngredientTableView.separatorStyle = .none
+        recipeIngredientsTableView.layer.borderWidth = 0.5
+        recipeIngredientsTableView.layer.cornerRadius = 5
+        recipeIngredientsTableView.separatorStyle = .none
         
     }
     
     // Mark: - Actions
 
-    
-    
-    // TODO! Fetch images for searched recipes
-    
     @IBAction func seeDirectionsButtonTapped(_ sender: Any) {
         loadWebView()
     }
+    
+    // TODO! Fetch images for searched recipes
+    
     
     func fetchImageAndUpdateViews() {
         guard let recipe = recipe else { return }

@@ -95,7 +95,7 @@
                                             <outlet property="recipeImageView" destination="ONq-fd-exm" id="rRh-j8-4Bv"/>
                                             <outlet property="recipeNameLabel" destination="Idc-pw-muQ" id="iXf-aY-Rhh"/>
                                             <outlet property="recipeYieldLabel" destination="ePA-Ux-q9G" id="iXq-8n-fKC"/>
-                                            <segue destination="ghI-np-xcA" kind="show" identifier="showRecipeDetails" id="EGF-Or-OZv"/>
+                                            <segue destination="2sJ-93-Lwp" kind="show" identifier="showRecipeDetails" id="1af-yy-dMt"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -157,7 +157,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hnJ-HK-C1Z">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GVb-4l-Myx">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
@@ -437,7 +437,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rg5-KV-Uqa">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C5s-yH-2Gw">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
@@ -552,18 +552,16 @@
                     <connections>
                         <outlet property="recipeCookTimeLabel" destination="3jV-Vb-E7f" id="u1f-wK-HjO"/>
                         <outlet property="recipeImageView" destination="VBi-cR-MOl" id="RHn-es-Hk1"/>
-                        <outlet property="recipeIngredientTableView" destination="De1-2b-hqa" id="JKV-Vf-HRF"/>
-                        <outlet property="recipeIngredientsTableView" destination="De1-2b-hqa" id="cuW-ld-fsb"/>
+                        <outlet property="recipeIngredientsTableView" destination="De1-2b-hqa" id="JKV-Vf-HRF"/>
                         <outlet property="recipeNameAndYieldView" destination="SAt-Zb-lJa" id="RHA-jK-68T"/>
                         <outlet property="recipeNameLabel" destination="y4q-ni-vcy" id="hJU-1I-deA"/>
                         <outlet property="recipeYieldLabel" destination="KbV-gs-uHw" id="yUE-eD-sqp"/>
-                        <outlet property="reipeCookTimeLabel" destination="3jV-Vb-E7f" id="ybg-li-7lQ"/>
                         <outlet property="seeDirectionsButton" destination="Hsl-y0-1hC" id="0AZ-Ob-AyY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZZ-lc-hRo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="945" y="715"/>
+            <point key="canvasLocation" x="945" y="794"/>
         </scene>
     </scenes>
     <resources>
