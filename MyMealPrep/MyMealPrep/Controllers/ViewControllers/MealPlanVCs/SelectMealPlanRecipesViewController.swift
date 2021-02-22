@@ -19,7 +19,7 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        savedRecipesTableView.reloadData()
     }
     
     // MARK: - Actions
@@ -56,6 +56,8 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
         
         return cell
     }
+    
+    // MARK: - Methods
 
     /*
     // MARK: - Navigation

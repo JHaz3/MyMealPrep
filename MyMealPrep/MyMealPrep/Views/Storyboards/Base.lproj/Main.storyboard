@@ -435,7 +435,7 @@
         <scene sceneID="v2l-pH-kwT">
             <objects>
                 <viewControllerPlaceholder storyboardName="HomeScreen" id="yZH-HY-BiF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="YDZ-H3-gMl"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="Home Icon 1x" selectedImage="Home Icon 1x" id="YDZ-H3-gMl"/>
                     <navigationItem key="navigationItem" id="KSL-9A-bdF"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i45-p8-tE5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -454,6 +454,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Home Icon 1x" width="20" height="19"/>
         <image name="Prep 120 1x" width="73" height="73"/>
         <image name="Prep Photo" width="375" height="161"/>
         <image name="tabBarItem:Erw-2w-UIr:selectedImage" width="20" height="20">
