@@ -77,7 +77,7 @@ extension RecipeBookViewController: UITableViewDataSource, UITableViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRecipeDetails" {
             guard let indexPath = savedRecipesTV.indexPathForSelectedRow,
-                  let destination = segue.destination as? RecipeDetailViewController else { return }
+                  let destination = segue.destination as? SavedRecipesDetailViewController else { return }
             let recipe = RecipeController.savedRecipes[indexPath.row]
             destination.recipe = recipe
         }
