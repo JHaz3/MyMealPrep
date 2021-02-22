@@ -18,6 +18,7 @@ class MealPlanListViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mealPlanListTableView.reloadData()
     }
     
     // MARK: - Actions

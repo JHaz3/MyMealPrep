@@ -70,7 +70,7 @@ extension RecipeBookViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(RecipeController.savedRecipes[indexPath.row])
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print(RecipeController.savedRecipes[indexPath.row])
+//    }
 }
