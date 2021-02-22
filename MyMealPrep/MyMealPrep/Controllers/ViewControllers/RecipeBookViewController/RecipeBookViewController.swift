@@ -73,4 +73,14 @@ extension RecipeBookViewController: UITableViewDataSource, UITableViewDelegate {
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print(RecipeController.savedRecipes[indexPath.row])
 //    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showRecipeDetails" {
+            guard let indexPath = savedRecipesTV.indexPathForSelectedRow,
+                  let destination = segue.destination as? RecipeDetailViewController else { return }
+            let recipe = RecipeController.savedRecipes[indexPath.row]
+            destination.recipe = recipe
+        }
+    }
+
 }
