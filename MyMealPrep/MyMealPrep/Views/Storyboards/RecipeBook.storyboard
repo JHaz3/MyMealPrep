@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Recipe Book-->
+        <!--Recipe Book View Controller-->
         <scene sceneID="0Lc-kH-yfr">
             <objects>
                 <viewController id="Mac-ja-eGo" customClass="RecipeBookViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
@@ -124,7 +124,6 @@
                             <constraint firstItem="2wQ-DE-FYP" firstAttribute="centerX" secondItem="VXA-1g-Su8" secondAttribute="centerX" multiplier="1.8" id="xta-NF-6n1"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Recipe Book" selectedImage="Recipe Icon 1x" id="jfl-xK-cSa"/>
                     <navigationItem key="navigationItem" id="o3b-Iw-YeF">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="Back 1x" id="hs2-rd-ljM">
                             <connections>
@@ -409,12 +408,13 @@
             </objects>
             <point key="canvasLocation" x="945" y="-744"/>
         </scene>
-        <!--Item-->
+        <!--Recipe Book-->
         <scene sceneID="MxZ-nX-MjJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uNk-w2-2dQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="Recipe Icon 1x" id="HWF-ZD-H1V"/>
+                    <tabBarItem key="tabBarItem" title="Recipe Book" image="Recipe Icon 1x" selectedImage="Recipe Icon 1x" id="jfl-xK-cSa"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6aR-CQ-B8h">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

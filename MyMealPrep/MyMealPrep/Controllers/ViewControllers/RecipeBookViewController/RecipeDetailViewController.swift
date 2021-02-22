@@ -39,11 +39,12 @@ class RecipeDetailViewController: UIViewController, WKUIDelegate {
         recipeIngredientsTableView.layer.borderWidth = 0.5
         recipeIngredientsTableView.layer.cornerRadius = 5
         recipeIngredientsTableView.separatorStyle = .none
+        
     }
     
     // Mark: - Actions
     @IBAction func addToRecipeBookButtonTapped(_ sender: Any) {
-        guard let recipe = recipe else {return}
+        guard let recipe = recipe else { return }
         RecipeController.savedRecipes.append(recipe)
         navigationController?.popViewController(animated: true)
     }
@@ -59,7 +60,7 @@ class RecipeDetailViewController: UIViewController, WKUIDelegate {
         guard let recipe = recipe else { return }
         recipeNameLabel.text = recipe.label
         recipeCookTimeLabel.text = "\(recipe.totalTime) min"
-        recipeYieldLabel.text = "Serves: \(recipe.yield)"
+        recipeYieldLabel.text = "Yield: \(recipe.yield)"
         
         RecipeController.fetchImage(for: recipe) { (result) in
             switch result {

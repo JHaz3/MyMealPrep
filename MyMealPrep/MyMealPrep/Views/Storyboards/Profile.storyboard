@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile-->
+        <!--View Controller-->
         <scene sceneID="vXJ-7g-ANU">
             <objects>
                 <viewController id="q5y-Wh-kuT" sceneMemberID="viewController">
@@ -18,7 +18,6 @@
                         <viewLayoutGuide key="safeArea" id="Cb9-d4-FYC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="Account Icon 1x" id="BQi-UF-3Vk"/>
                     <navigationItem key="navigationItem" id="Sul-st-UNg"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
@@ -26,12 +25,13 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="75.669642857142847"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="5Cs-d6-0lh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VvB-Fr-mNK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="Account Icon 1x" id="652-Vx-vOw"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Account Icon 1x" selectedImage="Account Icon 1x" id="BQi-UF-3Vk"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WhJ-1d-AEh">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

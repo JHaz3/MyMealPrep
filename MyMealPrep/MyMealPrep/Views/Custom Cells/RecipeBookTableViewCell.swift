@@ -18,7 +18,7 @@ class RecipeBookTableViewCell: UITableViewCell {
     // Mark: - Properties
     var recipe: Recipe? {
         didSet {
-            guard let recipe = recipe else {return}
+            guard let recipe = recipe else { return }
             recipeNameLabel.text = recipe.label
             recipeYieldLabel.text = "Yield: \(recipe.yield)"
             recipeCookTimeLabel.text = "\(recipe.totalTime) min"
