@@ -20,7 +20,7 @@ class RecipeController {
     
     static var recipes: [Recipe] = []
     static var savedRecipes: [Recipe] = []
-    
+    static var randomRecipe: Recipe?
     
     static func fetchRecipe(searchTerm: String, completion: @escaping (Result<[Recipe], RecipeError>) -> Void) {
         
@@ -81,4 +81,40 @@ class RecipeController {
         recipe.isChecked.toggle()
     }
     
+    static func fetchRandomRecipe(completion: @escaping (Result<Recipe, RecipeError>) -> Void) {
+        
+        guard let baseURL = baseURL else { return completion(.failure(.invalidURL)) }
+        
+        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
+        urlComponents?.queryItems = [
+            URLQueryItem(name: searchKey, value: "random"),
+            URLQueryItem(name: appID, value: appIDValue),
+            URLQueryItem(name: appKey, value: appKeyValue)
+        ]
+        
+        guard let finalURL = urlComponents?.url else { return completion(.failure(.invalidURL)) }
+        print(finalURL)
+        
+        URLSession.shared.dataTask(with: finalURL) { data, _, error in
+            
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
+                return completion(.failure(.noData))
+            }
+            
+            guard let data = data else { return completion(.failure(.noData)) }
+            
+            do {
+                
+                let recipeContainer = try JSONDecoder().decode(TopLevelObject.self, from: data).hits
+                let recipes = recipeContainer.compactMap({ $0.recipe })
+                let recipe = recipes.randomElement()!
+                self.randomRecipe = recipe
+                return completion(.success(recipe))
+            } catch {
+                print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
+                return completion(.failure(.noData))
+            }
+        }.resume()
+    }
 }// End of Class

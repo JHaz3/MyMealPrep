@@ -17,6 +17,28 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var recipeNameAndYieldView: UIView!
     
     // Mark: - Properties
+    var recipe: Recipe? {
+        didSet {
+            guard let recipe = recipe else {return}
+            DispatchQueue.main.async {
+                self.recipeNameLabel.text = recipe.label
+                self.recipeYieldLabel.text = "Yield: \(recipe.yield)"
+                self.recipeCookTimeLabel.text = "\(recipe.totalTime) min"
+                self.recipeImageView.layer.cornerRadius = 5
+            }
+            
+            RecipeController.fetchImage(for: recipe) { (result) in
+                switch result {
+                case .success(let image):
+                    DispatchQueue.main.async {
+                        self.recipeImageView.image = image
+                    }
+                case .failure(let error):
+                    print(error, error.localizedDescription)
+                }
+            }
+        }
+    }
     
     // Mark: - Lifecycle
     override func viewDidLoad() {
@@ -24,6 +46,14 @@ class HomeViewController: UIViewController {
         recipeImageView.layer.cornerRadius = 5
         recipeNameAndYieldView.layer.borderWidth = 0.5
         recipeNameAndYieldView.layer.cornerRadius = 5
+        RecipeController.fetchRandomRecipe { (result) in
+            switch result {
+            case .success(let recipe):
+                self.recipe = recipe
+            case .failure(let error):
+                print("Error fetching random recipe: \(error.localizedDescription)")
+            }
+        }
     }
     
     // Mark: - Actions
