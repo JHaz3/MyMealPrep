@@ -25,6 +25,8 @@ class RecipeBookViewController: UIViewController {
         savedRecipesButton.layer.borderWidth = 0.2
         savedRecipesTV.layer.borderWidth = 0.5
         savedRecipesTV.layer.borderColor = UIColor.darkGray.cgColor
+        savedRecipesTV.rowHeight = 100
+        savedRecipesTV.isScrollEnabled = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +59,7 @@ class RecipeBookViewController: UIViewController {
     @IBAction func backButtonTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
-}
+}// End of Class
 
 extension RecipeBookViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,10 +73,6 @@ extension RecipeBookViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    // MARK: - Whats this for?
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(RecipeController.savedRecipes[indexPath.row])
-//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRecipeDetails" {
