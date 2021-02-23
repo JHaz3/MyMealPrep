@@ -38,7 +38,7 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WQ0-fL-o7f">
-                                <rect key="frame" x="0.0" y="238.5" width="414" height="269"/>
+                                <rect key="frame" x="0.0" y="238.5" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="savedRecipeCell" rowHeight="71" id="kJi-Vo-T5c" customClass="RecipeBookTableViewCell" customModule="MyMealPrep" customModuleProvider="target">
@@ -110,7 +110,7 @@
                         <constraints>
                             <constraint firstItem="2wQ-DE-FYP" firstAttribute="centerY" secondItem="3iY-wi-fgn" secondAttribute="centerY" id="8X1-xV-xDA"/>
                             <constraint firstItem="WQ0-fL-o7f" firstAttribute="centerX" secondItem="VXA-1g-Su8" secondAttribute="centerX" id="EUB-hm-z5H"/>
-                            <constraint firstItem="WQ0-fL-o7f" firstAttribute="height" secondItem="d4p-uZ-46f" secondAttribute="height" multiplier="0.3" id="LGJ-9o-g9K"/>
+                            <constraint firstItem="WQ0-fL-o7f" firstAttribute="height" secondItem="d4p-uZ-46f" secondAttribute="height" id="LGJ-9o-g9K"/>
                             <constraint firstItem="zfC-MK-KaD" firstAttribute="width" secondItem="d4p-uZ-46f" secondAttribute="width" multiplier="0.8" id="M3g-y5-ejS"/>
                             <constraint firstItem="zfC-MK-KaD" firstAttribute="centerY" secondItem="VXA-1g-Su8" secondAttribute="centerY" multiplier="1.2" id="MWD-Jh-I6w"/>
                             <constraint firstItem="3iY-wi-fgn" firstAttribute="centerX" secondItem="VXA-1g-Su8" secondAttribute="centerX" id="NOd-OG-BxV"/>

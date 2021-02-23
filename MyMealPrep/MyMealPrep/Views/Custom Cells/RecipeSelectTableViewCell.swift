@@ -33,7 +33,6 @@ class RecipeSelectTableViewCell: UITableViewCell {
     
     // MARK: - Actions
     @IBAction func checkBoxButtonTapped(_ sender: Any) {
-        checkBoxChecked(false)
         delegate?.toggleRecipeChecked(self)
     }
     

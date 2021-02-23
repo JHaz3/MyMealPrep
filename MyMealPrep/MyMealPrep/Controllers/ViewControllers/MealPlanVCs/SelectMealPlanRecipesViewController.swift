@@ -19,6 +19,9 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        savedRecipesTableView.dataSource = self
+        savedRecipesTableView.delegate = self
+        savedRecipesTableView.rowHeight = 100
         savedRecipesTableView.reloadData()
     }
     
