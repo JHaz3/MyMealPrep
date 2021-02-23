@@ -45,7 +45,7 @@ class RecipeDetailViewController: UIViewController, WKUIDelegate {
     // Mark: - Actions
     @IBAction func addToRecipeBookButtonTapped(_ sender: Any) {
         guard let recipe = recipe else { return }
-        RecipeController.savedRecipes.append(recipe)
+        RecipeController.shared.savedRecipes.append(recipe)
         navigationController?.popViewController(animated: true)
     }
     
@@ -81,7 +81,8 @@ class RecipeDetailViewController: UIViewController, WKUIDelegate {
         webView.load(URLRequest(url: myURL))
         webView.allowsBackForwardNavigationGestures = true
     }
-} //End of class
+    
+} // End of class
 
 
 extension RecipeDetailViewController: UITableViewDelegate, UITableViewDataSource {

@@ -27,7 +27,7 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
         guard let mealPlan = mealPlan else { return }
         // Will I need to set all saved recipes isChecked value back to false?
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let recipesChecked = RecipeController.savedRecipes[indexPath.row]
+            let recipesChecked = RecipeController.shared.savedRecipes[indexPath.row]
             if recipesChecked.isChecked == true {
                 mealPlan.recipes.append(recipesChecked)
             } else {
@@ -41,17 +41,17 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return RecipeController.savedRecipes.count
+        return RecipeController.shared.savedRecipes.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 60
+//    }
     // MARK: - Does this work?
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "selectRecipeCell", for: indexPath) as? RecipeSelectTableViewCell else { return UITableViewCell() }
-        let recipe = RecipeController.savedRecipes[indexPath.row]
+        let recipe = RecipeController.shared.savedRecipes[indexPath.row]
         cell.recipe = recipe
         
         return cell
@@ -75,7 +75,7 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
 extension SelectMealPlanRecipesViewController: RecipeSelectTableViewCellDelegate {
     func toggleRecipeChecked(_ sender: RecipeSelectTableViewCell) {
         guard var recipe = sender.recipe else { return }
-        RecipeController.toggleBoxChecked(recipe: &recipe)
+        RecipeController.shared.toggleBoxChecked(recipe: &recipe)
         sender.updateViews()
     }
 }
