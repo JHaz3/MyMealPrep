@@ -18,8 +18,9 @@ class RecipeController {
     static private let appKeyValue = "48c7deafe28862ded87866c21e220a3f"
     static private let searchKey = "q"
     
+    static let shared: RecipeController = RecipeController()
     static var recipes: [Recipe] = []
-    static var savedRecipes: [Recipe] = []
+    var savedRecipes: [Recipe] = []
     
     
     static func fetchRecipe(searchTerm: String, completion: @escaping (Result<[Recipe], RecipeError>) -> Void) {
@@ -77,7 +78,7 @@ class RecipeController {
         }.resume()
     }
     
-    static func toggleBoxChecked(recipe: inout Recipe) {
+    func toggleBoxChecked(recipe: inout Recipe) {
         recipe.isChecked.toggle()
     }
     

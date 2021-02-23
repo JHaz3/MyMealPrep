@@ -50,6 +50,7 @@ class RecipeBookViewController: UIViewController {
             UIView.animate(withDuration: 0.2) {
                 self.arrowImageView.transform = CGAffineTransform(rotationAngle: (0.0 * .pi) / 180.0)
             }
+            savedRecipesTV.reloadData()
         }
     }
     
@@ -60,16 +61,17 @@ class RecipeBookViewController: UIViewController {
 
 extension RecipeBookViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        RecipeController.savedRecipes.count
+        RecipeController.shared.savedRecipes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "savedRecipeCell", for: indexPath) as? RecipeBookTableViewCell else { return UITableViewCell() }
-        let savedRecipes = RecipeController.savedRecipes[indexPath.row]
+        let savedRecipes = RecipeController.shared.savedRecipes[indexPath.row]
         cell.recipe = savedRecipes
         return cell
     }
     
+    // MARK: - Whats this for?
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print(RecipeController.savedRecipes[indexPath.row])
 //    }
@@ -78,7 +80,7 @@ extension RecipeBookViewController: UITableViewDataSource, UITableViewDelegate {
         if segue.identifier == "showRecipeDetails" {
             guard let indexPath = savedRecipesTV.indexPathForSelectedRow,
                   let destination = segue.destination as? SavedRecipesDetailViewController else { return }
-            let recipe = RecipeController.savedRecipes[indexPath.row]
+            let recipe = RecipeController.shared.savedRecipes[indexPath.row]
             destination.recipe = recipe
         }
     }
