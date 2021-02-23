@@ -15,6 +15,7 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     
     // MARK: - Properties
     var mealPlan: MealPlan?
+    var checkedRecipes: Set<Recipe> = []
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -28,28 +29,19 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     // MARK: - Actions
     @IBAction func saveRecipesButtonTapped(_ sender: Any) {
         guard let mealPlan = mealPlan else { return }
-        // Will I need to set all saved recipes isChecked value back to false?
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let recipesChecked = RecipeController.shared.savedRecipes[indexPath.row]
-            if recipesChecked.isChecked == true {
-                mealPlan.recipes.append(recipesChecked)
-            } else {
-                return //add alert saying failed to save recipes?
-            }
-        }
         
     }
     
     // MARK: - Table view data source
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return RecipeController.shared.savedRecipes.count
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 60
-//    }
+    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    //        return 60
+    //    }
     // MARK: - Does this work?
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,25 +53,28 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     }
     
     // MARK: - Methods
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }// End of Class
 
 // MARK: - Delegate Extensions
 extension SelectMealPlanRecipesViewController: RecipeSelectTableViewCellDelegate {
     func toggleRecipeChecked(_ sender: RecipeSelectTableViewCell) {
-        guard var recipe = sender.recipe else { return }
-        RecipeController.shared.toggleBoxChecked(recipe: &recipe)
-        sender.updateViews()
+        guard let recipe = sender.recipe else { return }
+        if checkedRecipes.contains(recipe) {
+            checkedRecipes.remove(recipe)
+        } else {
+            checkedRecipes.insert(recipe)
+        }
     }
 }
 
