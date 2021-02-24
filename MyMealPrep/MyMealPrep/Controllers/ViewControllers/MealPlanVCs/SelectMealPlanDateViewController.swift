@@ -34,8 +34,6 @@ class SelectMealPlanDateViewController: UIViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
         
-//        self.performSegue(withIdentifier: "showRecipeSelect", sender: self)
-        
     }
     
     // MARK: - Methods

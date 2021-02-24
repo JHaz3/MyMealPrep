@@ -31,7 +31,7 @@ class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UIT
     @IBAction func seeShoppingListButtonTapped(_ sender: Any) {
         
     }
-    
+
     // MARK: - Table View Data Source 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -50,6 +50,7 @@ class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UIT
     private func updateViews() {
         self.navigationItem.setHidesBackButton(true, animated: true)
         mealPlanNameLabel.text = mealPlan?.mealPlanName
+        endDateLabel.text = "\(mealPlan?.recipes.count ?? 0) recipes in your meal plan"
         mealPlanRecipesTV.delegate = self
         mealPlanRecipesTV.dataSource = self
         mealPlanRecipesTV.rowHeight = 100
