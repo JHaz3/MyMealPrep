@@ -204,7 +204,7 @@
                                                     <constraint firstItem="iTn-cp-OPG" firstAttribute="centerY" secondItem="tcn-Qe-1ST" secondAttribute="centerY" multiplier="1.6" id="xqW-B4-a3v"/>
                                                 </constraints>
                                             </view>
-                                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="56s-rW-mbe">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="56s-rW-mbe">
                                                 <rect key="frame" x="20.5" y="415" width="373" height="300"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
@@ -484,7 +484,7 @@
                                                     <constraint firstItem="y4q-ni-vcy" firstAttribute="width" secondItem="SAt-Zb-lJa" secondAttribute="width" multiplier="0.95" id="wuk-g8-Af9"/>
                                                 </constraints>
                                             </view>
-                                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="De1-2b-hqa">
+                                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="De1-2b-hqa">
                                                 <rect key="frame" x="20.5" y="415" width="373" height="300"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>

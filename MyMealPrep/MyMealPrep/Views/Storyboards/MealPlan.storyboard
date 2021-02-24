@@ -159,7 +159,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="hzH-5A-BKx">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="hzH-5A-BKx">
                                 <rect key="frame" x="20" y="154.5" width="374" height="175"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="175" id="Gq6-1f-kEu"/>
@@ -187,7 +187,7 @@
                                     <action selector="selectRecipeButtonTapped:" destination="gP6-9L-FbS" eventType="touchUpInside" id="byw-ek-gMB"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="mb8-ql-KHT">
+                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="mb8-ql-KHT">
                                 <rect key="frame" x="20" y="435" width="374" height="175"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="175" id="jHe-Z2-nc3"/>
@@ -208,7 +208,7 @@
                             <constraint firstItem="Xx2-FN-USW" firstAttribute="top" secondItem="qWF-8S-PP1" secondAttribute="top" constant="25" id="cqz-cH-66z"/>
                             <constraint firstItem="fcS-VF-S3T" firstAttribute="top" secondItem="Xx2-FN-USW" secondAttribute="bottom" constant="20" id="dBR-g2-JLO"/>
                             <constraint firstItem="hzH-5A-BKx" firstAttribute="top" secondItem="fcS-VF-S3T" secondAttribute="bottom" constant="10" id="mQP-DE-g2n"/>
-                            <constraint firstItem="mb8-ql-KHT" firstAttribute="top" secondItem="G2o-bd-RnL" secondAttribute="bottom" constant="10" id="pe4-eb-mek"/>
+                            <constraint firstItem="mb8-ql-KHT" firstAttribute="top" secondItem="G2o-bd-RnL" secondAttribute="bottom" constant="70" id="pe4-eb-mek"/>
                             <constraint firstItem="mb8-ql-KHT" firstAttribute="leading" secondItem="qWF-8S-PP1" secondAttribute="leading" constant="20" id="qJb-Uf-7Uk"/>
                             <constraint firstItem="ltk-qT-gUc" firstAttribute="leading" secondItem="qWF-8S-PP1" secondAttribute="leading" constant="30" id="ra9-rF-Ms3"/>
                             <constraint firstItem="G2o-bd-RnL" firstAttribute="top" secondItem="hzH-5A-BKx" secondAttribute="bottom" constant="15" id="ram-f9-4zC"/>
@@ -247,7 +247,7 @@
                                     <color key="titleColor" name="black"/>
                                 </state>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="izK-QW-toV">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="izK-QW-toV">
                                 <rect key="frame" x="0.0" y="129" width="414" height="589.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -360,17 +360,17 @@
             <objects>
                 <viewController storyboardIdentifier="mealPlanDetailVC" id="zv6-F7-cwJ" customClass="MealPlanDetailViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ynD-UM-6XB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Plan Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWZ-CR-gUU">
-                                <rect key="frame" x="20" y="118" width="123" height="20.5"/>
+                                <rect key="frame" x="20" y="30" width="123" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fee-2M-BqU">
-                                <rect key="frame" x="320.5" y="128" width="73.5" height="41"/>
+                                <rect key="frame" x="320.5" y="40" width="73.5" height="41"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StartDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpb-eJ-NCh">
                                         <rect key="frame" x="0.0" y="0.0" width="73.5" height="20.5"/>
@@ -386,8 +386,8 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xdn-dX-9T4">
-                                <rect key="frame" x="0.0" y="174" width="414" height="559"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xdn-dX-9T4">
+                                <rect key="frame" x="0.0" y="86" width="414" height="642"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="showRecipeCell" rowHeight="87" id="z0k-AT-I8U" customClass="MealPlanRecipesTableViewCell" customModule="MyMealPrep" customModuleProvider="target">
@@ -436,7 +436,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2F7-DY-NdX">
-                                <rect key="frame" x="25" y="758" width="364" height="30"/>
+                                <rect key="frame" x="25" y="753" width="364" height="30"/>
                                 <color key="backgroundColor" name="darkGreen"/>
                                 <state key="normal" title="See Shopping List">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -496,7 +496,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Rp5-Ub-5mh"/>
+        <segue reference="0eU-hN-trk"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Calendar Icon 1x" width="20" height="20"/>
