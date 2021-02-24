@@ -31,6 +31,7 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     @IBAction func saveRecipesButtonTapped(_ sender: Any) {
         guard let mealPlan = mealPlan else { return }
         mealPlan.recipes.append(contentsOf: checkedRecipes)
+        
         checkedRecipes.removeAll()
         
         if let vc = storyboard?.instantiateViewController(identifier: "mealPlanDetailVC") as? MealPlanDetailViewController {
