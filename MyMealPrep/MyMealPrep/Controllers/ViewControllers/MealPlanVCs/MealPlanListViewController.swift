@@ -15,8 +15,10 @@ class MealPlanListViewController: UIViewController, UITableViewDataSource, UITab
     
     
     // MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        mealPlanListTableView.rowHeight = 80
         mealPlanListTableView.delegate = self
         mealPlanListTableView.dataSource = self
         mealPlanListTableView.reloadData()
@@ -31,11 +33,13 @@ class MealPlanListViewController: UIViewController, UITableViewDataSource, UITab
     
     // MARK: - TableView Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return MealPlanController.shared.mealPlans.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "mealPlanCell", for: indexPath ) as? MealPlanListTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "mealPlanCell", for: indexPath ) as?
+                MealPlanListTableViewCell else { return UITableViewCell() }
         let mealPlan = MealPlanController.shared.mealPlans[indexPath.row]
         cell.mealPlan = mealPlan
         
