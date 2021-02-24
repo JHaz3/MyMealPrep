@@ -14,10 +14,11 @@ class MealPlanListViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var mealPlanListTableView: UITableView!
     
     
-    // MARK: -Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        mealPlanListTableView.delegate = self
+        mealPlanListTableView.dataSource = self
         mealPlanListTableView.reloadData()
     }
     
@@ -54,7 +55,6 @@ class MealPlanListViewController: UIViewController, UITableViewDataSource, UITab
     
     
     // MARK: - Navigation
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMealPlan" {
             guard let index = mealPlanListTableView.indexPathForSelectedRow,
@@ -63,6 +63,5 @@ class MealPlanListViewController: UIViewController, UITableViewDataSource, UITab
             destination.mealPlan = mealPlan
         }
     }
-    
     
 }// End of Class

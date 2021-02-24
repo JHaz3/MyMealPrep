@@ -20,6 +20,7 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: true)
         savedRecipesTableView.dataSource = self
         savedRecipesTableView.delegate = self
         savedRecipesTableView.rowHeight = 100
@@ -29,40 +30,43 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     // MARK: - Actions
     @IBAction func saveRecipesButtonTapped(_ sender: Any) {
         guard let mealPlan = mealPlan else { return }
+        mealPlan.recipes.append(contentsOf: checkedRecipes)
         
+        if let vc = storyboard?.instantiateViewController(identifier: "mealPlanDetailVC") as? MealPlanDetailViewController {
+            vc.mealPlan = mealPlan
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        //self.performSegue(withIdentifier: "showMealPlanDetails", sender: self)
     }
     
     // MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         return RecipeController.shared.savedRecipes.count
     }
-    
-    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    //        return 60
-    //    }
-    // MARK: - Does this work?
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "selectRecipeCell", for: indexPath) as? RecipeSelectTableViewCell else { return UITableViewCell() }
         let recipe = RecipeController.shared.savedRecipes[indexPath.row]
         cell.recipe = recipe
-        
+        cell.delegate = self
         return cell
     }
     
     // MARK: - Methods
     
-    /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+        if(segue.identifier == "showMealPlanDetails") {
+            guard let mpToSend = MealPlanController.shared.mealPlans.last,
+                  let destination = segue.destination as? MealPlanDetailViewController else { return }
+            destination.mealPlan = mpToSend
+        }
      }
-     */
     
 }// End of Class
 

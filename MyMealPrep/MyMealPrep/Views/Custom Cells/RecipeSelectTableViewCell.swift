@@ -41,7 +41,7 @@ class RecipeSelectTableViewCell: UITableViewCell {
     
     
     // MARK: - Methods
-
+    
     // if take in a recipe then dont need everything here 
     func updateViews() {
         guard let recipe = recipe else { return }

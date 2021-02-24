@@ -28,15 +28,30 @@ class SelectMealPlanDateViewController: UIViewController {
         
         MealPlanController.shared.createMealPlan(with: startDate, endDate: endDate)
         
-        self.performSegue(withIdentifier: "showRecipeSelect", sender: nil)
+        // MARK: - Better Way to do this?
+        if let vc = storyboard?.instantiateViewController(identifier: "selectRecipesVC") as? SelectMealPlanRecipesViewController {
+            vc.mealPlan = MealPlanController.shared.mealPlans.last
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
+//        self.performSegue(withIdentifier: "showRecipeSelect", sender: self)
         
     }
     
     // MARK: - Methods
     private func setUpPickerViews() {
+        startDatePicker.isUserInteractionEnabled = true
+        endDatePicker.isUserInteractionEnabled = true
         startDatePicker.minimumDate = Date()
         endDatePicker.minimumDate = Date()
     }
     
-
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if(segue.identifier == "showRecipeSelect") {
+//            guard let mealPlanToSend = MealPlanController.shared.mealPlans.last,
+//                  let destination = segue.destination as? SelectMealPlanRecipesViewController else { return }
+//            destination.mealPlan = mealPlanToSend
+//        }
+//    }
+    
 }// End of Class
