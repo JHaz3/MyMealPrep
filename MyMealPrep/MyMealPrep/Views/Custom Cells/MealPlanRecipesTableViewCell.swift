@@ -34,7 +34,6 @@ class MealPlanRecipesTableViewCell: UITableViewCell {
     // MARK: - Actions
     @IBAction func assignDateButtonTapped(_ sender: Any) {
         
-        
     }
     
     

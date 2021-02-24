@@ -20,6 +20,7 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: true)
         savedRecipesTableView.dataSource = self
         savedRecipesTableView.delegate = self
         savedRecipesTableView.rowHeight = 100
@@ -30,7 +31,13 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     @IBAction func saveRecipesButtonTapped(_ sender: Any) {
         guard let mealPlan = mealPlan else { return }
         mealPlan.recipes.append(contentsOf: checkedRecipes)
-        self.performSegue(withIdentifier: "showMealPlanDetails", sender: self)
+        
+        if let vc = storyboard?.instantiateViewController(identifier: "mealPlanDetailVC") as? MealPlanDetailViewController {
+            vc.mealPlan = mealPlan
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        //self.performSegue(withIdentifier: "showMealPlanDetails", sender: self)
     }
     
     // MARK: - Table view data source
@@ -44,7 +51,7 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "selectRecipeCell", for: indexPath) as? RecipeSelectTableViewCell else { return UITableViewCell() }
         let recipe = RecipeController.shared.savedRecipes[indexPath.row]
         cell.recipe = recipe
-        
+        cell.delegate = self
         return cell
     }
     

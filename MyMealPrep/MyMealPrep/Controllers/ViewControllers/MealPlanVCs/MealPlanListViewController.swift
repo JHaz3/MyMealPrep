@@ -14,10 +14,11 @@ class MealPlanListViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var mealPlanListTableView: UITableView!
     
     
-    // MARK: -Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        mealPlanListTableView.delegate = self
+        mealPlanListTableView.dataSource = self
         mealPlanListTableView.reloadData()
     }
     

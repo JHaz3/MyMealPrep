@@ -11,7 +11,6 @@ class MealPlanController {
     // MARK: - Properties
     static let shared: MealPlanController = MealPlanController()
     var mealPlans: [MealPlan] = []
-    var tempMealPlan: MealPlan?
     
     // MARK: - CRUD Methods
     func createMealPlan(with startDate: Date, endDate: Date) {
@@ -19,7 +18,7 @@ class MealPlanController {
         let numberOfDays = daysBetween(startDate: startDate.startOfDay() ?? Date(),
                                        endDate: endDate.startOfDay() ?? Date())
         var dates: [Date] = [startDate.startOfDay() ?? Date()]
-        for _ in 1...numberOfDays {
+        for _ in 0...numberOfDays {
             guard let newDate = dates.last?.addingTimeInterval(numberOfSecondsInDay) else { continue }
             dates.append(newDate)
         }
@@ -27,8 +26,13 @@ class MealPlanController {
         mealPlans.append(mealPlan)
     }
     
-    func updateMealPlan() {
-        
+    func updateMealPlanRecipes(mealPlan: MealPlan, recipes: [Recipe]) {
+        mealPlan.recipes = recipes
+    }
+    
+    func updateMPDates(mealPlan: MealPlan, startDate: Date, endDate: Date) {
+        mealPlan.startDate = startDate
+        mealPlan.endDate = endDate
     }
     
     func deleteMealPlan(mealPlan: MealPlan) {

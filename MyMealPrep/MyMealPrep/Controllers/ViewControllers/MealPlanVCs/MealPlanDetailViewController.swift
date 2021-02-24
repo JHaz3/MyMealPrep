@@ -12,6 +12,7 @@ class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var mealPlanNameLabel: UILabel!
     @IBOutlet weak var startDateLabel: UILabel!
     @IBOutlet weak var endDateLabel: UILabel!
+    @IBOutlet weak var mealPlanRecipesTV: UITableView!
     
     // MARK: - Properties
     var mealPlan: MealPlan?
@@ -19,9 +20,13 @@ class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UIT
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateViews()
     }
     
+     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        updateViews()
+    }
     // MARK: - Actions
     @IBAction func seeShoppingListButtonTapped(_ sender: Any) {
         
@@ -30,7 +35,7 @@ class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UIT
     // MARK: - Table View Data Source 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return mealPlan?.recipes.count ?? 0
+        return mealPlan?.recipes.count ?? 0 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -42,7 +47,14 @@ class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UIT
     }
 
     // MARK: - Methods
-    
+    private func updateViews() {
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        mealPlanNameLabel.text = mealPlan?.mealPlanName
+        mealPlanRecipesTV.delegate = self
+        mealPlanRecipesTV.dataSource = self
+        mealPlanRecipesTV.rowHeight = 100
+        mealPlanRecipesTV.reloadData()
+    }
     
 }// End of Class 
 
