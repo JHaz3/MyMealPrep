@@ -28,8 +28,8 @@ class SelectMealPlanDateViewController: UIViewController {
         
         MealPlanController.shared.createMealPlan(with: startDate, endDate: endDate)
         
-        self.performSegue(withIdentifier: "showRecipeSelect", sender: nil)
-        
+        self.performSegue(withIdentifier: "showRecipeSelect", sender: self)
+    
     }
     
     // MARK: - Methods
@@ -38,5 +38,13 @@ class SelectMealPlanDateViewController: UIViewController {
         endDatePicker.minimumDate = Date()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "showRecipeSelect") {
+            guard let mealPlanToSend = MealPlanController.shared.mealPlans.last,
+                  let destination = segue.destination as? SelectMealPlanRecipesViewController else { return }
+            destination.mealPlan = mealPlanToSend
+            
+        }
+    }
 
 }// End of Class
