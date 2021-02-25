@@ -21,6 +21,8 @@ class RecipeBookViewController: UIViewController {
     // Mark: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        savedRecipesTV.dataSource = self
+        savedRecipesTV.delegate = self
         savedRecipesButton.layer.borderColor = UIColor.darkGray.cgColor
         savedRecipesButton.layer.borderWidth = 0.2
         savedRecipesTV.layer.borderWidth = 0.5

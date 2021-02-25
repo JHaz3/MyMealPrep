@@ -64,5 +64,11 @@ extension Recipe: Equatable {
             && lhs.isChecked == rhs.isChecked
             && lhs.label == rhs.label
             && lhs.image == rhs.image
+            && lhs.directions == rhs.directions
+            && lhs.ingredients == rhs.ingredients
+            && lhs.yield == rhs.yield
+            && lhs.totalTime == rhs.totalTime
+            && lhs.users == rhs.users
+            && lhs.dateToEat == rhs.dateToEat
     }
 }

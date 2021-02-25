@@ -32,7 +32,6 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
         guard let mealPlan = mealPlan else { return }
         mealPlan.recipes = checkedRecipes
     
-        //checkedRecipes.removeAll()
         if let vc = storyboard?.instantiateViewController(identifier: "mealPlanDetailVC") as?
             MealPlanDetailViewController {
             vc.mealPlan = mealPlan
