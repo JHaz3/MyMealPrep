@@ -20,7 +20,10 @@ class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UIT
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateViews()
+        mealPlanRecipesTV.delegate = self
+        mealPlanRecipesTV.dataSource = self
+        mealPlanRecipesTV.rowHeight = 100
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
      override func viewWillAppear(_ animated: Bool) {
@@ -50,12 +53,8 @@ class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UIT
     // MARK: - Methods
     private func updateViews() {
         loadViewIfNeeded()
-        self.navigationItem.setHidesBackButton(true, animated: true)
         mealPlanNameLabel.text = mealPlan?.mealPlanName
         endDateLabel.text = "\(mealPlan?.recipes.count ?? 0) recipes in your meal plan"
-        mealPlanRecipesTV.delegate = self
-        mealPlanRecipesTV.dataSource = self
-        mealPlanRecipesTV.rowHeight = 100
         mealPlanRecipesTV.reloadData()
     }
     

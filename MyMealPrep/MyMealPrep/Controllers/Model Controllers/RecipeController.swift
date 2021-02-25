@@ -13,9 +13,9 @@ class RecipeController {
     // MARK: - Properties
     static private let baseURL = URL(string: "https://api.edamam.com/search")
     static private let appID = "app_id"
-    static private let appIDValue = "d4009615"
+    static private let appIDValue = "f46dc9e4"
     static private let appKey = "app_key"
-    static private let appKeyValue = "48c7deafe28862ded87866c21e220a3f"
+    static private let appKeyValue = "157465b7f776b7f2a6cf93b71f8aab4b"
     static private let searchKey = "q"
     
     static let shared: RecipeController = RecipeController()
