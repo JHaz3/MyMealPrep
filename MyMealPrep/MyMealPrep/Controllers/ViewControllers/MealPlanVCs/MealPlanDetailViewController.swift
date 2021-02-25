@@ -43,11 +43,13 @@ class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UIT
                 as? MealPlanRecipesTableViewCell else { return UITableViewCell() }
         let recipe = mealPlan?.recipes[indexPath.row]
         cell.recipe = recipe
+        
         return cell
     }
 
     // MARK: - Methods
     private func updateViews() {
+        loadViewIfNeeded()
         self.navigationItem.setHidesBackButton(true, animated: true)
         mealPlanNameLabel.text = mealPlan?.mealPlanName
         endDateLabel.text = "\(mealPlan?.recipes.count ?? 0) recipes in your meal plan"

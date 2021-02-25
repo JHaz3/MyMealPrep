@@ -13,7 +13,7 @@ class MealPlan {
     var startDate: Date
     var endDate: Date
     var recipes: [Recipe]
-    // MARK: -TODO remove mealPlanDates and add star/end date
+    
     init(mealPlanName: String = "", startDate: Date = Date(), endDate: Date = Date(), recipes: [Recipe] = []) {
         self.mealPlanName = mealPlanName
         self.startDate = startDate

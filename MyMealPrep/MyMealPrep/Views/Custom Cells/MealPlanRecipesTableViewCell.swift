@@ -20,6 +20,7 @@ class MealPlanRecipesTableViewCell: UITableViewCell {
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var assignDateButton: UIButton!
+    @IBOutlet weak var dateToEatDatePicker: UIDatePicker!
     
     // MARK: - Properties
     var recipe: Recipe? {
@@ -28,20 +29,23 @@ class MealPlanRecipesTableViewCell: UITableViewCell {
         }
     }
     
-    let datePicker = UIDatePicker()
-    
+    weak var delegate: MealPLanRecipesTableViewCellDelegate?
     
     // MARK: - Actions
-    @IBAction func assignDateButtonTapped(_ sender: Any) {
-        
+    @IBAction func datePickerValueChanged(_ sender: Any) {
+        guard let recipe = recipe else { return }
+        let dateToEat = dateToEatDatePicker.date
+        RecipeController.updateDateToEat(date: dateToEat, recipe: recipe)
     }
     
     
+    
     // MARK: -Methods
-    func updateViews() {
+    private func updateViews() {
         guard let recipe = recipe else { return }
         recipeNameLabel.text = recipe.label
-        
+        dateToEatDatePicker.date = recipe.dateToEat
+
         RecipeController.fetchImage(for: recipe) { (result) in
             switch result {
             case .success(let image):
@@ -54,26 +58,5 @@ class MealPlanRecipesTableViewCell: UITableViewCell {
         }
     }
     
-    // MARK: - FIXES MAY BE REQUIRED 
-    func createDatePicker() {
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        
-        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneTapped))
-        toolbar.setItems([doneBtn], animated: true)
-//        assignDateButton.inputAccessoryView = toolbar
-//        assignDateButton.inputView = datePicker
-        datePicker.datePickerMode = .date
-        
-    }
-    
-    @objc func doneTapped() {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .none
-        
-        assignDateButton.setTitle("\(formatter.string(from: datePicker.date))", for: .normal)
-        self.inputView?.endEditing(true)
-    }
     
 }// End of Class

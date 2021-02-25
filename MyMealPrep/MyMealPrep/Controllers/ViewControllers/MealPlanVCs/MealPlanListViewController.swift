@@ -15,6 +15,11 @@ class MealPlanListViewController: UIViewController, UITableViewDataSource, UITab
     
     
     // MARK: - Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        mealPlanListTableView.delegate = self
+        mealPlanListTableView.dataSource = self
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -54,8 +59,6 @@ class MealPlanListViewController: UIViewController, UITableViewDataSource, UITab
     // MARK: - Methods
     private func updateViews() {
         mealPlanListTableView.rowHeight = 80
-        mealPlanListTableView.delegate = self
-        mealPlanListTableView.dataSource = self
         mealPlanListTableView.reloadData()
     }
     

@@ -19,9 +19,8 @@ class ShoppingList {
 extension ShoppingList {
     
     convenience init?(recipe: Recipe) {
-        
+
         let ingredients = recipe.ingredients
-        
         self.init(ingredients: ingredients)
     }
 }

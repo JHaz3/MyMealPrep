@@ -78,8 +78,12 @@ class RecipeController {
         }.resume()
     }
     
-    func toggleBoxChecked(recipe: inout Recipe) {
+    func toggleBoxChecked(recipe: Recipe) {
         recipe.isChecked.toggle()
+    }
+    
+   static func updateDateToEat(date: Date, recipe: Recipe) {
+        recipe.dateToEat = date
     }
     
 }// End of Class
