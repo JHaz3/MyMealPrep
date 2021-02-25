@@ -24,3 +24,9 @@ extension ShoppingList {
         self.init(ingredients: ingredients)
     }
 }
+
+extension ShoppingList: Equatable {
+    static func == (lhs: ShoppingList, rhs: ShoppingList) -> Bool {
+        return lhs.ingredients == rhs.ingredients
+    }
+}
