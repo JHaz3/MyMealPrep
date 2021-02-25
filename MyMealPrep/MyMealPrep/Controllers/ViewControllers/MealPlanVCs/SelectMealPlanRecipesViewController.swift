@@ -15,7 +15,7 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     
     // MARK: - Properties
     var mealPlan: MealPlan?
-    var checkedRecipes: Set<Recipe> = []
+    var checkedRecipes: [Recipe] = []
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -30,9 +30,9 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     // MARK: - Actions
     @IBAction func saveRecipesButtonTapped(_ sender: Any) {
         guard let mealPlan = mealPlan else { return }
-        mealPlan.recipes.append(contentsOf: checkedRecipes)
+        mealPlan.recipes = checkedRecipes
     
-        checkedRecipes.removeAll()
+        //checkedRecipes.removeAll()
         if let vc = storyboard?.instantiateViewController(identifier: "mealPlanDetailVC") as?
             MealPlanDetailViewController {
             vc.mealPlan = mealPlan
@@ -74,10 +74,13 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
 extension SelectMealPlanRecipesViewController: RecipeSelectTableViewCellDelegate {
     func toggleRecipeChecked(_ sender: RecipeSelectTableViewCell) {
         guard let recipe = sender.recipe else { return }
-        if checkedRecipes.contains(recipe) {
-            checkedRecipes.remove(recipe)
+        if recipe.isChecked {
+            guard let index = checkedRecipes.firstIndex(of: recipe) else { return }
+            recipe.isChecked = false
+            checkedRecipes.remove(at: index)
         } else {
-            checkedRecipes.insert(recipe)
+            recipe.isChecked = true
+            checkedRecipes.append(recipe)
         }
     }
 }

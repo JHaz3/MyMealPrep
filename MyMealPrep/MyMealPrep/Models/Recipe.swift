@@ -20,7 +20,7 @@ struct RecipeContainer: Codable {
     let recipe: Recipe
 }
 
-struct Recipe: Codable, Hashable {
+class Recipe: Codable {
     let label: String
     let image: String?
     let directions: String
@@ -42,10 +42,27 @@ struct Recipe: Codable, Hashable {
         case users
         case uid
     }
+    
+    init(label: String, image: String?, directions: String, ingredients: [String], yield: Int, totalTime: Int, users: [String]?, uid: String?, isChecked: Bool, dateToEat: Date) {
+        self.label = label
+        self.image = image
+        self.directions = directions
+        self.ingredients = ingredients
+        self.yield = yield
+        self.totalTime = totalTime
+        self.users = users
+        self.uid = uid
+        self.isChecked = isChecked
+        self.dateToEat = dateToEat
+    }
+    
 }
 
 extension Recipe: Equatable {
     static func == (lhs: Recipe, rhs: Recipe) -> Bool {
         return lhs.uid == rhs.uid
+            && lhs.isChecked == rhs.isChecked
+            && lhs.label == rhs.label
+            && lhs.image == rhs.image
     }
 }

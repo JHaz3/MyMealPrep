@@ -360,17 +360,17 @@
             <objects>
                 <viewController storyboardIdentifier="mealPlanDetailVC" id="zv6-F7-cwJ" customClass="MealPlanDetailViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ynD-UM-6XB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Plan Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWZ-CR-gUU">
-                                <rect key="frame" x="20" y="30" width="123" height="20.5"/>
+                                <rect key="frame" x="20" y="118" width="123" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fee-2M-BqU">
-                                <rect key="frame" x="320.5" y="40" width="73.5" height="41"/>
+                                <rect key="frame" x="320.5" y="128" width="73.5" height="41"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StartDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpb-eJ-NCh">
                                         <rect key="frame" x="0.0" y="0.0" width="73.5" height="20.5"/>
@@ -387,7 +387,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xdn-dX-9T4">
-                                <rect key="frame" x="0.0" y="86" width="414" height="642"/>
+                                <rect key="frame" x="0.0" y="174" width="414" height="559"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="showRecipeCell" rowHeight="87" id="z0k-AT-I8U" customClass="MealPlanRecipesTableViewCell" customModule="MyMealPrep" customModuleProvider="target">
@@ -409,26 +409,28 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLm-hg-IW6">
-                                                    <rect key="frame" x="112" y="49.5" width="82" height="30"/>
-                                                    <state key="normal" title="Assign Date"/>
+                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rE-x1-Zny">
+                                                    <rect key="frame" x="102" y="44" width="138" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" name="darkGreen"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="636166834.80111098">
+                                                        <!--2021-02-28 01:00:34 +0000-->
+                                                    </date>
                                                     <connections>
-                                                        <action selector="assignDateButtonTapped:" destination="z0k-AT-I8U" eventType="touchUpInside" id="5OS-dX-v42"/>
+                                                        <action selector="datePickerValueChanged:" destination="z0k-AT-I8U" eventType="valueChanged" id="sEu-1G-fkc"/>
                                                     </connections>
-                                                </button>
+                                                </datePicker>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Y29-2h-0T0" firstAttribute="top" secondItem="z7D-ag-Rpu" secondAttribute="top" constant="10" id="84Z-JE-eWh"/>
                                                 <constraint firstItem="Y29-2h-0T0" firstAttribute="leading" secondItem="z7D-ag-Rpu" secondAttribute="leading" constant="15" id="Dw7-us-U4p"/>
-                                                <constraint firstItem="fLm-hg-IW6" firstAttribute="top" secondItem="mZ7-5x-n14" secondAttribute="bottom" constant="8" id="gCd-hy-vsZ"/>
-                                                <constraint firstItem="fLm-hg-IW6" firstAttribute="leading" secondItem="Y29-2h-0T0" secondAttribute="trailing" constant="30" id="hYQ-Ez-ZPQ"/>
                                                 <constraint firstItem="mZ7-5x-n14" firstAttribute="top" secondItem="z7D-ag-Rpu" secondAttribute="topMargin" constant="10" id="i9n-4I-p6d"/>
                                                 <constraint firstItem="mZ7-5x-n14" firstAttribute="leading" secondItem="Y29-2h-0T0" secondAttribute="trailing" constant="20" id="je3-Zh-Gev"/>
                                                 <constraint firstAttribute="bottom" secondItem="Y29-2h-0T0" secondAttribute="bottom" constant="10" id="nUa-sx-s33"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="assignDateButton" destination="fLm-hg-IW6" id="GcD-1Z-hem"/>
+                                            <outlet property="dateToEatDatePicker" destination="8rE-x1-Zny" id="I36-bS-7Iv"/>
                                             <outlet property="recipeImageView" destination="Y29-2h-0T0" id="LdR-Xh-iT9"/>
                                             <outlet property="recipeNameLabel" destination="mZ7-5x-n14" id="TQA-Wl-w6F"/>
                                         </connections>
@@ -436,7 +438,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2F7-DY-NdX">
-                                <rect key="frame" x="25" y="753" width="364" height="30"/>
+                                <rect key="frame" x="25" y="758" width="364" height="30"/>
                                 <color key="backgroundColor" name="darkGreen"/>
                                 <state key="normal" title="See Shopping List">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -496,7 +498,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0eU-hN-trk"/>
+        <segue reference="Rp5-Ub-5mh"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Calendar Icon 1x" width="20" height="20"/>
