@@ -31,15 +31,13 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     @IBAction func saveRecipesButtonTapped(_ sender: Any) {
         guard let mealPlan = mealPlan else { return }
         mealPlan.recipes.append(contentsOf: checkedRecipes)
-        
+    
         checkedRecipes.removeAll()
-        
-        if let vc = storyboard?.instantiateViewController(identifier: "mealPlanDetailVC") as? MealPlanDetailViewController {
+        if let vc = storyboard?.instantiateViewController(identifier: "mealPlanDetailVC") as?
+            MealPlanDetailViewController {
             vc.mealPlan = mealPlan
             navigationController?.pushViewController(vc, animated: true)
         }
-        
-        //self.performSegue(withIdentifier: "showMealPlanDetails", sender: self)
     }
     
     // MARK: - Table view data source

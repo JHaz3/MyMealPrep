@@ -29,11 +29,12 @@ class MealPlanRecipesTableViewCell: UITableViewCell {
     }
     
     let datePicker = UIDatePicker()
-    
+    weak var delegate: MealPLanRecipesTableViewCellDelegate?
     
     // MARK: - Actions
     @IBAction func assignDateButtonTapped(_ sender: Any) {
-        
+        delegate?.assignDateToEat(self)
+        createDatePicker()
     }
     
     
