@@ -29,7 +29,6 @@
 		EB94E29A25D482D0000A518C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E29925D482D0000A518C /* SignUpViewController.swift */; };
 		EB94E29D25D482DB000A518C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E29C25D482DB000A518C /* SignInViewController.swift */; };
 		EB94E32525D5F1E3000A518C /* MealPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E32425D5F1E3000A518C /* MealPlan.swift */; };
-		EB94E32825D5F35C000A518C /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94E32725D5F35C000A518C /* ShoppingList.swift */; };
 		EB94E32D25D633A4000A518C /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB94E32C25D633A4000A518C /* Profile.storyboard */; };
 		EB94E33025D633BA000A518C /* ShoppingList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB94E32F25D633BA000A518C /* ShoppingList.storyboard */; };
 		EB94E33325D633D0000A518C /* RecipeBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB94E33225D633D0000A518C /* RecipeBook.storyboard */; };
@@ -79,7 +78,6 @@
 		EB94E29C25D482DB000A518C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		EB94E2B825D49285000A518C /* HomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScreen.storyboard; sourceTree = "<group>"; };
 		EB94E32425D5F1E3000A518C /* MealPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlan.swift; sourceTree = "<group>"; };
-		EB94E32725D5F35C000A518C /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
 		EB94E32C25D633A4000A518C /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		EB94E32F25D633BA000A518C /* ShoppingList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShoppingList.storyboard; sourceTree = "<group>"; };
 		EB94E33225D633D0000A518C /* RecipeBook.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecipeBook.storyboard; sourceTree = "<group>"; };
@@ -182,7 +180,6 @@
 				EB3CF63C25D3621000AF6B91 /* User.swift */,
 				EB94E28E25D4578C000A518C /* Recipe.swift */,
 				EB94E32425D5F1E3000A518C /* MealPlan.swift */,
-				EB94E32725D5F35C000A518C /* ShoppingList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -437,7 +434,6 @@
 				EB94E38A25D78BA9000A518C /* MealPlanDetailViewController.swift in Sources */,
 				EB3CF60525D34F7F00AF6B91 /* AppDelegate.swift in Sources */,
 				EB94E37E25D781AB000A518C /* MealPlanController.swift in Sources */,
-				EB94E32825D5F35C000A518C /* ShoppingList.swift in Sources */,
 				EB3CF60725D34F7F00AF6B91 /* SceneDelegate.swift in Sources */,
 				3585FF8125DCAA1100B0AFEC /* RecipeBookTableViewCell.swift in Sources */,
 				355AB23925DDCEA8009617CC /* SearchRecipeViewController.swift in Sources */,

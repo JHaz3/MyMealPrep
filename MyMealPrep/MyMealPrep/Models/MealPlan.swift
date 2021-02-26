@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MealPlan {
+class MealPlan: Codable {
 
     var mealPlanName: String
     var startDate: Date
