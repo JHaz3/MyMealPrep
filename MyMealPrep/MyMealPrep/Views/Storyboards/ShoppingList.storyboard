@@ -24,7 +24,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="404" height="348"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SB1-fb-Fwj">
+                                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingListCell" id="SB1-fb-Fwj" customClass="ShoppingListTableViewCell" customModule="MyMealPrep">
                                                 <rect key="frame" x="0.0" y="28" width="404" height="40.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SB1-fb-Fwj" id="23k-Eh-HFn">
@@ -42,6 +42,9 @@
                                                                         <constraint firstAttribute="height" constant="30" id="jKC-EO-G6V"/>
                                                                     </constraints>
                                                                     <state key="normal" title="Button" image="Empty Checkbox 1x"/>
+                                                                    <connections>
+                                                                        <action selector="checkBoxButtonTapped:" destination="SB1-fb-Fwj" eventType="touchUpInside" id="zfC-OW-sAR"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gbU-nL-Rjx">
                                                                     <rect key="frame" x="30" y="0.0" width="333.5" height="30.5"/>
@@ -54,6 +57,9 @@
                                                                         <constraint firstAttribute="width" secondItem="bDQ-pd-n8e" secondAttribute="height" multiplier="1:1" id="k7S-ok-cQy"/>
                                                                     </constraints>
                                                                     <state key="normal" title="Button" image="Edit 1x"/>
+                                                                    <connections>
+                                                                        <action selector="editItemButtonTapped:" destination="SB1-fb-Fwj" eventType="touchUpInside" id="s2m-y2-RIy"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
@@ -65,6 +71,11 @@
                                                         <constraint firstAttribute="trailing" secondItem="Grk-Yb-Krk" secondAttribute="trailing" constant="5" id="dQe-LB-VzV"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="checkboxButton" destination="1QD-yZ-YNv" id="lsy-No-Wdx"/>
+                                                    <outlet property="editItemButton" destination="bDQ-pd-n8e" id="PGt-MJ-L0N"/>
+                                                    <outlet property="itemTextField" destination="gbU-nL-Rjx" id="6nX-KF-G4u"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -149,8 +160,8 @@
                     <connections>
                         <outlet property="addItemButton" destination="w2T-9E-XBQ" id="Iq8-Eu-vAg"/>
                         <outlet property="addItemTextField" destination="Jj7-Xq-NOa" id="TRr-ZE-xPL"/>
+                        <outlet property="menuContainerView" destination="Oz3-1l-11q" id="Gb2-gq-jFv"/>
                         <outlet property="menueButton" destination="wen-Y5-aTa" id="a8j-ed-0ra"/>
-                        <outlet property="menueContainerView" destination="Oz3-1l-11q" id="Gb2-gq-jFv"/>
                         <outlet property="shoppingListTableView" destination="lAP-vi-q0C" id="ROW-dF-INM"/>
                     </connections>
                 </viewController>

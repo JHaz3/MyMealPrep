@@ -14,6 +14,7 @@ protocol menuButtonSelectedDelegate {
 class ShoppingListMenuViewController: UIViewController {
 
     // MARK: - Properties
+    var menuDelegate: menuButtonSelectedDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
