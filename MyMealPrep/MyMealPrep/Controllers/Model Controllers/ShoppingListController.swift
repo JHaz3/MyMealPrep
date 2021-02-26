@@ -11,7 +11,11 @@ class ShoppingListController {
     
     // MARK: - Properties
     static let shared: ShoppingListController = ShoppingListController()
-    var listItems: [String] = []
+    var listItems: [String] = [] {
+        didSet {
+            saveToPersistentStorage()
+        }
+    }
     
     // MARK: - CRUD
     func addItemToShoppingList(item: String) {
@@ -30,6 +34,19 @@ class ShoppingListController {
         }
     }
     
+    func deleteItem(item: String) {
+        guard let index = listItems.firstIndex(of: item) else { return }
+        listItems.remove(at: index)
+    }
+    
+    func clearListItems() {
+        listItems.removeAll()
+    }
+    
+    func toggleItemChecked() {
+        
+    }
+    
     //MARK: - Persistence
     func fileURL() -> URL {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -38,7 +55,7 @@ class ShoppingListController {
         let documentsDirectoryURL = documentDirectory.appendingPathComponent(fileName)
         return documentsDirectoryURL
     }
-    func saveToPersistentStorage(listItems: [String]) {
+    func saveToPersistentStorage() {
         let encoder = JSONEncoder()
         do {
             let data = try encoder.encode(listItems)

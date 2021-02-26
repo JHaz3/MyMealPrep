@@ -14,6 +14,7 @@
 		EB0F133B25E4667100BDCDD4 /* SavedRecipesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F133A25E4667100BDCDD4 /* SavedRecipesDetailViewController.swift */; };
 		EB0F134225E829AF00BDCDD4 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F134125E829AE00BDCDD4 /* ShoppingListViewController.swift */; };
 		EB0F134625E82B9100BDCDD4 /* ShoppingListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F134525E82B9100BDCDD4 /* ShoppingListController.swift */; };
+		EB0F136225E8B5AF00BDCDD4 /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F136125E8B5AF00BDCDD4 /* ShoppingList.swift */; };
 		EB3CF60525D34F7F00AF6B91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3CF60425D34F7F00AF6B91 /* AppDelegate.swift */; };
 		EB3CF60725D34F7F00AF6B91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3CF60625D34F7F00AF6B91 /* SceneDelegate.swift */; };
 		EB3CF60C25D34F7F00AF6B91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB3CF60A25D34F7F00AF6B91 /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 		EB0F133A25E4667100BDCDD4 /* SavedRecipesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipesDetailViewController.swift; sourceTree = "<group>"; };
 		EB0F134125E829AE00BDCDD4 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		EB0F134525E82B9100BDCDD4 /* ShoppingListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListController.swift; sourceTree = "<group>"; };
+		EB0F136125E8B5AF00BDCDD4 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
 		EB3CF60125D34F7F00AF6B91 /* MyMealPrep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMealPrep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB3CF60425D34F7F00AF6B91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB3CF60625D34F7F00AF6B91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				EB3CF63C25D3621000AF6B91 /* User.swift */,
 				EB94E28E25D4578C000A518C /* Recipe.swift */,
 				EB94E32425D5F1E3000A518C /* MealPlan.swift */,
+				EB0F136125E8B5AF00BDCDD4 /* ShoppingList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -218,10 +221,10 @@
 		EB3CF61E25D34FE100AF6B91 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EB3CF64625D364FD00AF6B91 /* UserController.swift */,
 				EB94E29125D45E27000A518C /* RecipeController.swift */,
 				EB94E37D25D781AB000A518C /* MealPlanController.swift */,
 				EB0F134525E82B9100BDCDD4 /* ShoppingListController.swift */,
+				EB3CF64625D364FD00AF6B91 /* UserController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				EB94E29D25D482DB000A518C /* SignInViewController.swift in Sources */,
 				EB94E37B25D77FA7000A518C /* SelectMealPlanDateViewController.swift in Sources */,
 				EB94E48825DB5601000A518C /* MealPlanRecipesTableViewCell.swift in Sources */,
+				EB0F136225E8B5AF00BDCDD4 /* ShoppingList.swift in Sources */,
 				EB0F133B25E4667100BDCDD4 /* SavedRecipesDetailViewController.swift in Sources */,
 				EB3CF64125D363B000AF6B91 /* UserError.swift in Sources */,
 				EB94E33F25D738DE000A518C /* MealPlanListViewController.swift in Sources */,
