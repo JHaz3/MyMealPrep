@@ -9,12 +9,10 @@ import Foundation
 
 class ShoppingList: Codable {
     
-    var ingredients: [String]
     var item: String
     var isChecked: Bool
     
-    init(ingredients: [String], item: String, isChecked: Bool = false) {
-        self.ingredients = ingredients
+    init(item: String, isChecked: Bool = false) {
         self.item = item
         self.isChecked = isChecked
     }
@@ -22,8 +20,8 @@ class ShoppingList: Codable {
 
 extension ShoppingList: Equatable {
     static func == (lhs: ShoppingList, rhs: ShoppingList) -> Bool {
-        return lhs.ingredients == rhs.ingredients
-            && lhs.item == rhs.item
+        return lhs.item == rhs.item
             && lhs.item == rhs.item
     }
 }
+
