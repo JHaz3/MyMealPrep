@@ -11,15 +11,16 @@ class ShoppingListController {
     
     // MARK: - Properties
     static let shared: ShoppingListController = ShoppingListController()
-    var listItems: [String] = [] {
+    var listItems: [ShoppingList] = [] {
         didSet {
             saveToPersistentStorage()
         }
     }
     
     // MARK: - CRUD
-    func addItemToShoppingList(item: String) {
-        listItems.append(item)
+    func addItemToShoppingList(with item: String) {
+        let ingredient = ShoppingList(item: item)
+        listItems.append(ingredient)
     }
     
     func addMealPlanRecipesIngredients(mealPlan: MealPlan) {
@@ -30,11 +31,11 @@ class ShoppingListController {
     
     func addRecipeIngredients(recipe: Recipe) {
         for ingredient in recipe.ingredients {
-            self.listItems.append(ingredient)
+            self.listItems.append(ShoppingList(item: ingredient))
         }
     }
     
-    func deleteItem(item: String) {
+    func deleteItem(item: ShoppingList) {
         guard let index = listItems.firstIndex(of: item) else { return }
         listItems.remove(at: index)
     }
@@ -43,8 +44,9 @@ class ShoppingListController {
         listItems.removeAll()
     }
     
-    func toggleItemChecked() {
-        
+    func toggleItemChecked(ingredient: ShoppingList) {
+        ingredient.isChecked.toggle()
+        saveToPersistentStorage()
     }
     
     //MARK: - Persistence
@@ -68,7 +70,7 @@ class ShoppingListController {
         let jsonDecoder = JSONDecoder()
         do {
             let data = try Data(contentsOf: fileURL())
-            let decodedData = try jsonDecoder.decode([String].self, from: data)
+            let decodedData = try jsonDecoder.decode([ShoppingList].self, from: data)
             self.listItems = decodedData
         } catch let error {
             print("\(error.localizedDescription) -> \(error)")
