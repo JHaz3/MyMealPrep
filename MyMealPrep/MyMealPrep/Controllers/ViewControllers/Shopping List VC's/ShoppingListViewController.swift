@@ -28,12 +28,11 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         shoppingListTableView.dataSource = self
         shoppingListTableView.rowHeight = 50
         menuContainerView.isHidden = true
-        shoppingListTableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        shoppingListTableView.reloadData()
+        updateViews()
     }
     
     // MARK: - Actions
@@ -45,17 +44,18 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     
     @IBAction func addListItemButtonTapped(_ sender: Any) {
         ShoppingListController.shared.addItemToShoppingList(with: addItemTextField.text ?? "")
+        updateViews()
     }
     
     // MARK: - Tableview Data Source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return ShoppingListController.shared.listItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = shoppingListTableView.dequeueReusableCell(withIdentifier: "shoppingListCell", for: indexPath)
-                as? ShoppingListTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingListCell", for: indexPath) as? ShoppingListTableViewCell else { return UITableViewCell() }
         let item = ShoppingListController.shared.listItems[indexPath.row]
         cell.item = item
         cell.delegate = self
@@ -64,27 +64,18 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     // MARK: - Methods
+    private func updateViews() {
+        shoppingListTableView.reloadData()
+    }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }// End of Class
 
 // MARK: - Delegate Extensions
 extension ShoppingListViewController: ShoppingListTableViewCellDelegate {
     func toggleItemChecked(_ sender: ShoppingListTableViewCell) {
-        guard let index = shoppingListTableView.indexPath(for: sender) else { return }
-        let item = ShoppingListController.shared.listItems[index.row]
-        ShoppingListController.shared.toggleItemChecked(ingredient: item)
-        sender.checkBoxButtonTapped(item)
+        guard let item = sender.item else { return }
+        item.isChecked.toggle()
     }
 }
 
