@@ -32,7 +32,8 @@ class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UIT
     }
     // MARK: - Actions
     @IBAction func seeShoppingListButtonTapped(_ sender: Any) {
-        
+        guard let mealPan = mealPlan else { return }
+        ShoppingListController.shared.addMealPlanRecipesIngredients(mealPlan: mealPan)
     }
 
     // MARK: - Table View Data Source 
