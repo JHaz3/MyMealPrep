@@ -445,6 +445,7 @@
                                 </state>
                                 <connections>
                                     <action selector="seeShoppingListButtonTapped:" destination="zv6-F7-cwJ" eventType="touchUpInside" id="Uo1-u9-JYn"/>
+                                    <segue destination="tnC-QW-OUf" kind="push" id="0mg-OO-SuI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -475,6 +476,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSm-yQ-sws" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2769.5652173913045" y="854.46428571428567"/>
+        </scene>
+        <!--ShoppingListVC-->
+        <scene sceneID="ZIH-BO-UIS">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ShoppingList" storyboardName="ShoppingList" referencedIdentifier="ShoppingListVC" id="tnC-QW-OUf" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Hq4-XY-aba"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H1P-YZ-lsh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3874" y="680"/>
         </scene>
         <!--Meal Plan-->
         <scene sceneID="uwY-Rd-6Kf">

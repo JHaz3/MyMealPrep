@@ -13,6 +13,8 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     
     // MARK: - Properties
     var menuIsActive = false
+    var mealPlan: MealPlan?
+    var recipe: Recipe?
     
     // MARK: - Outlets
     @IBOutlet weak var menueButton: UIButton!
