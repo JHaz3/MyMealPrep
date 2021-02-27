@@ -24,8 +24,6 @@ class RecipeSelectTableViewCell: UITableViewCell {
     // MARK: - Properties
     weak var delegate: RecipeSelectTableViewCellDelegate?
     var isToggled: Bool = false
-    // MARK: -ToDo
-    // add recipe review(yield) here
     var recipe: Recipe? {
         didSet {
             updateViews()
@@ -41,7 +39,6 @@ class RecipeSelectTableViewCell: UITableViewCell {
     
     
     // MARK: - Methods
-    
     // if take in a recipe then dont need everything here 
     func updateViews() {
         guard let recipe = recipe else { return }
