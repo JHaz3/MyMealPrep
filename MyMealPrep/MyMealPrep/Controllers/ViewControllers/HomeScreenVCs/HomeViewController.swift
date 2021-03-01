@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var recipeNameAndYieldView: UIView!
     
     // Mark: - Properties
+    var randomRecipe: Recipe?
     
     // Mark: - Lifecycle
     override func viewDidLoad() {
@@ -26,23 +27,42 @@ class HomeViewController: UIViewController {
         recipeNameAndYieldView.layer.cornerRadius = 5
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupHomeViews()
+    }
+    
+    func setupHomeViews() {
+        RecipeController.fetchRecipe(searchTerm: "random") { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let recipes):
+                    let randomRecipe = recipes.randomElement()!
+                    self.recipeNameLabel.text = randomRecipe.label
+                    self.recipeYieldLabel.text = "Servings: \(randomRecipe.yield)"
+                    self.recipeCookTimeLabel.text = "Cook Time: \(randomRecipe.totalTime)"
+                    RecipeController.fetchImage(for: randomRecipe) { (result) in
+                        DispatchQueue.main.async {
+                            switch result {
+                            case .success(let image):
+                                self.recipeImageView.image = image
+                            case .failure(let error):
+                                print(error.localizedDescription)
+                            }
+                        }
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
+    
     // Mark: - Actions
     @IBAction func searchButtonTapped(_ sender: Any) {
         let viewController: UIViewController = UIStoryboard(name: "RecipeBook", bundle: nil).instantiateViewController(withIdentifier: "SearchRecipeVC") as UIViewController
         self.present(viewController, animated: true, completion: nil)
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -52,8 +72,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "homeScreenCell", for: indexPath) as? RecipeBookTableViewCell else {return UITableViewCell()}
+        if RecipeController.shared.savedRecipes.isEmpty {
+            cell.imageView?.image = UIImage(named: "Salad Icon 1x")
+            cell.textLabel?.text = "Your saved recipes will go here!"
+        } else {
+            let arraySlice = RecipeController.shared.savedRecipes.suffix(3)
+            let lastThreeArray = Array(arraySlice)
+            let recipe = lastThreeArray[indexPath.row]
+            cell.recipe = recipe
+        }
         return cell
     }
-    
-    
 }
