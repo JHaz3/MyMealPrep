@@ -39,7 +39,7 @@ class RecipeBookViewController: UIViewController {
     
     // Mark: - Actions
     @IBAction func savedRecipesButtonTapped(_ sender: Any) {
-       showTV = !showTV
+        showTV = !showTV
         
         if showTV {
             UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
@@ -84,5 +84,5 @@ extension RecipeBookViewController: UITableViewDataSource, UITableViewDelegate {
             destination.recipe = recipe
         }
     }
-
+    
 }

@@ -18,6 +18,7 @@ class SavedRecipesDetailViewController: UIViewController, WKUIDelegate {
     @IBOutlet weak var recipeIngredientsTableView: UITableView!
     @IBOutlet weak var seeDirectionsButton: UIButton!
     @IBOutlet weak var recipeNameAndYieldView: UIView!
+    @IBOutlet weak var addToShoppingListButton: UIButton!
     
     
     // Mark: - Properties
@@ -29,6 +30,7 @@ class SavedRecipesDetailViewController: UIViewController, WKUIDelegate {
         super.viewDidLoad()
         recipeIngredientsTableView.delegate = self
         recipeIngredientsTableView.dataSource = self
+        addToShoppingListButton.layer.cornerRadius = 5
         fetchImageAndUpdateViews()
         let webConfig = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfig)
@@ -46,8 +48,10 @@ class SavedRecipesDetailViewController: UIViewController, WKUIDelegate {
     @IBAction func seeDirectionsButtonTapped(_ sender: Any) {
         loadWebView()
     }
-    
-    // TODO! Fetch images for searched recipes
+    @IBAction func addToShoppingListButtonTapped(_ sender: Any) {
+        guard let recipe = recipe else { return }
+        ShoppingListController.shared.addRecipeIngredients(recipe: recipe)
+    }
     
     
     func fetchImageAndUpdateViews() {
