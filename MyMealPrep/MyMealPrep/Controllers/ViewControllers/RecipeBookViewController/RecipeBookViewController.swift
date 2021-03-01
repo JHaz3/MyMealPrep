@@ -29,11 +29,11 @@ class RecipeBookViewController: UIViewController {
         savedRecipesTV.layer.borderColor = UIColor.darkGray.cgColor
         savedRecipesTV.rowHeight = 100
         savedRecipesTV.isScrollEnabled = true
+        savedRecipesTV.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        savedRecipesTV.isHidden = true
         savedRecipesTV.reloadData()
     }
     

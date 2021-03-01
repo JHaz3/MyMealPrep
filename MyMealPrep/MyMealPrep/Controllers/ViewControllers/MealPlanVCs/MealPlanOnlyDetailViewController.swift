@@ -53,7 +53,7 @@ class MealPlanOnlyDetailViewController: UIViewController, UITableViewDelegate, U
     private func updateViews() {
         loadViewIfNeeded()
         mealPlanNameLabel.text = mealPlan?.mealPlanName
-        endDateLabel.text = "\(mealPlan?.recipes.count ?? 0) recipes in your meal plan"
+        startDateLabel.text = "Number of recipes: \(mealPlan?.recipes.count ?? 0)"
         mealPlanRecipesTV.reloadData()
     }
 }// End of Class

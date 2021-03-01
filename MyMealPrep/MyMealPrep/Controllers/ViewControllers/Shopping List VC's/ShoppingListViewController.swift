@@ -12,6 +12,7 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     
     
     // MARK: - Properties
+    static let shared = ShoppingListViewController()
     var menuIsActive = false
     var mealPlan: MealPlan?
     var recipe: Recipe?
@@ -29,6 +30,7 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         shoppingListTableView.delegate = self
         shoppingListTableView.dataSource = self
         shoppingListTableView.rowHeight = 50
+        shoppingListTableView.isEditing = true
         menuContainerView.isHidden = true
     }
     
@@ -65,9 +67,17 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         return cell
     }
     
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedListItem = ShoppingListController.shared.listItems[sourceIndexPath.row]
+        ShoppingListController.shared.listItems.remove(at: sourceIndexPath.row)
+        ShoppingListController.shared.listItems.insert(movedListItem, at: destinationIndexPath.row)
+    }
+    
     // MARK: - Methods
     private func updateViews() {
         shoppingListTableView.reloadData()
+        shoppingListTableView.isEditing = false
+        
     }
     
     
