@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var recipeYieldLabel: UILabel!
     @IBOutlet weak var recipeCookTimeLabel: UILabel!
     @IBOutlet weak var recipeNameAndYieldView: UIView!
+    @IBOutlet weak var recentlySavedTableView: UITableView!
     
     // Mark: - Properties
     var randomRecipe: Recipe?
@@ -25,11 +26,13 @@ class HomeViewController: UIViewController {
         recipeImageView.layer.cornerRadius = 5
         recipeNameAndYieldView.layer.borderWidth = 0.5
         recipeNameAndYieldView.layer.cornerRadius = 5
+        recentlySavedTableView.rowHeight = 80
+        setupHomeViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupHomeViews()
+        recentlySavedTableView.reloadData()
     }
     
     func setupHomeViews() {
@@ -73,8 +76,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "homeScreenCell", for: indexPath) as? RecipeBookTableViewCell else {return UITableViewCell()}
         if RecipeController.shared.savedRecipes.isEmpty {
-            cell.imageView?.image = UIImage(named: "Salad Icon 1x")
-            cell.textLabel?.text = "Your saved recipes will go here!"
+            let mockRecipe = Recipe(label: "Your saved recipes will go here!", image: "Salad Icon 1x", directions: "", ingredients: [], yield: 0, totalTime: 0, users: nil, uid: nil, isChecked: false, dateToEat: Date())
+            cell.mockRecipe = mockRecipe
         } else {
             let arraySlice = RecipeController.shared.savedRecipes.suffix(3)
             let lastThreeArray = Array(arraySlice)

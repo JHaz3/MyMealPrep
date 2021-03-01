@@ -36,4 +36,12 @@ class RecipeBookTableViewCell: UITableViewCell {
             }
         }
     }
+    
+    var mockRecipe: Recipe? {
+        didSet {
+            guard let recipe = mockRecipe else {return}
+            recipeNameLabel.text = recipe.label
+            recipeImageView.image = UIImage(named: recipe.image!)
+        }
+    }
 }
