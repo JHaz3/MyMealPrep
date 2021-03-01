@@ -67,7 +67,7 @@ class MealPlanListViewController: UIViewController, UITableViewDataSource, UITab
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMealPlan" {
             guard let index = mealPlanListTableView.indexPathForSelectedRow,
-                  let destination = segue.destination as? MealPlanDetailViewController else { return }
+                  let destination = segue.destination as? MealPlanOnlyDetailViewController else { return }
             let mealPlan = MealPlanController.shared.mealPlans[index.row]
             destination.mealPlan = mealPlan
         }

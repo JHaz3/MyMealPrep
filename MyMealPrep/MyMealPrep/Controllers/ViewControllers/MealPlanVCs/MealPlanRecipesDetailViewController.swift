@@ -1,14 +1,14 @@
 //
-//  SavedRecipesDetailViewController.swift
+//  MealPlanRecipesDetailViewController.swift
 //  MyMealPrep
 //
-//  Created by Jake Haslam on 2/22/21.
+//  Created by Jake Haslam on 3/1/21.
 //
 
 import UIKit
 import WebKit
 
-class SavedRecipesDetailViewController: UIViewController, WKUIDelegate {
+class MealPlanRecipesDetailViewController: UIViewController, WKUIDelegate {
 
     // MARK: - Outlets
     @IBOutlet weak var recipeImageView: UIImageView!
@@ -22,6 +22,7 @@ class SavedRecipesDetailViewController: UIViewController, WKUIDelegate {
     
     
     // Mark: - Properties
+    var mealPlan: MealPlan?
     var recipe: Recipe?
     var webView: WKWebView!
     
@@ -82,7 +83,7 @@ class SavedRecipesDetailViewController: UIViewController, WKUIDelegate {
 } //End of class
 
 
-extension SavedRecipesDetailViewController: UITableViewDelegate, UITableViewDataSource {
+extension MealPlanRecipesDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let recipe = recipe else { return 0 }
         return recipe.ingredients.count
