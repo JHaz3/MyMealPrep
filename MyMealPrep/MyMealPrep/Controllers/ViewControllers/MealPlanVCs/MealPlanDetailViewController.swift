@@ -59,6 +59,15 @@ class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UIT
         mealPlanRecipesTV.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMealPlanRecipeDetails2" {
+            guard let index = mealPlanRecipesTV.indexPathForSelectedRow,
+                  let destination = segue.destination as? MealPlanRecipesDetailViewController else { return }
+            let recipe = mealPlan?.recipes[index.row]
+            destination.recipe = recipe
+        }
+    }
+    
 }// End of Class 
 
     // MARK: - Extensions

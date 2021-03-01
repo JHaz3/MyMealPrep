@@ -28,9 +28,9 @@ class MealPlanOnlyDetailViewController: UIViewController, UITableViewDelegate, U
     }
     
     override func viewWillAppear(_ animated: Bool) {
-       super.viewWillAppear(true)
-       updateViews()
-   }
+        super.viewWillAppear(true)
+        updateViews()
+    }
     
     // MARK: - Actions
     
@@ -56,6 +56,16 @@ class MealPlanOnlyDetailViewController: UIViewController, UITableViewDelegate, U
         startDateLabel.text = "Number of recipes: \(mealPlan?.recipes.count ?? 0)"
         mealPlanRecipesTV.reloadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMealPlanRecipeDetails" {
+            guard let index = mealPlanRecipesTV.indexPathForSelectedRow,
+                  let destination = segue.destination as? MealPlanRecipesDetailViewController else { return }
+            let recipe = mealPlan?.recipes[index.row]
+            destination.recipe = recipe
+        }
+    }
+    
 }// End of Class
 
 
