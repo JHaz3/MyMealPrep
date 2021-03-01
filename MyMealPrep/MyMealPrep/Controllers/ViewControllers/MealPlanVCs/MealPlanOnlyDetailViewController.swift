@@ -1,14 +1,15 @@
 //
-//  MealPlanDetailViewController.swift
+//  MealPlanOnlyDetailViewController.swift
 //  MyMealPrep
 //
-//  Created by Jake Haslam on 2/12/21.
+//  Created by Jake Haslam on 3/1/21.
 //
 
 import UIKit
 
-class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    // MARK: -Outlets
+class MealPlanOnlyDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    // MARK: - Outlets
     @IBOutlet weak var mealPlanNameLabel: UILabel!
     @IBOutlet weak var startDateLabel: UILabel!
     @IBOutlet weak var endDateLabel: UILabel!
@@ -23,20 +24,17 @@ class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UIT
         mealPlanRecipesTV.delegate = self
         mealPlanRecipesTV.dataSource = self
         mealPlanRecipesTV.rowHeight = 100
-        self.navigationItem.setHidesBackButton(true, animated: true)
+        mealPlanRecipesTV.reloadData()
     }
     
-     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        updateViews()
-    }
+    override func viewWillAppear(_ animated: Bool) {
+       super.viewWillAppear(true)
+       updateViews()
+   }
+    
     // MARK: - Actions
-    @IBAction func seeShoppingListButtonTapped(_ sender: Any) {
-        guard let mealPan = mealPlan else { return }
-        ShoppingListController.shared.addMealPlanRecipesIngredients(mealPlan: mealPan)
-    }
-
-    // MARK: - Table View Data Source 
+    
+    // MARK: - Tableview DataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return mealPlan?.recipes.count ?? 0
@@ -50,7 +48,7 @@ class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UIT
         
         return cell
     }
-
+    
     // MARK: - Methods
     private func updateViews() {
         loadViewIfNeeded()
@@ -58,12 +56,11 @@ class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UIT
         endDateLabel.text = "\(mealPlan?.recipes.count ?? 0) recipes in your meal plan"
         mealPlanRecipesTV.reloadData()
     }
-    
-}// End of Class 
+}// End of Class
 
-    // MARK: - Extensions
-extension MealPlanDetailViewController: MealPLanRecipesTableViewCellDelegate {
+
+// MARK: - Extensions
+extension MealPlanOnlyDetailViewController: MealPLanRecipesTableViewCellDelegate {
     func assignDateToEat(_ sender: MealPlanRecipesTableViewCell) {
-        
     }
 }

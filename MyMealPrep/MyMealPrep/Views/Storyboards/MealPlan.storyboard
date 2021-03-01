@@ -90,7 +90,7 @@
                                             <outlet property="mealPlanImage" destination="fHr-YT-QPo" id="Xh7-Og-Vdb"/>
                                             <outlet property="mealPlanNameLabel" destination="O91-D8-LdT" id="yPP-KL-1rT"/>
                                             <outlet property="startDateLabel" destination="KEd-HW-LjM" id="DfN-RQ-C83"/>
-                                            <segue destination="zv6-F7-cwJ" kind="show" identifier="showMealPlan" id="Rp5-Ub-5mh"/>
+                                            <segue destination="Wus-rO-oCQ" kind="show" identifier="showMealPlan" id="vU3-R1-ESe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -360,17 +360,17 @@
             <objects>
                 <viewController storyboardIdentifier="mealPlanDetailVC" id="zv6-F7-cwJ" customClass="MealPlanDetailViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ynD-UM-6XB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Plan Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWZ-CR-gUU">
-                                <rect key="frame" x="20" y="118" width="123" height="20.5"/>
+                                <rect key="frame" x="20" y="30" width="123" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fee-2M-BqU">
-                                <rect key="frame" x="320.5" y="128" width="73.5" height="41"/>
+                                <rect key="frame" x="320.5" y="40" width="73.5" height="41"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StartDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpb-eJ-NCh">
                                         <rect key="frame" x="0.0" y="0.0" width="73.5" height="20.5"/>
@@ -387,7 +387,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xdn-dX-9T4">
-                                <rect key="frame" x="0.0" y="174" width="414" height="559"/>
+                                <rect key="frame" x="0.0" y="86" width="414" height="642"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="showRecipeCell" rowHeight="87" id="z0k-AT-I8U" customClass="MealPlanRecipesTableViewCell" customModule="MyMealPrep" customModuleProvider="target">
@@ -438,7 +438,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2F7-DY-NdX">
-                                <rect key="frame" x="25" y="758" width="364" height="30"/>
+                                <rect key="frame" x="25" y="753" width="364" height="30"/>
                                 <color key="backgroundColor" name="darkGreen"/>
                                 <state key="normal" title="See Shopping List">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -507,10 +507,115 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="75.669642857142847"/>
         </scene>
+        <!--Meal Plan Only Detail View Controller-->
+        <scene sceneID="ckh-Rd-CNj">
+            <objects>
+                <viewController storyboardIdentifier="mealPlanDetailOnlyVC" id="Wus-rO-oCQ" customClass="MealPlanOnlyDetailViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OEe-BT-Mru">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Plan Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7j-Fu-po2">
+                                <rect key="frame" x="20" y="118" width="123" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qm5-lq-GxU">
+                                <rect key="frame" x="320.5" y="128" width="73.5" height="41"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StartDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVm-oG-Qbd">
+                                        <rect key="frame" x="0.0" y="0.0" width="73.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYY-CH-CFT">
+                                        <rect key="frame" x="0.0" y="20.5" width="73.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B1f-jg-TTZ">
+                                <rect key="frame" x="0.0" y="174" width="414" height="639"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="showRecipeCell" rowHeight="87" id="6b6-M8-ZSu" customClass="MealPlanRecipesTableViewCell" customModule="MyMealPrep" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="87"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6b6-M8-ZSu" id="r8M-Pi-4p9">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Cc-X7-KCn">
+                                                    <rect key="frame" x="15" y="10" width="67" height="67"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="7Cc-X7-KCn" secondAttribute="height" multiplier="1:1" id="lle-4F-ukH"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnN-Ae-jrG">
+                                                    <rect key="frame" x="102" y="21" width="101" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WH5-zG-ppc">
+                                                    <rect key="frame" x="102" y="44" width="138" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" name="darkGreen"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="636166834.80111098">
+                                                        <!--2021-02-28 01:00:34 +0000-->
+                                                    </date>
+                                                    <connections>
+                                                        <action selector="datePickerValueChanged:" destination="6b6-M8-ZSu" eventType="valueChanged" id="dZq-aj-Hd6"/>
+                                                    </connections>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fnN-Ae-jrG" firstAttribute="leading" secondItem="7Cc-X7-KCn" secondAttribute="trailing" constant="20" id="07J-SG-EGa"/>
+                                                <constraint firstItem="7Cc-X7-KCn" firstAttribute="top" secondItem="r8M-Pi-4p9" secondAttribute="top" constant="10" id="5BE-wX-woz"/>
+                                                <constraint firstItem="7Cc-X7-KCn" firstAttribute="leading" secondItem="r8M-Pi-4p9" secondAttribute="leading" constant="15" id="U3F-ts-dF1"/>
+                                                <constraint firstAttribute="bottom" secondItem="7Cc-X7-KCn" secondAttribute="bottom" constant="10" id="Y9f-fs-whP"/>
+                                                <constraint firstItem="fnN-Ae-jrG" firstAttribute="top" secondItem="r8M-Pi-4p9" secondAttribute="topMargin" constant="10" id="YSH-ap-oUn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateToEatDatePicker" destination="WH5-zG-ppc" id="VT1-y1-0a7"/>
+                                            <outlet property="recipeImageView" destination="7Cc-X7-KCn" id="e7H-0Y-G3u"/>
+                                            <outlet property="recipeNameLabel" destination="fnN-Ae-jrG" id="FUz-at-kyF"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VAB-Yz-gbh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VAB-Yz-gbh" firstAttribute="trailing" secondItem="B1f-jg-TTZ" secondAttribute="trailing" id="1io-jZ-2Qj"/>
+                            <constraint firstItem="w7j-Fu-po2" firstAttribute="leading" secondItem="VAB-Yz-gbh" secondAttribute="leading" constant="20" id="3UX-e4-vyW"/>
+                            <constraint firstItem="qm5-lq-GxU" firstAttribute="top" secondItem="VAB-Yz-gbh" secondAttribute="top" constant="40" id="ELV-rX-2rc"/>
+                            <constraint firstItem="VAB-Yz-gbh" firstAttribute="bottom" secondItem="B1f-jg-TTZ" secondAttribute="bottom" id="ivN-8g-sl5"/>
+                            <constraint firstItem="w7j-Fu-po2" firstAttribute="top" secondItem="VAB-Yz-gbh" secondAttribute="top" constant="30" id="pBE-uI-Kb8"/>
+                            <constraint firstItem="VAB-Yz-gbh" firstAttribute="trailing" secondItem="qm5-lq-GxU" secondAttribute="trailing" constant="20" id="tKe-84-753"/>
+                            <constraint firstItem="B1f-jg-TTZ" firstAttribute="top" secondItem="qm5-lq-GxU" secondAttribute="bottom" constant="5" id="tgX-C8-Pgs"/>
+                            <constraint firstItem="B1f-jg-TTZ" firstAttribute="leading" secondItem="VAB-Yz-gbh" secondAttribute="leading" id="yrn-He-8mA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Wca-pl-it1"/>
+                    <connections>
+                        <outlet property="endDateLabel" destination="RYY-CH-CFT" id="GEx-MC-d7Q"/>
+                        <outlet property="mealPlanNameLabel" destination="w7j-Fu-po2" id="d4S-AV-rRJ"/>
+                        <outlet property="mealPlanRecipesTV" destination="B1f-jg-TTZ" id="5OW-av-cQR"/>
+                        <outlet property="startDateLabel" destination="sVm-oG-Qbd" id="W2s-fs-e61"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ghd-id-fDL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1104" y="854"/>
+        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Rp5-Ub-5mh"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Calendar Icon 1x" width="20" height="20"/>
         <image name="Empty Checkbox 1x" width="18" height="18"/>
