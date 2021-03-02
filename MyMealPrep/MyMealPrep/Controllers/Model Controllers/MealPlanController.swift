@@ -10,7 +10,11 @@ import Foundation
 class MealPlanController {
     // MARK: - Properties
     static let shared: MealPlanController = MealPlanController()
-    var mealPlans: [MealPlan] = []
+    var mealPlans: [MealPlan] = [] {
+        didSet {
+            saveToPersistentStorage()
+        }
+    }
     
     // MARK: - CRUD Methods
     func createMealPlan(with startDate: Date, endDate: Date) {
@@ -55,6 +59,34 @@ class MealPlanController {
         return formatter.string(from: date)
     }
     
+    
+    //MARK: - Persistence
+    func fileURL() -> URL {
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let fileName = "MyMealPrep.json"
+        let documentDirectory = urls[0]
+        let documentsDirectoryURL = documentDirectory.appendingPathComponent(fileName)
+        return documentsDirectoryURL
+    }
+    func saveToPersistentStorage() {
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(mealPlans)
+            try data.write(to: fileURL())
+        } catch let error {
+            print("There was an error saving to persistent storage: \(error)")
+        }
+    }
+    func loadFromPersistence() {
+        let jsonDecoder = JSONDecoder()
+        do {
+            let data = try Data(contentsOf: fileURL())
+            let decodedData = try jsonDecoder.decode([MealPlan].self, from: data)
+            self.mealPlans = decodedData
+        } catch let error {
+            print("\(error.localizedDescription) -> \(error)")
+        }
+    }
 }// End of Class
 
 // MARK: - Extensions

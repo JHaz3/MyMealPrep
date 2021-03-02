@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import WebKit
+import SafariServices
 
-class SavedRecipesDetailViewController: UIViewController, WKUIDelegate {
+class SavedRecipesDetailViewController: UIViewController{
 
     // MARK: - Outlets
     @IBOutlet weak var recipeImageView: UIImageView!
@@ -18,21 +18,19 @@ class SavedRecipesDetailViewController: UIViewController, WKUIDelegate {
     @IBOutlet weak var recipeIngredientsTableView: UITableView!
     @IBOutlet weak var seeDirectionsButton: UIButton!
     @IBOutlet weak var recipeNameAndYieldView: UIView!
+    @IBOutlet weak var addToShoppingListButton: UIButton!
     
     
     // Mark: - Properties
     var recipe: Recipe?
-    var webView: WKWebView!
     
     // Mark: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         recipeIngredientsTableView.delegate = self
         recipeIngredientsTableView.dataSource = self
+        addToShoppingListButton.layer.cornerRadius = 5
         fetchImageAndUpdateViews()
-        let webConfig = WKWebViewConfiguration()
-        webView = WKWebView(frame: .zero, configuration: webConfig)
-        webView.uiDelegate = self
         recipeNameAndYieldView.layer.borderWidth = 0.5
         recipeNameAndYieldView.layer.cornerRadius = 5
         recipeIngredientsTableView.layer.borderWidth = 0.5
@@ -44,10 +42,12 @@ class SavedRecipesDetailViewController: UIViewController, WKUIDelegate {
     // Mark: - Actions
 
     @IBAction func seeDirectionsButtonTapped(_ sender: Any) {
-        loadWebView()
+        recipeDirectionsWebView()
     }
-    
-    // TODO! Fetch images for searched recipes
+    @IBAction func addToShoppingListButtonTapped(_ sender: Any) {
+        guard let recipe = recipe else { return }
+        ShoppingListController.shared.addRecipeIngredients(recipe: recipe)
+    }
     
     
     func fetchImageAndUpdateViews() {
@@ -68,12 +68,10 @@ class SavedRecipesDetailViewController: UIViewController, WKUIDelegate {
         }
     }
     
-    func loadWebView() {
-        view = webView
+    private func recipeDirectionsWebView() {
         guard let recipe = recipe else { return }
-        guard let myURL = URL(string: "\(recipe.directions)") else { return }
-        webView.load(URLRequest(url: myURL))
-        webView.allowsBackForwardNavigationGestures = true
+        let vc = SFSafariViewController(url: URL(string: "\(recipe.directions)")!)
+        present(vc, animated: true)
     }
 } //End of class
 

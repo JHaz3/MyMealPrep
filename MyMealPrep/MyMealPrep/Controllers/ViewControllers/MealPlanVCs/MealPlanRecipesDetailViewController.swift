@@ -1,34 +1,36 @@
 //
-//  RecipeDetailViewController.swift
+//  MealPlanRecipesDetailViewController.swift
 //  MyMealPrep
 //
-//  Created by Jake Haslam on 2/17/21.
+//  Created by Jake Haslam on 3/1/21.
 //
 
 import UIKit
 import SafariServices
 
-class RecipeDetailViewController: UIViewController {
-    
-    // Mark: - Outlets
+class MealPlanRecipesDetailViewController: UIViewController {
+
+    // MARK: - Outlets
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var recipeYieldLabel: UILabel!
     @IBOutlet weak var recipeCookTimeLabel: UILabel!
     @IBOutlet weak var recipeIngredientsTableView: UITableView!
     @IBOutlet weak var seeDirectionsButton: UIButton!
-    @IBOutlet weak var addToRecipeBookButton: UIButton!
     @IBOutlet weak var recipeNameAndYieldView: UIView!
+    @IBOutlet weak var addToShoppingListButton: UIButton!
+    
     
     // Mark: - Properties
+    var mealPlan: MealPlan?
     var recipe: Recipe?
     
     // Mark: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        addToRecipeBookButton.layer.cornerRadius = 5
         recipeIngredientsTableView.delegate = self
         recipeIngredientsTableView.dataSource = self
+        addToShoppingListButton.layer.cornerRadius = 5
         fetchImageAndUpdateViews()
         recipeNameAndYieldView.layer.borderWidth = 0.5
         recipeNameAndYieldView.layer.cornerRadius = 5
@@ -39,18 +41,15 @@ class RecipeDetailViewController: UIViewController {
     }
     
     // Mark: - Actions
-    @IBAction func addToRecipeBookButtonTapped(_ sender: Any) {
-        guard let recipe = recipe else { return }
-        RecipeController.shared.savedRecipes.append(recipe)
-        navigationController?.popViewController(animated: true)
-    }
-    
-    
-    // TODO! Fetch images for searched recipes
-    
+
     @IBAction func seeDirectionsButtonTapped(_ sender: Any) {
         recipeDirectionsWebView()
     }
+    @IBAction func addToShoppingListButtonTapped(_ sender: Any) {
+        guard let recipe = recipe else { return }
+        ShoppingListController.shared.addRecipeIngredients(recipe: recipe)
+    }
+    
     
     func fetchImageAndUpdateViews() {
         guard let recipe = recipe else { return }
@@ -69,17 +68,17 @@ class RecipeDetailViewController: UIViewController {
             }
         }
     }
-        
+    
     private func recipeDirectionsWebView() {
         guard let recipe = recipe else { return }
         let vc = SFSafariViewController(url: URL(string: "\(recipe.directions)")!)
         present(vc, animated: true)
     }
     
-} // End of class
+} //End of class
 
 
-extension RecipeDetailViewController: UITableViewDelegate, UITableViewDataSource {
+extension MealPlanRecipesDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let recipe = recipe else { return 0 }
         return recipe.ingredients.count

@@ -29,17 +29,17 @@ class RecipeBookViewController: UIViewController {
         savedRecipesTV.layer.borderColor = UIColor.darkGray.cgColor
         savedRecipesTV.rowHeight = 100
         savedRecipesTV.isScrollEnabled = true
+        savedRecipesTV.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        savedRecipesTV.isHidden = true
         savedRecipesTV.reloadData()
     }
     
     // Mark: - Actions
     @IBAction func savedRecipesButtonTapped(_ sender: Any) {
-       showTV = !showTV
+        showTV = !showTV
         
         if showTV {
             UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
@@ -84,5 +84,5 @@ extension RecipeBookViewController: UITableViewDataSource, UITableViewDelegate {
             destination.recipe = recipe
         }
     }
-
+    
 }

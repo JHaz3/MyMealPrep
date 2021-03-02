@@ -13,14 +13,14 @@
         <scene sceneID="qzO-id-VSy">
             <objects>
                 <viewController storyboardIdentifier="ShoppingListVC" id="ZNV-j7-NE2" customClass="ShoppingListViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="Ht6-zC-Peb">
+                    <view key="view" contentMode="scaleToFill" id="Ht6-zC-Peb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="p7b-Ya-GL6">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="p7b-Ya-GL6">
                                 <rect key="frame" x="5" y="198" width="404" height="598"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lAP-vi-q0C">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lAP-vi-q0C">
                                         <rect key="frame" x="0.0" y="0.0" width="404" height="348"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
@@ -31,7 +31,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="404" height="40.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Grk-Yb-Krk">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Grk-Yb-Krk">
                                                             <rect key="frame" x="5" y="5" width="394" height="30.5"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QD-yZ-YNv">
@@ -47,7 +47,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gbU-nL-Rjx">
-                                                                    <rect key="frame" x="30" y="0.0" width="333.5" height="30.5"/>
+                                                                    <rect key="frame" x="34" y="0.0" width="325.5" height="30.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
@@ -79,7 +79,7 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oz3-1l-11q">
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oz3-1l-11q">
                                         <rect key="frame" x="0.0" y="348" width="404" height="250"/>
                                         <connections>
                                             <segue destination="5Wa-Rh-uPj" kind="embed" id="XoQ-tC-11A"/>
@@ -217,6 +217,7 @@
                                             <color key="titleColor" name="white"/>
                                         </state>
                                         <connections>
+                                            <action selector="reorganizeListButtonTapped:" destination="5Wa-Rh-uPj" eventType="touchUpInside" id="Ek4-iR-m7L"/>
                                             <action selector="reorganizeListButtonTapped:" destination="QGN-XI-ts2" eventType="touchUpInside" id="UUg-ru-lwU"/>
                                         </connections>
                                     </button>
@@ -227,6 +228,7 @@
                                             <color key="titleColor" name="white"/>
                                         </state>
                                         <connections>
+                                            <action selector="clearListButtonTapped:" destination="5Wa-Rh-uPj" eventType="touchUpInside" id="9iL-1G-CED"/>
                                             <action selector="clearListButtonTapped:" destination="QGN-XI-ts2" eventType="touchUpInside" id="aKv-n6-pm0"/>
                                         </connections>
                                     </button>

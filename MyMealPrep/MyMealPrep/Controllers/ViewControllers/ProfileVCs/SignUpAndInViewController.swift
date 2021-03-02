@@ -122,7 +122,7 @@ class SignUpAndInViewController: UIViewController {
                 self.userNamePasswordStackView.spacing = 8
                 self.userNamePasswordStackView.alignment = .fill
                 self.confirmPasswordTextField.isHidden = false
-                self.signUpButton.setTitle("Sign Up", for: .normal)
+                self.signUpSignInButton.setTitle("Sign Up", for: .normal)
                 self.usernameTextField.text = ""
                 self.enterPasswordTextField.text = ""
                 self.confirmPasswordTextField.text = ""

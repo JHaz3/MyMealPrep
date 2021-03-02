@@ -23,13 +23,16 @@ class ShoppingListMenuViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func addSectionButtonTapped(_ sender: Any) {
+        
     }
     
     @IBAction func reorganizeListButtonTapped(_ sender: Any) {
+        ShoppingListViewController.shared.shoppingListTableView.isEditing.toggle()
     }
     
     @IBAction func clearListButtonTapped(_ sender: Any) {
         ShoppingListController.shared.clearListItems()
+
     }
     
 

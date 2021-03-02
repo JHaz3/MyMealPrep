@@ -74,14 +74,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "homeScreenCell", for: indexPath) as? RecipeBookTableViewCell else {return UITableViewCell()}
-        if RecipeController.shared.savedRecipes.isEmpty {
+        if RecipeController.shared.savedRecipes.count >= 3 {
+            let arraySlice = RecipeController.shared.savedRecipes.suffix(3)
+            let recentRecipes = Array(arraySlice)
+            let recipe = recentRecipes[indexPath.row]
+            cell.recipe = recipe
+        } else {
             let mockRecipe = Recipe(label: "Your saved recipes will go here!", image: "Salad Icon 1x", directions: "", ingredients: [], yield: 0, totalTime: 0, users: nil, uid: nil, isChecked: false, dateToEat: Date())
             cell.mockRecipe = mockRecipe
-        } else {
-            let arraySlice = RecipeController.shared.savedRecipes.suffix(3)
-            let lastThreeArray = Array(arraySlice)
-            let recipe = lastThreeArray[indexPath.row]
-            cell.recipe = recipe
+            
         }
         return cell
     }
