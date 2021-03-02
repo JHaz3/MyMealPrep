@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import WebKit
+import SafariServices
 
-class RecipeDetailViewController: UIViewController, WKUIDelegate {
+class RecipeDetailViewController: UIViewController {
     
     // Mark: - Outlets
     @IBOutlet weak var recipeImageView: UIImageView!
@@ -22,7 +22,6 @@ class RecipeDetailViewController: UIViewController, WKUIDelegate {
     
     // Mark: - Properties
     var recipe: Recipe?
-    var webView: WKWebView!
     
     // Mark: - Lifecycle
     override func viewDidLoad() {
@@ -31,9 +30,6 @@ class RecipeDetailViewController: UIViewController, WKUIDelegate {
         recipeIngredientsTableView.delegate = self
         recipeIngredientsTableView.dataSource = self
         fetchImageAndUpdateViews()
-        let webConfig = WKWebViewConfiguration()
-        webView = WKWebView(frame: .zero, configuration: webConfig)
-        webView.uiDelegate = self
         recipeNameAndYieldView.layer.borderWidth = 0.5
         recipeNameAndYieldView.layer.cornerRadius = 5
         recipeIngredientsTableView.layer.borderWidth = 0.5
@@ -53,7 +49,7 @@ class RecipeDetailViewController: UIViewController, WKUIDelegate {
     // TODO! Fetch images for searched recipes
     
     @IBAction func seeDirectionsButtonTapped(_ sender: Any) {
-        loadWebView()
+        recipeDirectionsWebView()
     }
     
     func fetchImageAndUpdateViews() {
@@ -73,13 +69,11 @@ class RecipeDetailViewController: UIViewController, WKUIDelegate {
             }
         }
     }
-    
-    func loadWebView() {
-        view = webView
+        
+    private func recipeDirectionsWebView() {
         guard let recipe = recipe else { return }
-        guard let myURL = URL(string: "\(recipe.directions)") else { return }
-        webView.load(URLRequest(url: myURL))
-        webView.allowsBackForwardNavigationGestures = true
+        let vc = SFSafariViewController(url: URL(string: "\(recipe.directions)")!)
+        present(vc, animated: true)
     }
     
 } // End of class
