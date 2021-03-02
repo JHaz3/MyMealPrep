@@ -36,15 +36,14 @@ class HomeViewController: UIViewController {
     }
     
     func setupHomeViews() {
-        RecipeController.fetchRecipe(searchTerm: "random") { (result) in
+        RecipeController.fetchRandomRecipe(searchTerm: "random") { (result) in
             DispatchQueue.main.async {
                 switch result {
-                case .success(let recipes):
-                    let randomRecipe = recipes.randomElement()!
-                    self.recipeNameLabel.text = randomRecipe.label
-                    self.recipeYieldLabel.text = "Servings: \(randomRecipe.yield)"
-                    self.recipeCookTimeLabel.text = "Cook Time: \(randomRecipe.totalTime)"
-                    RecipeController.fetchImage(for: randomRecipe) { (result) in
+                case .success(let recipe):
+                    self.recipeNameLabel.text = recipe.label
+                    self.recipeYieldLabel.text = "Servings: \(recipe.yield)"
+                    self.recipeCookTimeLabel.text = "Cook Time: \(recipe.totalTime)"
+                    RecipeController.fetchImage(for: recipe) { (result) in
                         DispatchQueue.main.async {
                             switch result {
                             case .success(let image):
