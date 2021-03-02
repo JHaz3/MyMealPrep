@@ -373,7 +373,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xdn-dX-9T4">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xdn-dX-9T4">
                                 <rect key="frame" x="0.0" y="102" width="414" height="626"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -420,7 +420,7 @@
                                             <outlet property="dateToEatDatePicker" destination="8rE-x1-Zny" id="I36-bS-7Iv"/>
                                             <outlet property="recipeImageView" destination="Y29-2h-0T0" id="LdR-Xh-iT9"/>
                                             <outlet property="recipeNameLabel" destination="mZ7-5x-n14" id="TQA-Wl-w6F"/>
-                                            <segue destination="oCe-2f-wK9" kind="show" identifier="showMealPlanRecipeDetails2" id="SPw-4E-yY0"/>
+                                            <segue destination="oCe-2f-wK9" kind="show" identifier="showMealPlanRecipeDetails2" id="hrT-i8-ZMR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -518,7 +518,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B1f-jg-TTZ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B1f-jg-TTZ">
                                 <rect key="frame" x="0.0" y="175" width="414" height="638"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -599,11 +599,11 @@
             <objects>
                 <viewController storyboardIdentifier="savedRecipeDetailVC" id="oCe-2f-wK9" customClass="MealPlanRecipesDetailViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="arm-k7-kbr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sum-hc-xjv">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQY-nH-xzU">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
@@ -747,7 +747,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SPw-4E-yY0"/>
+        <segue reference="scN-22-kqo"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Calendar Icon 1x" width="20" height="20"/>

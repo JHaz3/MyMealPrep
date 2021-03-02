@@ -20,7 +20,11 @@ class RecipeController {
     
     static let shared: RecipeController = RecipeController()
     static var recipes: [Recipe] = []
-    var savedRecipes: [Recipe] = []
+    var savedRecipes: [Recipe] = [] {
+        didSet {
+            saveToPersistentStorage()
+        }
+    }
     static var randomRecipe: Recipe?
     
     static func fetchRecipe(searchTerm: String, completion: @escaping (Result<[Recipe], RecipeError>) -> Void) {
@@ -78,9 +82,6 @@ class RecipeController {
         }.resume()
     }
     
-    func toggleBoxChecked(recipe: Recipe) {
-        recipe.isChecked.toggle()
-    }
     
    static func updateDateToEat(date: Date, recipe: Recipe) {
         recipe.dateToEat = date
@@ -120,6 +121,43 @@ class RecipeController {
                 return completion(.failure(.noData))
             }
         }.resume()
+    }
+    
+    func deleteRecipe(recipe: Recipe) {
+        guard let index = savedRecipes.firstIndex(of: recipe) else { return }
+        savedRecipes.remove(at: index)
+    }
+    
+    func toggleBoxChecked(recipe: Recipe) {
+        recipe.isChecked.toggle()
+    }
+    
+    //MARK: - Persistence
+    func fileURL() -> URL {
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let fileName = "MyMealPrep.json"
+        let documentDirectory = urls[0]
+        let documentsDirectoryURL = documentDirectory.appendingPathComponent(fileName)
+        return documentsDirectoryURL
+    }
+    func saveToPersistentStorage() {
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(savedRecipes)
+            try data.write(to: fileURL())
+        } catch let error {
+            print("There was an error saving to persistent storage: \(error)")
+        }
+    }
+    func loadFromPersistence() {
+        let jsonDecoder = JSONDecoder()
+        do {
+            let data = try Data(contentsOf: fileURL())
+            let decodedData = try jsonDecoder.decode([Recipe].self, from: data)
+            self.savedRecipes = decodedData
+        } catch let error {
+            print("\(error.localizedDescription) -> \(error)")
+        }
     }
     
 }// End of Class

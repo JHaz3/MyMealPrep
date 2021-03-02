@@ -21,10 +21,11 @@ class SavedRecipesDetailViewController: UIViewController{
     @IBOutlet weak var addToShoppingListButton: UIButton!
     
     
-    // Mark: - Properties
+    // MARK: - Properties
     var recipe: Recipe?
     
-    // Mark: - Lifecycle
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         recipeIngredientsTableView.delegate = self
@@ -39,7 +40,7 @@ class SavedRecipesDetailViewController: UIViewController{
         
     }
     
-    // Mark: - Actions
+    // MARK: - Actions
 
     @IBAction func seeDirectionsButtonTapped(_ sender: Any) {
         recipeDirectionsWebView()
@@ -73,7 +74,7 @@ class SavedRecipesDetailViewController: UIViewController{
         let vc = SFSafariViewController(url: URL(string: "\(recipe.directions)")!)
         present(vc, animated: true)
     }
-} //End of class
+} // End of class
 
 
 extension SavedRecipesDetailViewController: UITableViewDelegate, UITableViewDataSource {

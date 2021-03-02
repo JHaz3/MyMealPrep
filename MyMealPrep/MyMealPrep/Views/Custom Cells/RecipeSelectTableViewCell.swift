@@ -32,14 +32,15 @@ class RecipeSelectTableViewCell: UITableViewCell {
     
     // MARK: - Actions
     @IBAction func checkBoxButtonTapped(_ sender: Any) {
-        delegate?.toggleRecipeChecked(self)
-        isToggled.toggle()
-        recipeCheckboxButton.setImage(isToggled ? #imageLiteral(resourceName: "Checked Box 1x"): #imageLiteral(resourceName: "Empty Checkbox 1x"), for: .normal)
+        DispatchQueue.main.async {
+            self.delegate?.toggleRecipeChecked(self)
+            self.isToggled.toggle()
+            self.recipeCheckboxButton.setImage(self.isToggled ? #imageLiteral(resourceName: "Checked Box 1x"): #imageLiteral(resourceName: "Empty Checkbox 1x"), for: .normal)
+        }
     }
     
     
     // MARK: - Methods
-    // if take in a recipe then dont need everything here 
     func updateViews() {
         guard let recipe = recipe else { return }
         recipeNameLabel.text = recipe.label

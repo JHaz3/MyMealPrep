@@ -44,6 +44,11 @@ class MealPlanController {
         mealPlans.remove(at: index)
     }
     
+    func deleteMPRecipe(mealPlan: MealPlan, recipe: Recipe) {
+        guard let index = mealPlan.recipes.firstIndex(of: recipe) else { return }
+        mealPlan.recipes.remove(at: index)
+    }
+    
     // MARK: - Methods
     private func daysBetween(startDate: Date, endDate: Date) -> Int {
         let calendar = Calendar.current
