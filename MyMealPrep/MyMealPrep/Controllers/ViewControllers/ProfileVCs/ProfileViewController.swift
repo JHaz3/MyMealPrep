@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController {
     
@@ -14,9 +15,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var contactUsButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
-    @IBOutlet weak var editLoginArrow: UIImageView!
-    @IBOutlet weak var contactUsArrow: UIImageView!
-    @IBOutlet weak var shareArrow: UIImageView!
     
     // Mark: - Properties
     
@@ -28,18 +26,18 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        rotateArrows()
-    }
-    
-    private func rotateArrows() {
-        editLoginArrow.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 90)
-//        editLoginArrow.transform = CGAffineTransform(rotationAngle: (0.0 * .pi) / 90.0)
-//        editLoginArrow.transform = editLoginArrow.transform.rotated(by: CGFloat(Double.pi / 180))
-        contactUsArrow.transform = contactUsArrow.transform.rotated(by: CGFloat(Double.pi / 45))
-        shareArrow.transform = shareArrow.transform.rotated(by: CGFloat(Double.pi / 45))
     }
     
     // Mark: - Actions
     @IBAction func logoutButtonTapped(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        
+        do {
+            try firebaseAuth.signOut()
+            let viewcontroller = SignInViewController()
+            navigationController?.popToViewController(viewcontroller, animated: true)
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
     }
 }

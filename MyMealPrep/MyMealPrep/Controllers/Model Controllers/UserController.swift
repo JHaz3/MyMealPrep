@@ -29,6 +29,7 @@ class UserController {
                 return completion(.failure(.fireError(error)))
             } else {
                 print("Document added with ID: \(newUser.uuid)")
+                self.currentUser = newUser
                 return completion(.success(newUser))
             }
         }
