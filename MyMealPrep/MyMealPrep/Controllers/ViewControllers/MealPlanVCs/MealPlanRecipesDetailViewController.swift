@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import WebKit
+import SafariServices
 
-class MealPlanRecipesDetailViewController: UIViewController, WKUIDelegate {
+class MealPlanRecipesDetailViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var recipeImageView: UIImageView!
@@ -24,7 +24,6 @@ class MealPlanRecipesDetailViewController: UIViewController, WKUIDelegate {
     // Mark: - Properties
     var mealPlan: MealPlan?
     var recipe: Recipe?
-    var webView: WKWebView!
     
     // Mark: - Lifecycle
     override func viewDidLoad() {
@@ -33,9 +32,6 @@ class MealPlanRecipesDetailViewController: UIViewController, WKUIDelegate {
         recipeIngredientsTableView.dataSource = self
         addToShoppingListButton.layer.cornerRadius = 5
         fetchImageAndUpdateViews()
-        let webConfig = WKWebViewConfiguration()
-        webView = WKWebView(frame: .zero, configuration: webConfig)
-        webView.uiDelegate = self
         recipeNameAndYieldView.layer.borderWidth = 0.5
         recipeNameAndYieldView.layer.cornerRadius = 5
         recipeIngredientsTableView.layer.borderWidth = 0.5
@@ -47,7 +43,7 @@ class MealPlanRecipesDetailViewController: UIViewController, WKUIDelegate {
     // Mark: - Actions
 
     @IBAction func seeDirectionsButtonTapped(_ sender: Any) {
-        loadWebView()
+        recipeDirectionsWebView()
     }
     @IBAction func addToShoppingListButtonTapped(_ sender: Any) {
         guard let recipe = recipe else { return }
@@ -73,13 +69,12 @@ class MealPlanRecipesDetailViewController: UIViewController, WKUIDelegate {
         }
     }
     
-    func loadWebView() {
-        view = webView
+    private func recipeDirectionsWebView() {
         guard let recipe = recipe else { return }
-        guard let myURL = URL(string: "\(recipe.directions)") else { return }
-        webView.load(URLRequest(url: myURL))
-        webView.allowsBackForwardNavigationGestures = true
+        let vc = SFSafariViewController(url: URL(string: "\(recipe.directions)")!)
+        present(vc, animated: true)
     }
+    
 } //End of class
 
 
