@@ -9,16 +9,16 @@ import UIKit
 
 class RecipeBookViewController: UIViewController {
     
-    // Mark: - Outlets
+    // MARK: - Outlets
     @IBOutlet weak var backgroundSalad: UIImageView!
     @IBOutlet weak var savedRecipesButton: UIButton!
     @IBOutlet weak var savedRecipesTV: UITableView!
     @IBOutlet weak var arrowImageView: UIImageView!
     
-    // Mark: - Properties
+    //  MARK: - Properties
     var showTV = false
     
-    // Mark: - Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         savedRecipesTV.dataSource = self
@@ -37,7 +37,7 @@ class RecipeBookViewController: UIViewController {
         savedRecipesTV.reloadData()
     }
     
-    // Mark: - Actions
+    // MARK: - Actions
     @IBAction func savedRecipesButtonTapped(_ sender: Any) {
         showTV = !showTV
         
@@ -75,6 +75,14 @@ extension RecipeBookViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let recipe = RecipeController.shared.savedRecipes[indexPath.row]
+            RecipeController.shared.deleteRecipe(recipe: recipe)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRecipeDetails" {
@@ -85,4 +93,6 @@ extension RecipeBookViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-}
+    
+    
+}// End of Extension

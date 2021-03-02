@@ -49,6 +49,15 @@ class MealPlanOnlyDetailViewController: UIViewController, UITableViewDelegate, U
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let mealPlan = mealPlan else { return }
+            let recipe = mealPlan.recipes[indexPath.row]
+            MealPlanController.shared.deleteMPRecipe(mealPlan: mealPlan, recipe: recipe)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     // MARK: - Methods
     private func updateViews() {
         loadViewIfNeeded()

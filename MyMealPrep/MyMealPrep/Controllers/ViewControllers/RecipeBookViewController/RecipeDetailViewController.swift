@@ -10,7 +10,7 @@ import SafariServices
 
 class RecipeDetailViewController: UIViewController {
     
-    // Mark: - Outlets
+    // MARK: - Outlets
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var recipeYieldLabel: UILabel!
@@ -20,10 +20,10 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var addToRecipeBookButton: UIButton!
     @IBOutlet weak var recipeNameAndYieldView: UIView!
     
-    // Mark: - Properties
+    // MARK: - Properties
     var recipe: Recipe?
     
-    // Mark: - Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         addToRecipeBookButton.layer.cornerRadius = 5
@@ -44,9 +44,6 @@ class RecipeDetailViewController: UIViewController {
         RecipeController.shared.savedRecipes.append(recipe)
         navigationController?.popViewController(animated: true)
     }
-    
-    
-    // TODO! Fetch images for searched recipes
     
     @IBAction func seeDirectionsButtonTapped(_ sender: Any) {
         recipeDirectionsWebView()

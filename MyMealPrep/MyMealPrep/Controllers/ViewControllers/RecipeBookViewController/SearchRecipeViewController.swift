@@ -9,14 +9,15 @@ import UIKit
 
 class SearchRecipeViewController: UIViewController {
     
-    // Mark: - Outlets
+    // MARK: - Outlets
     @IBOutlet weak var searchRecipeSearchBar: UISearchBar!
     @IBOutlet weak var searchRecipeResultsTableView: UITableView!
     
-    // Mark: - Properties
-    // var recipes: [Recipe] = []
+    // MARK: - Properties
     
-    // Mark: - Lifecycle
+    
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         searchRecipeSearchBar.delegate = self

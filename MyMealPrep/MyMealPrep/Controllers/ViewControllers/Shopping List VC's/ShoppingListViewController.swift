@@ -77,7 +77,6 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     private func updateViews() {
         shoppingListTableView.reloadData()
         shoppingListTableView.isEditing = false
-        
     }
     
     

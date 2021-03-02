@@ -32,7 +32,6 @@ class ShoppingListMenuViewController: UIViewController {
     
     @IBAction func clearListButtonTapped(_ sender: Any) {
         ShoppingListController.shared.clearListItems()
-
     }
     
 

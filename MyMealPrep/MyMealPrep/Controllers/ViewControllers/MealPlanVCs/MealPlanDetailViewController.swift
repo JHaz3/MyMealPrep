@@ -47,10 +47,19 @@ class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UIT
                 as? MealPlanRecipesTableViewCell else { return UITableViewCell() }
         let recipe = mealPlan?.recipes[indexPath.row]
         cell.recipe = recipe
-        
+    
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let mealPlan = mealPlan else { return }
+            let recipe = mealPlan.recipes[indexPath.row]
+            MealPlanController.shared.deleteMPRecipe(mealPlan: mealPlan, recipe: recipe)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     // MARK: - Methods
     private func updateViews() {
         loadViewIfNeeded()
@@ -59,6 +68,7 @@ class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UIT
         mealPlanRecipesTV.reloadData()
     }
     
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMealPlanRecipeDetails2" {
             guard let index = mealPlanRecipesTV.indexPathForSelectedRow,
