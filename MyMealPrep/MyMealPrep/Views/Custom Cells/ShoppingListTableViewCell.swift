@@ -38,10 +38,12 @@ class ShoppingListTableViewCell: UITableViewCell {
     @IBAction func editItemButtonTapped(_ sender: Any) {
         if itemTextField.isUserInteractionEnabled == false {
             itemTextField.isUserInteractionEnabled.toggle()
+            editItemButton.setImage(UIImage(named: "checkMark"), for: .normal)
         } else if itemTextField.isUserInteractionEnabled == true {
             guard let item = item else { return }
             ShoppingListController.shared.updateListItem(listItem: item, itemName: itemTextField.text ?? "")
             itemTextField.isUserInteractionEnabled.toggle()
+            editItemButton.setImage(UIImage(named: "EditButton"), for: .normal)
         }
     }
     

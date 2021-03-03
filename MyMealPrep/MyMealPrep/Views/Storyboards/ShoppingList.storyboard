@@ -13,14 +13,14 @@
         <scene sceneID="qzO-id-VSy">
             <objects>
                 <viewController storyboardIdentifier="ShoppingListVC" id="ZNV-j7-NE2" customClass="ShoppingListViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ht6-zC-Peb">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="Ht6-zC-Peb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="p7b-Ya-GL6">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="p7b-Ya-GL6">
                                 <rect key="frame" x="5" y="198" width="404" height="598"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lAP-vi-q0C">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lAP-vi-q0C">
                                         <rect key="frame" x="0.0" y="0.0" width="404" height="348"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
@@ -56,7 +56,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="bDQ-pd-n8e" secondAttribute="height" multiplier="1:1" id="k7S-ok-cQy"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="Button" image="Edit 1x"/>
+                                                                    <state key="normal" title="Button" image="EditButton"/>
                                                                     <connections>
                                                                         <action selector="editItemButtonTapped:" destination="SB1-fb-Fwj" eventType="touchUpInside" id="s2m-y2-RIy"/>
                                                                     </connections>
@@ -79,7 +79,7 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oz3-1l-11q">
+                                    <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oz3-1l-11q">
                                         <rect key="frame" x="0.0" y="348" width="404" height="250"/>
                                         <connections>
                                             <segue destination="5Wa-Rh-uPj" kind="embed" id="XoQ-tC-11A"/>
@@ -107,7 +107,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="wen-Y5-aTa" secondAttribute="height" multiplier="1:1" id="Cch-6y-2dM"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="Elipses 1x"/>
+                                                <state key="normal" title="Button" image="Trash 1x"/>
                                                 <connections>
                                                     <action selector="menuButtonTapped:" destination="ZNV-j7-NE2" eventType="touchUpInside" id="4Oi-41-4Ac"/>
                                                 </connections>
@@ -254,11 +254,11 @@
     </scenes>
     <resources>
         <image name="Add 1x" width="20" height="20"/>
-        <image name="Edit 1x" width="29" height="29"/>
-        <image name="Elipses 1x" width="22" height="6"/>
+        <image name="EditButton" width="19" height="19"/>
         <image name="Empty Checkbox 1x" width="18" height="18"/>
         <image name="List Icon 1x" width="20" height="20"/>
         <image name="Search 1x" width="23" height="23"/>
+        <image name="Trash 1x" width="16" height="18"/>
         <namedColor name="lightGreen">
             <color red="0.5607843137254902" green="0.84313725490196079" blue="0.70588235294117652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

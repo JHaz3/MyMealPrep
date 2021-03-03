@@ -241,7 +241,7 @@
                                 </state>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="izK-QW-toV">
-                                <rect key="frame" x="0.0" y="129" width="414" height="589.5"/>
+                                <rect key="frame" x="0.0" y="129" width="414" height="594"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectRecipeCell" rowHeight="90" id="CAV-37-apN" customClass="RecipeSelectTableViewCell" customModule="MyMealPrep" customModuleProvider="target">
@@ -272,13 +272,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EtZ-2B-eOc">
                                                     <rect key="frame" x="140" y="25" width="122" height="53.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBq-cY-dCx">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBq-cY-dCx">
                                                             <rect key="frame" x="0.0" y="0.0" width="122" height="25.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cook TIme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwO-Y0-5dY">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Cook TIme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwO-Y0-5dY">
                                                             <rect key="frame" x="0.0" y="35.5" width="74" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
@@ -321,22 +321,25 @@
                         <constraints>
                             <constraint firstItem="wOg-4P-DeY" firstAttribute="leading" secondItem="YMt-8U-1AV" secondAttribute="leading" constant="-1" id="6Z9-U2-mBZ"/>
                             <constraint firstItem="YMt-8U-1AV" firstAttribute="bottom" secondItem="y7J-po-sOm" secondAttribute="bottom" constant="25" id="Bj9-Lm-CwR"/>
+                            <constraint firstItem="y7J-po-sOm" firstAttribute="top" secondItem="izK-QW-toV" secondAttribute="bottom" constant="30" id="GUw-rc-Hyv"/>
                             <constraint firstItem="y7J-po-sOm" firstAttribute="leading" secondItem="YMt-8U-1AV" secondAttribute="leading" constant="25" id="HLR-YM-2VB"/>
                             <constraint firstItem="YMt-8U-1AV" firstAttribute="trailing" secondItem="izK-QW-toV" secondAttribute="trailing" id="Ur8-XY-V0Q"/>
                             <constraint firstItem="izK-QW-toV" firstAttribute="leading" secondItem="YMt-8U-1AV" secondAttribute="leading" id="VrQ-QG-RSI"/>
                             <constraint firstItem="YMt-8U-1AV" firstAttribute="trailing" secondItem="wOg-4P-DeY" secondAttribute="trailing" constant="-1" id="cw0-ut-XkC"/>
-                            <constraint firstItem="izK-QW-toV" firstAttribute="width" secondItem="BPD-u6-bVx" secondAttribute="width" id="k0r-Mv-zQx"/>
                             <constraint firstItem="wOg-4P-DeY" firstAttribute="top" secondItem="ied-zP-sWx" secondAttribute="bottom" constant="30" id="l5f-0V-SXR"/>
                             <constraint firstItem="ied-zP-sWx" firstAttribute="trailing" secondItem="YMt-8U-1AV" secondAttribute="trailing" id="oSh-CV-Jzw"/>
                             <constraint firstItem="izK-QW-toV" firstAttribute="top" secondItem="wOg-4P-DeY" secondAttribute="bottom" constant="8" symbolic="YES" id="ouo-rm-CZs"/>
                             <constraint firstItem="ied-zP-sWx" firstAttribute="top" secondItem="YMt-8U-1AV" secondAttribute="top" id="rZX-Hx-3QL"/>
                             <constraint firstItem="ied-zP-sWx" firstAttribute="leading" secondItem="YMt-8U-1AV" secondAttribute="leading" id="weg-eg-G7b"/>
                             <constraint firstItem="YMt-8U-1AV" firstAttribute="trailing" secondItem="y7J-po-sOm" secondAttribute="trailing" constant="25" id="wua-NN-1Co"/>
-                            <constraint firstItem="izK-QW-toV" firstAttribute="height" secondItem="BPD-u6-bVx" secondAttribute="height" multiplier="0.7" id="xbJ-GB-lu7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IpN-Lj-5va">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="Search 1x" id="s2M-Ws-5hg"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="Search 1x" id="s2M-Ws-5hg">
+                            <connections>
+                                <segue destination="8SV-cw-n2x" kind="push" id="AAS-Id-E1n"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="recipeSearchBar" destination="ied-zP-sWx" id="Q1P-H2-tB5"/>
@@ -347,6 +350,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o6f-NW-mGp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2769.5652173913045" y="75.669642857142847"/>
+        </scene>
+        <!--SearchRecipeVC-->
+        <scene sceneID="XzT-MM-IGc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RecipeBook" referencedIdentifier="SearchRecipeVC" id="8SV-cw-n2x" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="laJ-oa-EXQ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aci-EE-LUI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3603" y="-77"/>
         </scene>
         <!--Meal Plan Detail View Controller-->
         <scene sceneID="TPX-xa-gIe">
@@ -599,11 +612,11 @@
             <objects>
                 <viewController storyboardIdentifier="savedRecipeDetailVC" id="oCe-2f-wK9" customClass="MealPlanRecipesDetailViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="arm-k7-kbr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sum-hc-xjv">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQY-nH-xzU">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
@@ -747,7 +760,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="scN-22-kqo"/>
+        <segue reference="hrT-i8-ZMR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Calendar Icon 1x" width="20" height="20"/>

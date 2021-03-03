@@ -41,21 +41,24 @@ class SavedRecipesDetailViewController: UIViewController{
     }
     
     // MARK: - Actions
-
     @IBAction func seeDirectionsButtonTapped(_ sender: Any) {
         recipeDirectionsWebView()
     }
     @IBAction func addToShoppingListButtonTapped(_ sender: Any) {
         guard let recipe = recipe else { return }
         ShoppingListController.shared.addRecipeIngredients(recipe: recipe)
+        let alert = UIAlertController(title: "Success!", message: "Ingredients successfully added to your shopping list!", preferredStyle: .alert)
+        let awesomeButton = UIAlertAction(title: "Awesome!", style: .default, handler: nil)
+        alert.addAction(awesomeButton)
+        self.present(alert, animated: true, completion: nil)
     }
     
     
     func fetchImageAndUpdateViews() {
         guard let recipe = recipe else { return }
         recipeNameLabel.text = recipe.label
-        recipeCookTimeLabel.text = "\(recipe.totalTime) min"
-        recipeYieldLabel.text = "Yield: \(recipe.yield)"
+        recipeCookTimeLabel.text = "Cook Time: \(recipe.totalTime) min"
+        recipeYieldLabel.text = "Serves: \(recipe.yield)"
         
         RecipeController.fetchImage(for: recipe) { (result) in
             switch result {
