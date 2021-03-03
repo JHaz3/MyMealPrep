@@ -32,21 +32,25 @@ class MealPlanController {
     
     func updateMealPlanRecipes(mealPlan: MealPlan, recipes: [Recipe]) {
         mealPlan.recipes = recipes
+        saveToPersistentStorage()
     }
     
     func updateMPDates(mealPlan: MealPlan, startDate: Date, endDate: Date) {
         mealPlan.startDate = startDate
         mealPlan.endDate = endDate
+        saveToPersistentStorage()
     }
     
     func deleteMealPlan(mealPlan: MealPlan) {
         guard let index = mealPlans.firstIndex(of: mealPlan) else { return }
         mealPlans.remove(at: index)
+        saveToPersistentStorage()
     }
     
     func deleteMPRecipe(mealPlan: MealPlan, recipe: Recipe) {
         guard let index = mealPlan.recipes.firstIndex(of: recipe) else { return }
         mealPlan.recipes.remove(at: index)
+        saveToPersistentStorage()
     }
     
     // MARK: - Methods

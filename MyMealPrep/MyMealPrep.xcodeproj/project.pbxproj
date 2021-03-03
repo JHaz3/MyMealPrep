@@ -53,6 +53,7 @@
 		EB94E74D25E04D78000A518C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB3CF60D25D34F7F00AF6B91 /* Assets.xcassets */; };
 		EBA43BC925ED6073001380C9 /* MealPlanOnlyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA43BC825ED6073001380C9 /* MealPlanOnlyDetailViewController.swift */; };
 		EBA43BCC25ED9E40001380C9 /* MealPlanRecipesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA43BCB25ED9E40001380C9 /* MealPlanRecipesDetailViewController.swift */; };
+		EBBBBAC625EF1FE300843CE7 /* HomeRecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBBAC525EF1FE300843CE7 /* HomeRecipeDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,7 @@
 		EB94E74025DF5428000A518C /* SignUpAndInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAndInViewController.swift; sourceTree = "<group>"; };
 		EBA43BC825ED6073001380C9 /* MealPlanOnlyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanOnlyDetailViewController.swift; sourceTree = "<group>"; };
 		EBA43BCB25ED9E40001380C9 /* MealPlanRecipesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanRecipesDetailViewController.swift; sourceTree = "<group>"; };
+		EBBBBAC525EF1FE300843CE7 /* HomeRecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecipeDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				EB94E48425DB487F000A518C /* HomeViewController.swift */,
+				EBBBBAC525EF1FE300843CE7 /* HomeRecipeDetailViewController.swift */,
 			);
 			path = HomeScreenVCs;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 			files = (
 				EB94E38A25D78BA9000A518C /* MealPlanDetailViewController.swift in Sources */,
 				EB3CF60525D34F7F00AF6B91 /* AppDelegate.swift in Sources */,
+				EBBBBAC625EF1FE300843CE7 /* HomeRecipeDetailViewController.swift in Sources */,
 				EB94E37E25D781AB000A518C /* MealPlanController.swift in Sources */,
 				EB3CF60725D34F7F00AF6B91 /* SceneDelegate.swift in Sources */,
 				3585FF8125DCAA1100B0AFEC /* RecipeBookTableViewCell.swift in Sources */,
