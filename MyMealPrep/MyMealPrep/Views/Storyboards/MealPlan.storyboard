@@ -241,7 +241,7 @@
                                 </state>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="izK-QW-toV">
-                                <rect key="frame" x="0.0" y="129" width="414" height="589.5"/>
+                                <rect key="frame" x="0.0" y="129" width="414" height="594"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectRecipeCell" rowHeight="90" id="CAV-37-apN" customClass="RecipeSelectTableViewCell" customModule="MyMealPrep" customModuleProvider="target">
@@ -321,18 +321,17 @@
                         <constraints>
                             <constraint firstItem="wOg-4P-DeY" firstAttribute="leading" secondItem="YMt-8U-1AV" secondAttribute="leading" constant="-1" id="6Z9-U2-mBZ"/>
                             <constraint firstItem="YMt-8U-1AV" firstAttribute="bottom" secondItem="y7J-po-sOm" secondAttribute="bottom" constant="25" id="Bj9-Lm-CwR"/>
+                            <constraint firstItem="y7J-po-sOm" firstAttribute="top" secondItem="izK-QW-toV" secondAttribute="bottom" constant="30" id="GUw-rc-Hyv"/>
                             <constraint firstItem="y7J-po-sOm" firstAttribute="leading" secondItem="YMt-8U-1AV" secondAttribute="leading" constant="25" id="HLR-YM-2VB"/>
                             <constraint firstItem="YMt-8U-1AV" firstAttribute="trailing" secondItem="izK-QW-toV" secondAttribute="trailing" id="Ur8-XY-V0Q"/>
                             <constraint firstItem="izK-QW-toV" firstAttribute="leading" secondItem="YMt-8U-1AV" secondAttribute="leading" id="VrQ-QG-RSI"/>
                             <constraint firstItem="YMt-8U-1AV" firstAttribute="trailing" secondItem="wOg-4P-DeY" secondAttribute="trailing" constant="-1" id="cw0-ut-XkC"/>
-                            <constraint firstItem="izK-QW-toV" firstAttribute="width" secondItem="BPD-u6-bVx" secondAttribute="width" id="k0r-Mv-zQx"/>
                             <constraint firstItem="wOg-4P-DeY" firstAttribute="top" secondItem="ied-zP-sWx" secondAttribute="bottom" constant="30" id="l5f-0V-SXR"/>
                             <constraint firstItem="ied-zP-sWx" firstAttribute="trailing" secondItem="YMt-8U-1AV" secondAttribute="trailing" id="oSh-CV-Jzw"/>
                             <constraint firstItem="izK-QW-toV" firstAttribute="top" secondItem="wOg-4P-DeY" secondAttribute="bottom" constant="8" symbolic="YES" id="ouo-rm-CZs"/>
                             <constraint firstItem="ied-zP-sWx" firstAttribute="top" secondItem="YMt-8U-1AV" secondAttribute="top" id="rZX-Hx-3QL"/>
                             <constraint firstItem="ied-zP-sWx" firstAttribute="leading" secondItem="YMt-8U-1AV" secondAttribute="leading" id="weg-eg-G7b"/>
                             <constraint firstItem="YMt-8U-1AV" firstAttribute="trailing" secondItem="y7J-po-sOm" secondAttribute="trailing" constant="25" id="wua-NN-1Co"/>
-                            <constraint firstItem="izK-QW-toV" firstAttribute="height" secondItem="BPD-u6-bVx" secondAttribute="height" multiplier="0.7" id="xbJ-GB-lu7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IpN-Lj-5va">
