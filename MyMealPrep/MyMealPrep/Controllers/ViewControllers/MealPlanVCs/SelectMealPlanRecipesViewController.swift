@@ -23,7 +23,13 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
         self.navigationItem.setHidesBackButton(true, animated: true)
         savedRecipesTableView.dataSource = self
         savedRecipesTableView.delegate = self
+        recipeSearchBar.delegate = self
         savedRecipesTableView.rowHeight = 100
+        savedRecipesTableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         savedRecipesTableView.reloadData()
     }
     
@@ -40,7 +46,6 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     }
     
     // MARK: - Table view data source
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return RecipeController.shared.savedRecipes.count
@@ -97,4 +102,10 @@ extension SelectMealPlanRecipesViewController: UISearchBarDelegate {
             }
         }
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
 }
+
+

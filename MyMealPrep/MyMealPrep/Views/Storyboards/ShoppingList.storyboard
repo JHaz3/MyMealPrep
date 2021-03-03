@@ -56,7 +56,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="bDQ-pd-n8e" secondAttribute="height" multiplier="1:1" id="k7S-ok-cQy"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="Button" image="Edit 1x"/>
+                                                                    <state key="normal" title="Button" image="EditButton"/>
                                                                     <connections>
                                                                         <action selector="editItemButtonTapped:" destination="SB1-fb-Fwj" eventType="touchUpInside" id="s2m-y2-RIy"/>
                                                                     </connections>
@@ -254,7 +254,7 @@
     </scenes>
     <resources>
         <image name="Add 1x" width="20" height="20"/>
-        <image name="Edit 1x" width="29" height="29"/>
+        <image name="EditButton" width="19" height="19"/>
         <image name="Empty Checkbox 1x" width="18" height="18"/>
         <image name="List Icon 1x" width="20" height="20"/>
         <image name="Search 1x" width="23" height="23"/>
