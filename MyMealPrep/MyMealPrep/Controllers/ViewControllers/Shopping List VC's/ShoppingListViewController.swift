@@ -68,6 +68,14 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let listItem = ShoppingListController.shared.listItems[indexPath.row]
+            ShoppingListController.shared.deleteItem(item: listItem)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let movedListItem = ShoppingListController.shared.listItems[sourceIndexPath.row]
         ShoppingListController.shared.listItems.remove(at: sourceIndexPath.row)
