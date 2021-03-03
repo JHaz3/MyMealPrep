@@ -85,6 +85,7 @@ class RecipeController {
     
    static func updateDateToEat(date: Date, recipe: Recipe) {
         recipe.dateToEat = date
+    
     }
     
     static func fetchRandomRecipe(searchTerm: String, completion: @escaping (Result<Recipe, RecipeError>) -> Void) {
@@ -126,6 +127,7 @@ class RecipeController {
     func deleteRecipe(recipe: Recipe) {
         guard let index = savedRecipes.firstIndex(of: recipe) else { return }
         savedRecipes.remove(at: index)
+        saveToPersistentStorage()
     }
     
     func toggleBoxChecked(recipe: Recipe) {

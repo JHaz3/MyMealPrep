@@ -21,27 +21,37 @@ class ShoppingListController {
     func addItemToShoppingList(with item: String) {
         let ingredient = ShoppingList(item: item)
         listItems.append(ingredient)
+        saveToPersistentStorage()
     }
     
     func addMealPlanRecipesIngredients(mealPlan: MealPlan) {
         for recipe in mealPlan.recipes {
             self.addRecipeIngredients(recipe: recipe)
+            saveToPersistentStorage()
         }
     }
     
     func addRecipeIngredients(recipe: Recipe) {
         for ingredient in recipe.ingredients {
             self.listItems.append(ShoppingList(item: ingredient))
+            saveToPersistentStorage()
         }
     }
     
     func deleteItem(item: ShoppingList) {
         guard let index = listItems.firstIndex(of: item) else { return }
         listItems.remove(at: index)
+        saveToPersistentStorage()
     }
     
     func clearListItems() {
         listItems.removeAll()
+        saveToPersistentStorage()
+    }
+    
+    func updateListItem(listItem: ShoppingList, itemName: String) {
+        listItem.item = itemName
+        saveToPersistentStorage()
     }
     
     func toggleItemChecked(ingredient: ShoppingList) {

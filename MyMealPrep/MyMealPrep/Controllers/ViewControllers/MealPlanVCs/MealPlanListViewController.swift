@@ -24,6 +24,7 @@ class MealPlanListViewController: UIViewController, UITableViewDataSource, UITab
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         updateViews()
+        MealPlanController.shared.loadFromPersistence()
     }
     
     // MARK: - Actions

@@ -36,7 +36,13 @@ class ShoppingListTableViewCell: UITableViewCell {
     }
     
     @IBAction func editItemButtonTapped(_ sender: Any) {
-        itemTextField.isUserInteractionEnabled.toggle()
+        if itemTextField.isUserInteractionEnabled == false {
+            itemTextField.isUserInteractionEnabled.toggle()
+        } else if itemTextField.isUserInteractionEnabled == true {
+            guard let item = item else { return }
+            ShoppingListController.shared.updateListItem(listItem: item, itemName: itemTextField.text ?? "")
+            itemTextField.isUserInteractionEnabled.toggle()
+        }
     }
     
     private func updateViews() {
