@@ -19,6 +19,7 @@ class MealPlanListViewController: UIViewController, UITableViewDataSource, UITab
         super.viewDidLoad()
         mealPlanListTableView.delegate = self
         mealPlanListTableView.dataSource = self
+        mealPlanListTableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
