@@ -50,12 +50,12 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return RecipeController.shared.savedRecipes.count
+        return recipeSearchArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "selectRecipeCell", for: indexPath) as? RecipeSelectTableViewCell else { return UITableViewCell() }
-        let recipe = RecipeController.shared.savedRecipes[indexPath.row]
+        let recipe = recipeSearchArray[indexPath.row]
         cell.recipe = recipe
         cell.delegate = self
         return cell
