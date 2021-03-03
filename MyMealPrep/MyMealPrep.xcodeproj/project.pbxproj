@@ -11,6 +11,7 @@
 		3577C10425EECFF0004C9803 /* EditLoginInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3577C10325EECFF0004C9803 /* EditLoginInfoViewController.swift */; };
 		3585FF8125DCAA1100B0AFEC /* RecipeBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585FF8025DCAA1100B0AFEC /* RecipeBookTableViewCell.swift */; };
 		35B1430425DDB792007D7D1B /* RecipeBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1430325DDB792007D7D1B /* RecipeBookViewController.swift */; };
+		35F7E25F25F0422600016280 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F7E25E25F0422600016280 /* Constants.swift */; };
 		503787DDA6D818F485CBBB6B /* Pods_MyMealPrep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAFAC285B8703D5B03F107CF /* Pods_MyMealPrep.framework */; };
 		EB0F133B25E4667100BDCDD4 /* SavedRecipesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F133A25E4667100BDCDD4 /* SavedRecipesDetailViewController.swift */; };
 		EB0F134225E829AF00BDCDD4 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F134125E829AE00BDCDD4 /* ShoppingListViewController.swift */; };
@@ -63,6 +64,7 @@
 		3577C10325EECFF0004C9803 /* EditLoginInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLoginInfoViewController.swift; sourceTree = "<group>"; };
 		3585FF8025DCAA1100B0AFEC /* RecipeBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeBookTableViewCell.swift; sourceTree = "<group>"; };
 		35B1430325DDB792007D7D1B /* RecipeBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeBookViewController.swift; sourceTree = "<group>"; };
+		35F7E25E25F0422600016280 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DAFAC285B8703D5B03F107CF /* Pods_MyMealPrep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMealPrep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0F133A25E4667100BDCDD4 /* SavedRecipesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipesDetailViewController.swift; sourceTree = "<group>"; };
 		EB0F134125E829AE00BDCDD4 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,14 @@
 				EB0F133A25E4667100BDCDD4 /* SavedRecipesDetailViewController.swift */,
 			);
 			path = RecipeBookViewController;
+			sourceTree = "<group>";
+		};
+		35F7E25D25F0420300016280 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				35F7E25E25F0422600016280 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		9B2500C90EB3E7333101B248 /* Frameworks */ = {
@@ -271,6 +281,7 @@
 		EB3CF63F25D3637100AF6B91 /* Helpers + Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				35F7E25D25F0420300016280 /* Constants */,
 				EB3CF64425D363B400AF6B91 /* Error Handling */,
 			);
 			path = "Helpers + Extensions";
@@ -487,6 +498,7 @@
 				EB8BBFFB25E989CF00A0D001 /* ShoppingListMenuViewController.swift in Sources */,
 				EB3CF64125D363B000AF6B91 /* UserError.swift in Sources */,
 				3577C10425EECFF0004C9803 /* EditLoginInfoViewController.swift in Sources */,
+				35F7E25F25F0422600016280 /* Constants.swift in Sources */,
 				EB94E33F25D738DE000A518C /* MealPlanListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

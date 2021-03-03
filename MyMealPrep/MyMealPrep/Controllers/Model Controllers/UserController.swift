@@ -13,41 +13,30 @@ class UserController {
     static let shared = UserController()
     var currentUser: User?
     let db = Firestore.firestore()
-    let userCollection = "users"
     
     // MARK: - CRUD
-    func createAndSaveUser(username: String, password: String, completion: @escaping (Result<User,UserError>) -> Void ) {
-        let newUser = User(username: username, password: password)
-        
-        let userRef = db.collection(userCollection)
-        userRef.document("\(newUser.uuid)").setData([
-            "username": "\(newUser.username)",
-            "password": "\(newUser.password)"
-        ]) { error in
+    func createUser(email: String, password: String, completion: @escaping (Result<User?, UserError>) -> Void) {
+        let userDict: [String : Any] = [Constants.email : email,
+                                        Constants.password : password]
+        db.collection(Constants.users).addDocument(data: userDict) { (error) in
             if let error = error {
-                print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
-                return completion(.failure(.fireError(error)))
+                print("There was an error creating a user: \(error.localizedDescription)")
             } else {
-                print("Document added with ID: \(newUser.uuid)")
-                self.currentUser = newUser
-                return completion(.success(newUser))
+                let user = User(email: email, password: password)
+                completion(.success(user))
             }
         }
     }
     
-    func fetchUser(username: String, password: String, completion: @escaping (Result<User, UserError>) -> Void) {
-        let userRef = db.collection(userCollection)
-        
-        userRef.whereField("username", isEqualTo: username).whereField("password", isEqualTo: password).getDocuments { (querySnapshot, error) in
+    func fetchUser(withEmail email: String, completion: @escaping (Result<User?, UserError>) -> Void) {
+        db.collection(Constants.users).whereField(Constants.email, isEqualTo: email).getDocuments { (snapshot, error) in
             if let error = error {
-                print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error). - error getting user with username \(username))")
-                return completion(.failure(.fireError(error)))
+                print("There was an error fetching users: \(error.localizedDescription)")
+            } else if let firstDocument = snapshot?.documents.first {
+                guard let user = User(dictionary: firstDocument.data()) else {return}
+                completion(.success(user))
             } else {
-                guard let doc = querySnapshot!.documents.first,
-                      let fetchedUser = User(document: doc) else {
-                    return completion(.failure(.couldNotUnwrap))
-                }
-                return completion(.success(fetchedUser))
+                completion(.success(nil))
             }
         }
     }

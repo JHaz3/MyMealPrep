@@ -65,32 +65,32 @@ class SignUpAndInViewController: UIViewController {
         guard let usernameText = usernameTextField.text, !usernameText.isEmpty,
               let passwordText = enterPasswordTextField.text, !passwordText.isEmpty else { return }
         
-        if statusIsSignUp == true {
-            guard let confirmPasswordText = confirmPasswordTextField.text,
-                  passwordText == confirmPasswordText else { return }
-            UserController.shared.createAndSaveUser(username: usernameText, password: passwordText) { (result) in
-                switch result {
-                case.success(let user):
-                    UserController.shared.currentUser = user
-                    self.defaults.setValue(UserController.shared.currentUser?.username, forKey: "savedUsername")
-                    self.tabBarSetUp()
-                case .failure(let userError):
-                    print(userError.errorDescription)
-                }
-            }
-        } else {
-            UserController.shared.fetchUser(username: usernameText, password: passwordText) { (result) in
-                switch result {
-                case .success(let fetchedUser):
-                    UserController.shared.currentUser = fetchedUser
-                    self.defaults.set(UserController.shared.currentUser?.username, forKey: "savedUsername")
-                    self.tabBarSetUp()
-                case .failure(let userError):
-                    print(userError.errorDescription)
-                    
-                }
-            }
-        }
+//        if statusIsSignUp == true {
+//            guard let confirmPasswordText = confirmPasswordTextField.text,
+//                  passwordText == confirmPasswordText else { return }
+//            UserController.shared.createAndSaveUser(username: usernameText, password: passwordText) { (result) in
+//                switch result {
+//                case.success(let user):
+//                    UserController.shared.currentUser = user
+//                    self.defaults.setValue(UserController.shared.currentUser?.username, forKey: "savedUsername")
+//                    self.tabBarSetUp()
+//                case .failure(let userError):
+//                    print(userError.errorDescription)
+//                }
+//            }
+//        } else {
+//            UserController.shared.fetchUser(username: usernameText, password: passwordText) { (result) in
+//                switch result {
+//                case .success(let fetchedUser):
+//                    UserController.shared.currentUser = fetchedUser
+//                    self.defaults.set(UserController.shared.currentUser?.username, forKey: "savedUsername")
+//                    self.tabBarSetUp()
+//                case .failure(let userError):
+//                    print(userError.errorDescription)
+//                    
+//                }
+//            }
+//        }
     }
     
     // MARK: - Methods
