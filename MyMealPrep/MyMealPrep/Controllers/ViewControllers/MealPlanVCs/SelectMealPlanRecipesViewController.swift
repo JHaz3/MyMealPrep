@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var recipeSearchBar: UISearchBar!
@@ -16,6 +16,7 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     // MARK: - Properties
     var mealPlan: MealPlan?
     var checkedRecipes: [Recipe] = []
+    var recipeSearchArray: [Recipe] = []
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -25,6 +26,7 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
         savedRecipesTableView.delegate = self
         recipeSearchBar.delegate = self
         savedRecipesTableView.rowHeight = 100
+        setUpViews()
         savedRecipesTableView.reloadData()
     }
     
@@ -37,7 +39,7 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     @IBAction func saveRecipesButtonTapped(_ sender: Any) {
         guard let mealPlan = mealPlan else { return }
         mealPlan.recipes = checkedRecipes
-    
+        
         if let vc = storyboard?.instantiateViewController(identifier: "mealPlanDetailVC") as?
             MealPlanDetailViewController {
             vc.mealPlan = mealPlan
@@ -60,15 +62,32 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
     }
     
     // MARK: - Methods
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            recipeSearchArray = RecipeController.shared.savedRecipes
+            savedRecipesTableView.reloadData()
+            return
+        }
+        
+        recipeSearchArray = RecipeController.shared.savedRecipes.filter({ (recipe) -> Bool in
+            guard let text = searchBar.text else { return false }
+            return recipe.label.lowercased().contains(text.lowercased())
+        })
+        savedRecipesTableView.reloadData()
+    }
     
-     // MARK: - Navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    private func setUpViews() {
+        recipeSearchArray = RecipeController.shared.savedRecipes
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "showMealPlanDetails") {
             guard let mpToSend = MealPlanController.shared.mealPlans.last,
                   let destination = segue.destination as? MealPlanDetailViewController else { return }
             destination.mealPlan = mpToSend
         }
-     }
+    }
     
 }// End of Class
 
@@ -87,25 +106,6 @@ extension SelectMealPlanRecipesViewController: RecipeSelectTableViewCellDelegate
     }
 }
 
-extension SelectMealPlanRecipesViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchTerm = recipeSearchBar.text, !searchTerm.isEmpty else { return }
-        RecipeController.fetchRecipe(searchTerm: searchTerm) { (result) in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let recipes):
-                    RecipeController.recipes = recipes
-                    self.savedRecipesTableView.reloadData()
-                case .failure(let error):
-                    print(error, error.localizedDescription)
-                }
-            }
-        }
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-    }
-}
+
 
 
