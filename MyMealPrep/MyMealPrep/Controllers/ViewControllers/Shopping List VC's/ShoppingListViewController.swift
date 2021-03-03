@@ -42,9 +42,19 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     
     // MARK: - Actions
     @IBAction func menuButtonTapped(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.5) {
-            self.menuContainerView.isHidden.toggle()
+        //        UIView.animate(withDuration: 0.5) {
+        //            self.menuContainerView.isHidden.toggle()
+        //        }
+        let alert = UIAlertController(title: "Delete list?", message: "Are you sure you want to clear your shopping list?", preferredStyle: .alert)
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let deleteButton = UIAlertAction(title: "Clear List", style: .default) { (_) in
+            ShoppingListController.shared.clearListItems()
+            self.shoppingListTableView.reloadData()
         }
+        alert.addAction(cancelButton)
+        alert.addAction(deleteButton)
+        self.present(alert, animated: true)
+        
     }
     
     @IBAction func addListItemButtonTapped(_ sender: Any) {
