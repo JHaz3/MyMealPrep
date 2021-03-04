@@ -107,7 +107,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="wen-Y5-aTa" secondAttribute="height" multiplier="1:1" id="Cch-6y-2dM"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="Trash 1x"/>
+                                                <state key="normal" title="Button" image="Trashyboy"/>
                                                 <connections>
                                                     <action selector="menuButtonTapped:" destination="ZNV-j7-NE2" eventType="touchUpInside" id="4Oi-41-4Ac"/>
                                                 </connections>
@@ -153,9 +153,7 @@
                             <constraint firstItem="cAM-pn-cZp" firstAttribute="leading" secondItem="vnr-a4-WSJ" secondAttribute="leading" constant="10" id="oy0-ln-Rfo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jm4-WC-8I1">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="Search 1x" id="sCO-7u-GCs"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="jm4-WC-8I1"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addItemButton" destination="w2T-9E-XBQ" id="Iq8-Eu-vAg"/>
@@ -257,8 +255,7 @@
         <image name="EditButton" width="19" height="19"/>
         <image name="Empty Checkbox 1x" width="18" height="18"/>
         <image name="List Icon 1x" width="20" height="20"/>
-        <image name="Search 1x" width="23" height="23"/>
-        <image name="Trash 1x" width="16" height="18"/>
+        <image name="Trashyboy" width="20" height="20"/>
         <namedColor name="lightGreen">
             <color red="0.5607843137254902" green="0.84313725490196079" blue="0.70588235294117652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
