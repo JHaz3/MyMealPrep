@@ -20,7 +20,11 @@ class ShoppingListController {
     // MARK: - CRUD
     func addItemToShoppingList(with item: String) {
         let ingredient = ShoppingList(item: item)
-        listItems.append(ingredient)
+        if !listItems.isEmpty {
+            listItems.insert(ingredient, at: 0)
+        } else {
+            listItems.append(ingredient)
+        }
         saveToPersistentStorage()
     }
     
@@ -33,9 +37,13 @@ class ShoppingListController {
     
     func addRecipeIngredients(recipe: Recipe) {
         for ingredient in recipe.ingredients {
-            self.listItems.append(ShoppingList(item: ingredient))
-            saveToPersistentStorage()
+            if !listItems.isEmpty {
+                self.listItems.insert(ShoppingList(item: ingredient), at: 0)
+            } else {
+                self.listItems.append(ShoppingList(item: ingredient))
+            }
         }
+        saveToPersistentStorage()
     }
     
     func deleteItem(item: ShoppingList) {
