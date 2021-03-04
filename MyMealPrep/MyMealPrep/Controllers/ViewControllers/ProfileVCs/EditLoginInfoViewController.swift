@@ -44,27 +44,13 @@ class EditLoginInfoViewController: UIViewController {
                 if let error = error {
                     print("There was an error updating user's email: \(error.localizedDescription)")
                 } else {
-                    self.successfulEmailUpdate()
+                    UserController.shared.updateEmail(withEmail: newEmail) { (_) in
+                        self.successfulEmailUpdate()
+                    }
                 }
             })
         }
     }
-    
-//    func updateUsersUsername(newUsername: String) {
-//        guard let newEmail = editEmailTextField.text,
-//              let user = UserController.shared.currentUser else {return}
-//
-//        if !newEmail.isEmpty {
-//            db.collection("users").document(user.uuid).getDocument { (snapshot, error) in
-//                if let error = error {
-//                    print("There was an error fetching the current document data: \(error.localizedDescription)")
-//                } else {
-//                    self.db.collection("users").document(user.uuid).updateData(["username" : newUsername])
-//                    self.successfulEmailUpdate()
-//                }
-//            }
-//        }
-//    }
     
     private func updateUsersPassword() {
         guard let newPassword = editPasswordTextField.text,
@@ -82,9 +68,7 @@ class EditLoginInfoViewController: UIViewController {
             } else {
                 makeSurePasswordsMatchPopup()
             }
-        } else {
-            fillOutAllFieldsPopup()
-        }
+        } 
     }
     
     // Mark: - Actions

@@ -23,7 +23,6 @@ class SignUpAndInViewController: UIViewController {
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var signUpSignInButton: UIButton!
     
-    
     // MARK: - Properties
     let db = Firestore.firestore()
     var viewsLaidOut = false
@@ -36,7 +35,21 @@ class SignUpAndInViewController: UIViewController {
         enterPasswordTextField.delegate = self
         confirmPasswordTextField.delegate = self
         usernameTextField.delegate = self
-        
+        toggleToSignUp()
+        if Auth.auth().currentUser != nil {
+            guard let userEmail = Auth.auth().currentUser?.email else {return}
+            UserController.shared.fetchUserWithEmail(withEmail: userEmail) { (result) in
+                switch result {
+                case .failure(let error):
+                    print(error.localizedDescription)
+                case .success(let user):
+                    if let user = user {
+                        UserController.shared.currentUser = user
+                        self.toTabBar()
+                    }
+                }
+            }
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -44,12 +57,13 @@ class SignUpAndInViewController: UIViewController {
         if viewsLaidOut == false {
             self.setupViews()
             viewsLaidOut = true
-            self.checkForUser()
+            //            self.checkForUser()
         }
     }
     
     // MARK: - Actons
     @IBAction func logInButtonTapped(_ sender: Any) {
+//        isOnLogin = true
         if let username = defaults.value(forKey: "savedUsername") as? String {
             toggleToLogin(username: username)
         } else {
@@ -59,46 +73,112 @@ class SignUpAndInViewController: UIViewController {
     
     @IBAction func signUpButtonTapped(_ sender: Any) {
         toggleToSignUp()
+//        isOnLogin = false
     }
     
     @IBAction func signUpSignInButtonTapped(_ sender: Any) {
-        guard let usernameText = usernameTextField.text, !usernameText.isEmpty,
-              let passwordText = enterPasswordTextField.text, !passwordText.isEmpty else { return }
+        guard let email = usernameTextField.text, !email.isEmpty,
+              let password = enterPasswordTextField.text, !password.isEmpty else { return }
         
-        if statusIsSignUp == true {
-            guard let confirmPasswordText = confirmPasswordTextField.text,
-                  passwordText == confirmPasswordText else { return }
-            UserController.shared.createAndSaveUser(username: usernameText, password: passwordText) { (result) in
-                switch result {
-                case.success(let user):
-                    UserController.shared.currentUser = user
-                    self.defaults.setValue(UserController.shared.currentUser?.username, forKey: "savedUsername")
-                    self.tabBarSetUp()
-                case .failure(let userError):
-                    print(userError.errorDescription)
+        if statusIsSignUp == false {
+            if self.isValidEmail(email) {
+                UserController.shared.fetchUserWithEmail(withEmail: email) { (result) in
+                    switch result {
+                    case .success(let user):
+                        if let user = user {
+                            if password == user.password {
+                                if email == user.email {
+                                    // There was a user in firebase
+                                    UserController.shared.currentUser = user
+                                    Auth.auth().signIn(withEmail: email, password: password) { (dataResult, error) in
+                                        if let error = error {
+                                            print("Error signing user in: \(error.localizedDescription)")
+                                        } else {
+                                            self.toTabBar()
+                                        }
+                                    }
+                                } else {
+                                    self.errorPopup(title: "Whoops", message: "Your email and password don't match. Try again.")
+                                }
+                            } else {
+                                self.errorPopup(title: "Whoops", message: "Your email and password don't match. Try again.")
+                            }
+                        } else {
+                            self.errorPopup(title: "Hold up!", message: "I couldn't find an account with that email. Try again or tap Sign Up")
+                        }
+                    case .failure(let error):
+                        print("There was an error fetching a user: \(error.localizedDescription)")
+                    }
+                    
                 }
+            } else {
+                self.errorPopup(title: "Whoops", message: "That isn't a valid email. Try again!")
             }
         } else {
-            UserController.shared.fetchUser(username: usernameText, password: passwordText) { (result) in
+            UserController.shared.fetchUserWithEmail(withEmail: email) { (result) in
                 switch result {
-                case .success(let fetchedUser):
-                    UserController.shared.currentUser = fetchedUser
-                    self.defaults.set(UserController.shared.currentUser?.username, forKey: "savedUsername")
-                    self.tabBarSetUp()
-                case .failure(let userError):
-                    print(userError.errorDescription)
-                    
+                case .success(let user):
+                    if let user = user {
+                        self.errorPopup(title: "Whoops", message: "It looks like there is already an account with this email.")
+                        print("\(user.email) already exists")
+                    } else {
+                        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+                            if let error = error {
+                                print("Error creating user: \(error.localizedDescription)")
+                                self.errorPopup(title: "Whoops", message: "Make sure your password is at least 6 characters.")
+                            } else {
+                                if self.isValidEmail(email) {
+                                    if self.isValidPassword(password) {
+                                        let user = User(email: email, password: password)
+                                        UserController.shared.createUser(user: user) { (result) in
+                                            switch result {
+                                            case .success(let user):
+                                                UserController.shared.currentUser = user
+                                                self.toTabBar()
+                                            case .failure(let error):
+                                                print("Error creating a user in cloudFirestore: \(error.localizedDescription)")
+                                            }
+                                        }
+                                    } else {
+                                        self.errorPopup(title: "Whoops", message: "Make sure your password is at least 6 characters.")
+                                    }
+                                } else {
+                                    self.errorPopup(title: "Whoops", message: "That isn't a valid email. Try again!")
+                                }
+                            }
+                        }
+                    }
+                case .failure(let error):
+                    print("Error fetching user in sign up: \(error.localizedDescription)")
                 }
             }
         }
     }
     
-    // MARK: - Methods
-    private func checkForUser() {
-        guard let username = defaults.value(forKey: "savedUsername") as? String else { return }
-        
-        toggleToLogin(username: username)
+    private func errorPopup(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
+    
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+    
+    func isValidPassword(_ password: String) -> Bool {
+        let minPasswordLength = 6
+        return password.count >= minPasswordLength
+    }
+    
+    // MARK: - Methods
+    //    private func checkForUser() {
+    //        guard let username = defaults.value(forKey: "savedUsername") as? String else { return }
+    //
+    //        toggleToLogin(username: username)
+    //    }
     
     private func toggleToLogin(username: String?) {
         DispatchQueue.main.async {
@@ -130,23 +210,9 @@ class SignUpAndInViewController: UIViewController {
         }
     }
     
-    private func toHomeScreen() {
-        DispatchQueue.main.async {
-            let storyboard = UIStoryboard(name: "HomeScreen", bundle: nil)
-            guard let viewController = storyboard.instantiateInitialViewController() else { return }
-            viewController.modalPresentationStyle = .fullScreen
-            self.present(viewController, animated: true, completion: nil)
-        }
-    }
-    
-    // MARK: -
-    private func transitionToHome() {
-        performSegue(withIdentifier: "tabBarController", sender: self)
-    }
-    
-    private func tabBarSetUp() {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let tabBar = sb.instantiateViewController(identifier: "tabBarController")
+    private func toTabBar() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBar = storyboard.instantiateViewController(identifier: "tabBarController")
         tabBar.modalPresentationStyle = .fullScreen
         present(tabBar, animated: true)
     }
