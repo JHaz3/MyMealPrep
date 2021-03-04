@@ -21,7 +21,7 @@ class ProfileViewController: UIViewController {
     // Mark: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-//        rotateArrows()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,10 +34,17 @@ class ProfileViewController: UIViewController {
         
         do {
             try firebaseAuth.signOut()
-            let viewcontroller = SignInViewController()
-            navigationController?.popToViewController(viewcontroller, animated: true)
+            self.presentLoginScreen()
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }
     }
+    
+    private func presentLoginScreen() {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let toLogin = sb.instantiateViewController(identifier: "signUpAndInVC")
+        toLogin.modalPresentationStyle = .fullScreen
+        present(toLogin, animated: true)
+    }
+    
 }
