@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var recipeNameAndYieldView: UIView!
     @IBOutlet weak var recentlySavedTableView: UITableView!
     
-    // Mark: - Properties
+    // MARK: - Properties
     var randomRecipe: Recipe?
     
     // Mark: - Lifecycle
@@ -43,6 +43,7 @@ class HomeViewController: UIViewController {
                     self.recipeNameLabel.text = recipe.label
                     self.recipeYieldLabel.text = "Servings: \(recipe.yield)"
                     self.recipeCookTimeLabel.text = "Cook Time: \(recipe.totalTime)"
+                    self.randomRecipe = recipe
                     RecipeController.fetchImage(for: recipe) { (result) in
                         DispatchQueue.main.async {
                             switch result {

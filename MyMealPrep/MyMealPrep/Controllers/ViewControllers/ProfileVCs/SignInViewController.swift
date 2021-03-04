@@ -28,22 +28,22 @@ class SignInViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func signInButtonTapped(_ sender: Any) {
-        guard let usernameText = emailTextField.text, !usernameText.isEmpty,
-              let passwordText = passwordTextField.text, !passwordText.isEmpty else { return }
-        
-        if statusIsSignIn == true {
-            UserController.shared.fetchUser(username: usernameText, password: passwordText) { (result) in
-                switch result {
-                case .success(let fetchedUser):
-                    UserController.shared.currentUser = fetchedUser
-                    self.defaults.set(UserController.shared.currentUser?.username, forKey: "savedUsername")
-                    self.transitionToHome()
-                case .failure(let userError):
-                    print(userError.errorDescription)
-                    
-                }
-            }
-        }
+//        guard let usernameText = emailTextField.text, !usernameText.isEmpty,
+//              let passwordText = passwordTextField.text, !passwordText.isEmpty else { return }
+//        
+//        if statusIsSignIn == true {
+//            UserController.shared.fetchUser(username: usernameText, password: passwordText) { (result) in
+//                switch result {
+//                case .success(let fetchedUser):
+//                    UserController.shared.currentUser = fetchedUser
+//                    self.defaults.set(UserController.shared.currentUser?.username, forKey: "savedUsername")
+//                    self.transitionToHome()
+//                case .failure(let userError):
+//                    print(userError.errorDescription)
+//                    
+//                }
+//            }
+//        }
     }
     // MARK: - Methods
     private func toHomeScreen() {

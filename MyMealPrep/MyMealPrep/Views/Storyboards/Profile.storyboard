@@ -116,6 +116,16 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="75.669642857142847"/>
         </scene>
+        <!--signUpAndInVC-->
+        <scene sceneID="v9R-W9-fJU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="signUpAndInVC" id="xzH-rC-sOS" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="o6l-sn-SuH"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="99Q-TY-20X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1108" y="456"/>
+        </scene>
         <!--Edit Login Info View Controller-->
         <scene sceneID="Zf0-cY-adK">
             <objects>
@@ -134,7 +144,7 @@
                                             <constraint firstAttribute="height" constant="25" id="TWj-1x-F25"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Edit username...." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f4s-YA-WxO">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Edit email...." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f4s-YA-WxO">
                                         <rect key="frame" x="48.5" y="0.0" width="324.5" height="71.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -199,7 +209,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dJ-Ls-8aV">
-                                <rect key="frame" x="20.5" y="707.5" width="373" height="71.5"/>
+                                <rect key="frame" x="20.5" y="716.5" width="373" height="53.5"/>
                                 <color key="backgroundColor" name="red"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Save">
@@ -217,7 +227,7 @@
                             <constraint firstItem="xee-eH-CwY" firstAttribute="centerX" secondItem="0Dq-tv-Rd7" secondAttribute="centerX" id="Cum-Cb-fLz"/>
                             <constraint firstItem="9dJ-Ls-8aV" firstAttribute="centerY" secondItem="0Dq-tv-Rd7" secondAttribute="centerY" multiplier="1.65" id="H09-FT-tuV"/>
                             <constraint firstItem="y8h-YM-PAD" firstAttribute="height" secondItem="xvZ-gj-g97" secondAttribute="height" multiplier="0.08" id="JuP-Ue-heh"/>
-                            <constraint firstItem="9dJ-Ls-8aV" firstAttribute="height" secondItem="xvZ-gj-g97" secondAttribute="height" multiplier="0.08" id="Nnc-CC-WED"/>
+                            <constraint firstItem="9dJ-Ls-8aV" firstAttribute="height" secondItem="xvZ-gj-g97" secondAttribute="height" multiplier="0.06" id="Nnc-CC-WED"/>
                             <constraint firstItem="9dJ-Ls-8aV" firstAttribute="centerX" secondItem="0Dq-tv-Rd7" secondAttribute="centerX" id="Ous-sD-xm3"/>
                             <constraint firstItem="9dJ-Ls-8aV" firstAttribute="width" secondItem="xvZ-gj-g97" secondAttribute="width" multiplier="0.9" id="SeL-DY-mFA"/>
                             <constraint firstItem="xcg-vc-Twc" firstAttribute="width" secondItem="xvZ-gj-g97" secondAttribute="width" multiplier="0.9" id="c9X-SC-AS0"/>

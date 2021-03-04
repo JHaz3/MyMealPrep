@@ -41,20 +41,20 @@ class SignUpViewController: UIViewController {
         guard let emailText = emailTextField.text, !emailText.isEmpty,
               let passwordText = passwordTextField.text, !passwordText.isEmpty else { return }
         
-        if statusIsSignUp == true {
-            guard let confirmPasswordText = confirmPasswordTextField.text,
-                  passwordText == confirmPasswordText else { return }
-            UserController.shared.createAndSaveUser(username: emailText, password: passwordText) { (result) in
-                switch result {
-                case.success(let user):
-                    UserController.shared.currentUser = user
-                    self.defaults.setValue(UserController.shared.currentUser?.username, forKey: "savedUsername")
-                    self.toHomeScreen()
-                case .failure(let userError):
-                    print(userError.errorDescription)
-                }
-            }
-        }
+//        if statusIsSignUp == true {
+//            guard let confirmPasswordText = confirmPasswordTextField.text,
+//                  passwordText == confirmPasswordText else { return }
+//            UserController.shared.createAndSaveUser(username: emailText, password: passwordText) { (result) in
+//                switch result {
+//                case.success(let user):
+//                    UserController.shared.currentUser = user
+//                    self.defaults.setValue(UserController.shared.currentUser?.username, forKey: "savedUsername")
+//                    self.toHomeScreen()
+//                case .failure(let userError):
+//                    print(userError.errorDescription)
+//                }
+//            }
+//        }
     }
     
     
@@ -78,17 +78,17 @@ class SignUpViewController: UIViewController {
         
     }
     
-    func tempBypassOfLoginScreen() {
-        UserController.shared.fetchUser(username: "WheelTurns", password: "AgesComeAndPass") { (result) in
-            switch result {
-            case .success(let fetchedUser):
-                UserController.shared.currentUser = fetchedUser
-                self.toHomeScreen()
-            case .failure(let userError):
-                print(userError.errorDescription)
-            }
-        }
-    }
+//    func tempBypassOfLoginScreen() {
+//        UserController.shared.fetchUser(username: "WheelTurns", password: "AgesComeAndPass") { (result) in
+//            switch result {
+//            case .success(let fetchedUser):
+//                UserController.shared.currentUser = fetchedUser
+//                self.toHomeScreen()
+//            case .failure(let userError):
+//                print(userError.errorDescription)
+//            }
+//        }
+//    }
     
 }// End of Class
 
