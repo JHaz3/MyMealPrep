@@ -20,7 +20,11 @@ class ShoppingListController {
     // MARK: - CRUD
     func addItemToShoppingList(with item: String) {
         let ingredient = ShoppingList(item: item)
-        listItems.append(ingredient)
+        if listItems.isEmpty {
+            listItems.append(ingredient)
+        } else {
+            listItems.insert(ingredient, at: 0)
+        }
         saveToPersistentStorage()
     }
     
