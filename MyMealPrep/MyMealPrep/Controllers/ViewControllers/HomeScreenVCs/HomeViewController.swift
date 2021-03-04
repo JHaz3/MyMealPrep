@@ -82,7 +82,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.recipe = recipe
             cell.isUserInteractionEnabled = true
         } else {
-            let mockRecipe = Recipe(label: "Your saved recipes will go here!", image: "Salad Icon 1x", directions: "", ingredients: [], yield: 0, totalTime: 0, users: nil, uid: nil, isChecked: false, dateToEat: Date())
+            let mockRecipe = Recipe(label: "Your saved recipes will go here!", image: "Salad Icon 1x", directions: "", ingredients: [], yield: 0, totalTime: 0, isChecked: false, dateToEat: Date())
             cell.mockRecipe = mockRecipe
             cell.isUserInteractionEnabled = false
         }

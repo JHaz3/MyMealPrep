@@ -63,7 +63,7 @@ class SignUpAndInViewController: UIViewController {
     
     // MARK: - Actons
     @IBAction func logInButtonTapped(_ sender: Any) {
-//        isOnLogin = true
+        //        isOnLogin = true
         if let username = defaults.value(forKey: "savedUsername") as? String {
             toggleToLogin(username: username)
         } else {
@@ -73,7 +73,7 @@ class SignUpAndInViewController: UIViewController {
     
     @IBAction func signUpButtonTapped(_ sender: Any) {
         toggleToSignUp()
-//        isOnLogin = false
+        //        isOnLogin = false
     }
     
     @IBAction func signUpSignInButtonTapped(_ sender: Any) {
@@ -211,10 +211,13 @@ class SignUpAndInViewController: UIViewController {
     }
     
     private func toTabBar() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let tabBar = storyboard.instantiateViewController(identifier: "tabBarController")
-        tabBar.modalPresentationStyle = .fullScreen
-        present(tabBar, animated: true)
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let tabBar = storyboard.instantiateViewController(identifier: "tabBarController")
+            tabBar.modalPresentationStyle = .fullScreen
+            self.present(tabBar, animated: true)
+            UserController.shared.fetchRecipe()
+        }
     }
     
     func setupViews() {

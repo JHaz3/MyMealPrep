@@ -7,17 +7,21 @@
 
 import Foundation
 import Firebase
+import FirebaseStorage
 
 class UserController {
     // MARK: - Properties
     static let shared = UserController()
     var currentUser: User?
+    var recipe: Recipe?
+    var mealPlan: MealPlan?
     let db = Firestore.firestore()
     
     // MARK: - CRUD
     func createUser(user: User, completion: @escaping (Result<User?, UserError>) -> Void) {
         let userDict: [String : Any] = [Constants.email : user.email,
-                                        Constants.password : user.password]
+                                        Constants.password : user.password
+        ]
         
         db.collection(Constants.users).document(user.uuid).setData(userDict) { (error) in
             if let error = error {
@@ -26,15 +30,15 @@ class UserController {
                 completion(.success(user))
             }
         }
-//        db.collection(Constants.users).document(user.uuid).addDocument(data: userDict) { (error) in
-//            if let error = error {
-//                print("There was an error creating a user: \(error.localizedDescription)")
-//            } else {
-//                let
-//                let user = User(email: email, password: password)
-//                completion(.success(user))
-//            }
-//        }
+        //        db.collection(Constants.users).document(user.uuid).addDocument(data: userDict) { (error) in
+        //            if let error = error {
+        //                print("There was an error creating a user: \(error.localizedDescription)")
+        //            } else {
+        //                let
+        //                let user = User(email: email, password: password)
+        //                completion(.success(user))
+        //            }
+        //        }
     }
     
     func fetchUserWithEmail(withEmail email: String, completion: @escaping (Result<User?, UserError>) -> Void) {
@@ -80,8 +84,60 @@ class UserController {
             case .failure(let error):
                 print("There was an error fetching the user in Firestore: \(error.localizedDescription)")
             case .success(let user):
-//                guard let user = user else {return}
+                //                guard let user = user else {return}
                 self.db.collection(Constants.users).document(user.uuid).updateData([Constants.password : password])
+            }
+        }
+    }
+    
+    // MARK: - Create
+    func saveRecipe(recipe: Recipe, completion: @escaping (Result<Recipe, RecipeError>) -> Void) {
+        let recipeUID = UUID().uuidString
+        let recipeDictionary:[String: Any] = [
+            Constants.recipeLabel : recipe.label,
+            Constants.recipeImage : recipe.image ?? "",
+            Constants.recipeYield : recipe.yield,
+            Constants.recipeTotalTime : recipe.totalTime,
+            Constants.recipeUID : recipeUID,
+            Constants.recipeIngredients : recipe.ingredients,
+            Constants.dateToEat : recipe.dateToEat,
+            Constants.recipeIsChecked : recipe.isChecked
+            
+        ]
+        db.collection(Constants.recipeContainer).document(recipeUID).setData(recipeDictionary) { (error) in
+            if let error = error {
+                print(RecipeError.badData, error.localizedDescription)
+                completion(.failure(.badData))
+            } else {
+                print("Success! Recipe('s) created and stored!")
+                self.recipe = recipe
+                completion(.success(recipe))
+            }
+        }
+    }
+    
+    
+    // MARK: - Fetch
+    func fetchRecipe() {
+        RecipeController.shared.savedRecipes = []
+        db.collection(Constants.recipeContainer).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
+            } else {
+                guard let query = querySnapshot else { return }
+                for document in query.documents {
+                    let recipe = Recipe(label: (document.data()[Constants.recipeLabel] as? String ?? ""),
+                                        image: (document.data()[Constants.recipeImage] as? String ?? ""),
+                                        directions: (document.data()[Constants.recipeDirections] as? String ?? ""),
+                                        ingredients: (document.data()[Constants.recipeIngredients] as? [String] ?? [String]()),
+                                        yield: (document.data()[Constants.recipeYield] as? Int ?? 0),
+                                        totalTime: (document.data()[Constants.recipeTotalTime] as? Int ?? 0),
+                                        isChecked: (document.data()[Constants.recipeIsChecked] as? Bool ?? false),
+                                        dateToEat: (document.data()[Constants.dateToEat] as? Date ?? Date()))
+                    
+                    RecipeController.shared.savedRecipes.append(recipe)
+                    print("\(document.documentID) => \(document.data())")
+                }
             }
         }
     }

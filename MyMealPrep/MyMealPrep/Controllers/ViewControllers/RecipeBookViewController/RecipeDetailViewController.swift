@@ -42,6 +42,14 @@ class RecipeDetailViewController: UIViewController {
     @IBAction func addToRecipeBookButtonTapped(_ sender: Any) {
         guard let recipe = recipe else { return }
         RecipeController.shared.savedRecipes.append(recipe)
+        UserController.shared.saveRecipe(recipe: recipe) { (result) in
+            switch result {
+            case .success(_):
+                print("Recipe Saved!")
+            case .failure(let error):
+                print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
+            }
+        }
         navigationController?.popViewController(animated: true)
     }
     
