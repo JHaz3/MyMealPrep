@@ -22,4 +22,5 @@ struct Constants {
     static let dateToEat = "dateToEat"
     static let recipeIsChecked = "isChecked"
     static let recipeDirections = "directions"
+    static let authorID = "authorID"
 }

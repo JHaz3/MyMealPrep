@@ -216,7 +216,6 @@ class SignUpAndInViewController: UIViewController {
             let tabBar = storyboard.instantiateViewController(identifier: "tabBarController")
             tabBar.modalPresentationStyle = .fullScreen
             self.present(tabBar, animated: true)
-            UserController.shared.fetchRecipe()
         }
     }
     

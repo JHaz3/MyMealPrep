@@ -93,17 +93,20 @@ class UserController {
     // MARK: - Create
     func saveRecipe(recipe: Recipe, completion: @escaping (Result<Recipe, RecipeError>) -> Void) {
         let recipeUID = UUID().uuidString
+        let recipeAuthorID = UserController.shared.currentUser?.uuid
         let recipeDictionary:[String: Any] = [
             Constants.recipeLabel : recipe.label,
             Constants.recipeImage : recipe.image ?? "",
+            Constants.recipeDirections : recipe.directions,
+            Constants.recipeIngredients : recipe.ingredients,
             Constants.recipeYield : recipe.yield,
             Constants.recipeTotalTime : recipe.totalTime,
             Constants.recipeUID : recipeUID,
-            Constants.recipeIngredients : recipe.ingredients,
+            Constants.recipeIsChecked : recipe.isChecked,
             Constants.dateToEat : recipe.dateToEat,
-            Constants.recipeIsChecked : recipe.isChecked
-            
+            Constants.authorID : recipeAuthorID ?? ""
         ]
+        
         db.collection(Constants.recipeContainer).document(recipeUID).setData(recipeDictionary) { (error) in
             if let error = error {
                 print(RecipeError.badData, error.localizedDescription)
@@ -118,26 +121,29 @@ class UserController {
     
     
     // MARK: - Fetch
-    func fetchRecipe() {
+    func fetchRecipe(completion: @escaping (Result<[Recipe], RecipeError>) -> Void) {
         RecipeController.shared.savedRecipes = []
         db.collection(Constants.recipeContainer).getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
+                return completion(.failure(.fireError(error)))
             } else {
                 guard let query = querySnapshot else { return }
+                var fetchedRecipes: [Recipe] = []
                 for document in query.documents {
-                    let recipe = Recipe(label: (document.data()[Constants.recipeLabel] as? String ?? ""),
-                                        image: (document.data()[Constants.recipeImage] as? String ?? ""),
-                                        directions: (document.data()[Constants.recipeDirections] as? String ?? ""),
-                                        ingredients: (document.data()[Constants.recipeIngredients] as? [String] ?? [String]()),
-                                        yield: (document.data()[Constants.recipeYield] as? Int ?? 0),
-                                        totalTime: (document.data()[Constants.recipeTotalTime] as? Int ?? 0),
-                                        isChecked: (document.data()[Constants.recipeIsChecked] as? Bool ?? false),
-                                        dateToEat: (document.data()[Constants.dateToEat] as? Date ?? Date()))
+                    print("\(document.documentID) => \(document.data())")
+                    guard let recipe = Recipe(document: document) else
+                    { return completion(.failure(.badData)) }
+    
+                    fetchedRecipes.append(recipe)
                     
                     RecipeController.shared.savedRecipes.append(recipe)
-                    print("\(document.documentID) => \(document.data())")
                 }
+                print(fetchedRecipes.count)
+                let filteredRecipes = fetchedRecipes.filter {
+                    $0.authorID == UserController.shared.currentUser?.uuid }
+                print(filteredRecipes.count)
+                return completion(.success(filteredRecipes))
             }
         }
     }
