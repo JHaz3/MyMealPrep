@@ -19,6 +19,10 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Prep Logo 2x" translatesAutoresizingMaskIntoConstraints="NO" id="aFT-xm-Xyq">
                                 <rect key="frame" x="41.5" y="91" width="331" height="268.5"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="xhH-rK-iqO" appends="YES" id="F9t-cn-7aV"/>
+                                </connections>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oNN-h3-7I7">
                                 <rect key="frame" x="87" y="296.5" width="240" height="128"/>
@@ -162,6 +166,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="997-mw-WZO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="xhH-rK-iqO">
+                    <connections>
+                        <action selector="randomRecipeTapped:" destination="LKm-dk-QHH" id="QtU-G2-1nR"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2074" y="179"/>
         </scene>

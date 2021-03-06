@@ -29,11 +29,20 @@ class HomeViewController: UIViewController {
         recipeNameAndYieldView.layer.cornerRadius = 5
         recentlySavedTableView.rowHeight = 80
         setupHomeViews()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(randomRecipeTapped))
+        view.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         recentlySavedTableView.reloadData()
+    }
+    
+    @objc func randomRecipeTapped() {
+        let sb = UIStoryboard(name: "RecipeBook", bundle: nil)
+        guard let toLogin = sb.instantiateViewController(identifier: "recipeDetailVC") as? RecipeDetailViewController else {return}
+        toLogin.recipe = self.randomRecipe
+        self.navigationController?.pushViewController(toLogin, animated: true)
     }
     
     
@@ -81,6 +90,7 @@ class HomeViewController: UIViewController {
         let viewController: UIViewController = UIStoryboard(name: "RecipeBook", bundle: nil).instantiateViewController(withIdentifier: "SearchRecipeVC") as UIViewController
         self.present(viewController, animated: true, completion: nil)
     }
+    
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
