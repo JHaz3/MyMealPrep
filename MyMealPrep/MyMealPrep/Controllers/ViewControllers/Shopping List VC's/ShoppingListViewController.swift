@@ -59,6 +59,7 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     
     @IBAction func addListItemButtonTapped(_ sender: Any) {
         ShoppingListController.shared.addItemToShoppingList(with: addItemTextField.text ?? "")
+        addItemTextField.text = ""
         updateViews()
     }
     

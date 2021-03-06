@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
     // Mark: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadUserData()
         recipeImageView.layer.cornerRadius = 5
         recipeNameAndYieldView.layer.borderWidth = 0.5
         recipeNameAndYieldView.layer.cornerRadius = 5
@@ -35,6 +36,8 @@ class HomeViewController: UIViewController {
         recentlySavedTableView.reloadData()
     }
     
+    
+    // MARK: - Methods
     func setupHomeViews() {
         RecipeController.fetchRandomRecipe(searchTerm: "random") { (result) in
             DispatchQueue.main.async {
@@ -61,6 +64,18 @@ class HomeViewController: UIViewController {
         }
     }
     
+    @objc func loadUserData() {
+        UserController.shared.fetchRecipe { (result) in
+            switch result {
+            case .success(let fetchedRecipes):
+                RecipeController.shared.savedRecipes = fetchedRecipes
+                self.recentlySavedTableView.reloadData()
+            case .failure(let recipeError):
+                print("\(String(describing: recipeError.errorDescription))")
+            }
+        }
+    }
+    
     // Mark: - Actions
     @IBAction func searchButtonTapped(_ sender: Any) {
         let viewController: UIViewController = UIStoryboard(name: "RecipeBook", bundle: nil).instantiateViewController(withIdentifier: "SearchRecipeVC") as UIViewController
@@ -82,7 +97,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.recipe = recipe
             cell.isUserInteractionEnabled = true
         } else {
-            let mockRecipe = Recipe(label: "Your saved recipes will go here!", image: "Salad Icon 1x", directions: "", ingredients: [], yield: 0, totalTime: 0, users: nil, uid: nil, isChecked: false, dateToEat: Date())
+            let mockRecipe = Recipe(label: "Your saved recipes will go here!", image: "Salad Icon 1x", directions: "", ingredients: [], yield: 0, totalTime: 0, isChecked: false, dateToEat: Date())
             cell.mockRecipe = mockRecipe
             cell.isUserInteractionEnabled = false
         }

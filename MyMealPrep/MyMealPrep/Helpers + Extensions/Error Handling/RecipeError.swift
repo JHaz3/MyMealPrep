@@ -13,6 +13,9 @@ enum RecipeError: LocalizedError {
     case noData
     case badData
     case unableToDelete
+    case fireError(Error)
+    case couldNotUnwrap
+    
     var errorDescription: String? {
         switch self {
         case .thrown(let error):
@@ -25,6 +28,10 @@ enum RecipeError: LocalizedError {
             return "Server responded with bad data."
         case .unableToDelete:
             return "Mission Failed"
+        case .fireError(let error):
+            return error.localizedDescription
+        case .couldNotUnwrap:
+            return "Unable to get this Recipe."
         }
     }
 }
