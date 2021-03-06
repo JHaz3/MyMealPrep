@@ -95,17 +95,22 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        let recipeCount = RecipeController.shared.savedRecipes.count
+        if recipeCount <= 3 {
+            return recipeCount
+        } else {
+            return 3
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "homeScreenCell", for: indexPath) as? RecipeBookTableViewCell else {return UITableViewCell()}
-        if RecipeController.shared.savedRecipes.count >= 3 {
-            let arraySlice = RecipeController.shared.savedRecipes.suffix(3)
-            let recentRecipes = Array(arraySlice)
-            let recipe = recentRecipes[indexPath.row]
+        if RecipeController.shared.savedRecipes.count >= 1 {
+            let array = RecipeController.shared.savedRecipes
+            let arraySlice = array.suffix(3)
+            let newArray = Array(arraySlice)
+            let recipe = newArray[indexPath.row]
             cell.recipe = recipe
-            cell.isUserInteractionEnabled = true
         } else {
             let mockRecipe = Recipe(label: "Your saved recipes will go here!", image: "Salad Icon 1x", directions: "", ingredients: [], yield: 0, totalTime: 0, isChecked: false, dateToEat: Date())
             cell.mockRecipe = mockRecipe
