@@ -129,15 +129,19 @@ class SignUpAndInViewController: UIViewController {
                             } else {
                                 if self.isValidEmail(email) {
                                     if self.isValidPassword(password) {
-                                        let user = User(email: email, password: password)
-                                        UserController.shared.createUser(user: user) { (result) in
-                                            switch result {
-                                            case .success(let user):
-                                                UserController.shared.currentUser = user
-                                                self.toTabBar()
-                                            case .failure(let error):
-                                                print("Error creating a user in cloudFirestore: \(error.localizedDescription)")
+                                        if self.enterPasswordTextField.text == self.confirmPasswordTextField.text {
+                                            let user = User(email: email, password: password)
+                                            UserController.shared.createUser(user: user) { (result) in
+                                                switch result {
+                                                case .success(let user):
+                                                    UserController.shared.currentUser = user
+                                                    self.toTabBar()
+                                                case .failure(let error):
+                                                    print("Error creating a user in cloudFirestore: \(error.localizedDescription)")
+                                                }
                                             }
+                                        } else {
+                                            self.errorPopup(title: "Whoops", message: "Your passwords don't match. Try again")
                                         }
                                     } else {
                                         self.errorPopup(title: "Whoops", message: "Make sure your password is at least 6 characters.")

@@ -21,7 +21,10 @@ class ProfileViewController: UIViewController {
     // Mark: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        editLoginButton.layer.borderWidth = 0.5
+        contactUsButton.layer.borderWidth = 0.5
+        shareButton.layer.borderWidth = 0.5
+        logoutButton.layer.borderWidth = 0.5
     }
     
     override func viewWillAppear(_ animated: Bool) {
