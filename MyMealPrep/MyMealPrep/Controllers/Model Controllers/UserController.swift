@@ -46,7 +46,7 @@ class UserController {
             if let error = error {
                 print("There was an error fetching users: \(error.localizedDescription)")
             } else if let firstDocument = snapshot?.documents.first {
-                guard let user = User(dictionary: firstDocument.data()) else {return}
+                guard let user = User(document: firstDocument ) else {return}
                 completion(.success(user))
             } else {
                 completion(.success(nil))
@@ -59,7 +59,7 @@ class UserController {
             if let error = error {
                 print("There was an error fetching users: \(error.localizedDescription)")
             } else if let firstDocument = snapshot?.documents.first {
-                guard let user = User(dictionary: firstDocument.data()) else {return}
+                guard let user = User(document: firstDocument) else {return}
                 completion(.success(user))
             }
         }
