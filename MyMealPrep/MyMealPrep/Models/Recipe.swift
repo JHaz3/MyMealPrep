@@ -57,7 +57,7 @@ class Recipe: Codable {
         self.authorID = authorID
     }
     
-    convenience init?(document: DocumentSnapshot) {
+    convenience init?(document: [String : Any]) {
         guard let label = document[Constants.recipeLabel] as? String,
               let image = document[Constants.recipeImage] as? String,
               let directions = document[Constants.recipeDirections] as? String,
@@ -66,11 +66,12 @@ class Recipe: Codable {
               let totalTime = document[Constants.recipeTotalTime] as? Int,
               let uid = document[Constants.recipeUID] as? String,
               let isChecked = document[Constants.recipeIsChecked] as? Bool,
-              let dateToEat = document[Constants.dateToEat] as? Date,
-              let authorID = document[Constants.authorID] as? String
-        else { return nil }
+              let dateToEat = document[Constants.dateToEat] as? Timestamp,
+              let authorID = document[Constants.authorID] as? String else {
+            return nil
+        }
         
-        self.init(label: label, image: image, directions: directions, ingredients: ingredients, yield: yield, totalTime: totalTime, uid: uid, isChecked: isChecked, dateToEat: dateToEat, authorID: authorID)
+        self.init(label: label, image: image, directions: directions, ingredients: ingredients, yield: yield, totalTime: totalTime, uid: uid, isChecked: isChecked, dateToEat: dateToEat.dateValue(), authorID: authorID)
     }
     
 }// End of Class

@@ -132,16 +132,15 @@ class UserController {
                 var fetchedRecipes: [Recipe] = []
                 for document in query.documents {
                     print("\(document.documentID) => \(document.data())")
-                    guard let recipe = Recipe(document: document) else
+                    guard let recipe = Recipe(document: document.data()) else
                     { return completion(.failure(.badData)) }
     
                     fetchedRecipes.append(recipe)
-                    
-                    RecipeController.shared.savedRecipes.append(recipe)
                 }
                 print(fetchedRecipes.count)
                 let filteredRecipes = fetchedRecipes.filter {
                     $0.authorID == UserController.shared.currentUser?.uuid }
+                RecipeController.shared.savedRecipes = fetchedRecipes
                 print(filteredRecipes.count)
                 return completion(.success(filteredRecipes))
             }
