@@ -29,11 +29,21 @@ class HomeViewController: UIViewController {
         recipeNameAndYieldView.layer.cornerRadius = 5
         recentlySavedTableView.rowHeight = 80
         setupHomeViews()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(randomRecipeTapped))
+        view.addGestureRecognizer(tap)
+        recentlySavedTableView.isScrollEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         recentlySavedTableView.reloadData()
+    }
+    
+    @objc func randomRecipeTapped() {
+        let sb = UIStoryboard(name: "RecipeBook", bundle: nil)
+        guard let toLogin = sb.instantiateViewController(identifier: "recipeDetailVC") as? RecipeDetailViewController else {return}
+        toLogin.recipe = self.randomRecipe
+        self.navigationController?.pushViewController(toLogin, animated: true)
     }
     
     
@@ -81,26 +91,57 @@ class HomeViewController: UIViewController {
         let viewController: UIViewController = UIStoryboard(name: "RecipeBook", bundle: nil).instantiateViewController(withIdentifier: "SearchRecipeVC") as UIViewController
         self.present(viewController, animated: true, completion: nil)
     }
+    
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        let recipeCount = RecipeController.shared.savedRecipes.count
+        if recipeCount <= 3 {
+            return recipeCount
+        } else {
+            return 3
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = view.backgroundColor
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 15
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "homeScreenCell", for: indexPath) as? RecipeBookTableViewCell else {return UITableViewCell()}
-        if RecipeController.shared.savedRecipes.count >= 3 {
-            let arraySlice = RecipeController.shared.savedRecipes.suffix(3)
-            let recentRecipes = Array(arraySlice)
-            let recipe = recentRecipes[indexPath.row]
+        if RecipeController.shared.savedRecipes.count >= 1 {
+            let array = RecipeController.shared.savedRecipes
+            let arraySlice = array.suffix(3)
+            let newArray = Array(arraySlice)
+            let recipe = newArray[indexPath.section]
             cell.recipe = recipe
-            cell.isUserInteractionEnabled = true
         } else {
             let mockRecipe = Recipe(label: "Your saved recipes will go here!", image: "Salad Icon 1x", directions: "", ingredients: [], yield: 0, totalTime: 0, isChecked: false, dateToEat: Date())
             cell.mockRecipe = mockRecipe
             cell.isUserInteractionEnabled = false
         }
+        
+        cell.layer.cornerRadius = 5.0
+        cell.layer.borderWidth = 0.5
+        cell.layer.borderColor = UIColor.lightGray.cgColor        
+        cell.backgroundColor = .clear // very important
+        cell.layer.masksToBounds = false
+        cell.layer.shadowOpacity = 0.5
+        cell.layer.shadowRadius = 4
+        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+        cell.layer.shadowColor = UIColor.lightGray.cgColor
         return cell
     }
     

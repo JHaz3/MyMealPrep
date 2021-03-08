@@ -34,6 +34,7 @@ class EditLoginInfoViewController: UIViewController {
         reEnterPasswordView.layer.borderWidth = 0.5
         reEnterPasswordView.layer.borderColor = UIColor.lightGray.cgColor
         reEnterPasswordView.layer.cornerRadius = 25
+        saveButton.layer.cornerRadius = 15
     }
     
     func updateUsersEmail() {
