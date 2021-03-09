@@ -84,6 +84,15 @@ class HomeViewController: UIViewController {
                 print("\(String(describing: recipeError.errorDescription))")
             }
         }
+        
+        UserController.shared.fetchMealPlans { (result) in
+            switch result {
+            case .success(let fetchedMealPlans):
+                MealPlanController.shared.mealPlans = fetchedMealPlans
+            case .failure(let mealPlanError):
+                print("\(String(describing: mealPlanError.errorDescription))")
+            }
+        }
     }
     
     // Mark: - Actions

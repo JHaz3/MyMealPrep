@@ -40,6 +40,15 @@ class SelectMealPlanRecipesViewController: UIViewController, UITableViewDataSour
         guard let mealPlan = mealPlan else { return }
         mealPlan.recipes = checkedRecipes
         
+        UserController.shared.saveMealPlan(mealPlan: mealPlan) { (result) in
+            switch result {
+            case .success(_):
+                print("Meal Plan Saved!")
+            case .failure(let error):
+                print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
+            }
+        }
+        
         if let vc = storyboard?.instantiateViewController(identifier: "mealPlanDetailVC") as?
             MealPlanDetailViewController {
             vc.mealPlan = mealPlan

@@ -23,4 +23,9 @@ struct Constants {
     static let recipeIsChecked = "isChecked"
     static let recipeDirections = "directions"
     static let authorID = "authorID"
+    static let mealPlanName = "mealPlanName"
+    static let startDate = "startDate"
+    static let endDate = "endDate"
+    static let mealPlanRecipes = "mealPlanRecipes"
+    static let mealPlanUID = "mealPlanUID"
 }
