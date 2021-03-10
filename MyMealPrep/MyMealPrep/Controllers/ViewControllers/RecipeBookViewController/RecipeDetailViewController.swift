@@ -38,7 +38,7 @@ class RecipeDetailViewController: UIViewController {
         
     }
     
-    // Mark: - Actions
+    // MARK: - Actions
     @IBAction func addToRecipeBookButtonTapped(_ sender: Any) {
         guard let recipe = recipe else { return }
         RecipeController.shared.savedRecipes.append(recipe)
@@ -61,7 +61,7 @@ class RecipeDetailViewController: UIViewController {
         guard let recipe = recipe else { return }
         recipeNameLabel.text = recipe.label
         recipeCookTimeLabel.text = "\(recipe.totalTime) min"
-        recipeYieldLabel.text = "Yield: \(recipe.yield)"
+        recipeYieldLabel.text = "Servings: \(recipe.yield)"
         
         RecipeController.fetchImage(for: recipe) { (result) in
             switch result {

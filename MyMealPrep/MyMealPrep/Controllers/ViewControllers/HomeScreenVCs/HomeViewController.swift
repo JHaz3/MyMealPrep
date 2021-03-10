@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    // Mark: - Outlets
+    // MARK: - Outlets
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var recipeYieldLabel: UILabel!
@@ -19,8 +19,9 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
     var randomRecipe: Recipe?
+    var recentlySavedRecipes: [Recipe]?
     
-    // Mark: - Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         loadUserData()
@@ -29,8 +30,6 @@ class HomeViewController: UIViewController {
         recipeNameAndYieldView.layer.cornerRadius = 5
         recentlySavedTableView.rowHeight = 80
         setupHomeViews()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(randomRecipeTapped))
-        view.addGestureRecognizer(tap)
         recentlySavedTableView.isScrollEnabled = false
     }
     
@@ -39,13 +38,13 @@ class HomeViewController: UIViewController {
         recentlySavedTableView.reloadData()
     }
     
-    @objc func randomRecipeTapped() {
+    @IBAction func randomRecipeTapped(_ gestureRecognizer : UITapGestureRecognizer) {
+        guard gestureRecognizer.view != nil else { return }
         let sb = UIStoryboard(name: "RecipeBook", bundle: nil)
-        guard let toLogin = sb.instantiateViewController(identifier: "recipeDetailVC") as? RecipeDetailViewController else {return}
-        toLogin.recipe = self.randomRecipe
-        self.navigationController?.pushViewController(toLogin, animated: true)
+        guard let toDetail = sb.instantiateViewController(identifier: "recipeDetailVC") as? RecipeDetailViewController else {return}
+        toDetail.recipe = self.randomRecipe
+        self.navigationController?.pushViewController(toDetail, animated: true)
     }
-    
     
     // MARK: - Methods
     func setupHomeViews() {
@@ -86,12 +85,11 @@ class HomeViewController: UIViewController {
         }
     }
     
-    // Mark: - Actions
+    // MARK: - Actions
     @IBAction func searchButtonTapped(_ sender: Any) {
         let viewController: UIViewController = UIStoryboard(name: "RecipeBook", bundle: nil).instantiateViewController(withIdentifier: "SearchRecipeVC") as UIViewController
         self.present(viewController, animated: true, completion: nil)
     }
-    
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -126,17 +124,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let arraySlice = array.suffix(3)
             let newArray = Array(arraySlice)
             let recipe = newArray[indexPath.section]
+            recentlySavedRecipes = newArray
             cell.recipe = recipe
         } else {
             let mockRecipe = Recipe(label: "Your saved recipes will go here!", image: "Salad Icon 1x", directions: "", ingredients: [], yield: 0, totalTime: 0, isChecked: false, dateToEat: Date())
             cell.mockRecipe = mockRecipe
             cell.isUserInteractionEnabled = false
         }
-        
         cell.layer.cornerRadius = 5.0
         cell.layer.borderWidth = 0.5
         cell.layer.borderColor = UIColor.lightGray.cgColor        
-        cell.backgroundColor = .clear // very important
+        cell.backgroundColor = .clear
         cell.layer.masksToBounds = false
         cell.layer.shadowOpacity = 0.5
         cell.layer.shadowRadius = 4
@@ -145,12 +143,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showRecipeDetails" {
-            guard let indexPath = recentlySavedTableView.indexPathForSelectedRow,
-                  let destination = segue.destination as? HomeRecipeDetailViewController else { return }
-            let recipe = RecipeController.shared.savedRecipes[indexPath.row]
-            destination.recipe = recipe
-        }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedRecipe = recentlySavedRecipes?[indexPath.section]
+        let sb = UIStoryboard(name: "RecipeBook", bundle: nil)
+        guard let toDetail = sb.instantiateViewController(identifier: "savedRecipeDetailVC") as? SavedRecipesDetailViewController else {return}
+        toDetail.recipe = selectedRecipe
+        self.navigationController?.pushViewController(toDetail, animated: true)
     }
 }// End of Extension

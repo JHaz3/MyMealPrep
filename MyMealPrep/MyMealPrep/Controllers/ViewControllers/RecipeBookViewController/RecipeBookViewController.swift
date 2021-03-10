@@ -84,7 +84,6 @@ extension RecipeBookViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRecipeDetails" {
             guard let indexPath = savedRecipesTV.indexPathForSelectedRow,
@@ -93,7 +92,4 @@ extension RecipeBookViewController: UITableViewDataSource, UITableViewDelegate {
             destination.recipe = recipe
         }
     }
-    
-    
-    
 }// End of Extension

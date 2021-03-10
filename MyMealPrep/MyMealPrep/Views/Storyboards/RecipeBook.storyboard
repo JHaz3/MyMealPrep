@@ -307,19 +307,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kcg-j2-HTO">
-                                <rect key="frame" x="0.0" y="98" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Kcg-j2-HTO">
+                                <rect key="frame" x="0.0" y="94" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikc-YN-MCa">
-                                <rect key="frame" x="10.5" y="158" width="103.5" height="44.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="16D-Tu-PFp">
-                                <rect key="frame" x="0.0" y="204" width="414" height="538"/>
+                                <rect key="frame" x="0.0" y="149.5" width="414" height="672"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" rowHeight="71" id="Qf4-99-pUp" customClass="RecipeBookTableViewCell" customModule="MyMealPrep" customModuleProvider="target">
@@ -388,14 +381,13 @@
                         <viewLayoutGuide key="safeArea" id="UjM-fR-Uxs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="16D-Tu-PFp" firstAttribute="height" secondItem="41h-F5-4ck" secondAttribute="height" multiplier="0.6" id="GZM-Pk-aKS"/>
-                            <constraint firstItem="16D-Tu-PFp" firstAttribute="centerY" secondItem="UjM-fR-Uxs" secondAttribute="centerY" multiplier="1.05" id="T0m-jZ-TWP"/>
-                            <constraint firstItem="ikc-YN-MCa" firstAttribute="centerY" secondItem="UjM-fR-Uxs" secondAttribute="centerY" multiplier="0.4" id="d6o-4h-oAH"/>
+                            <constraint firstItem="Kcg-j2-HTO" firstAttribute="centerX" secondItem="UjM-fR-Uxs" secondAttribute="centerX" id="40a-mL-MEI"/>
+                            <constraint firstItem="16D-Tu-PFp" firstAttribute="height" secondItem="41h-F5-4ck" secondAttribute="height" multiplier="0.75" id="GZM-Pk-aKS"/>
+                            <constraint firstItem="16D-Tu-PFp" firstAttribute="top" secondItem="Kcg-j2-HTO" secondAttribute="bottom" id="l5S-2X-57N"/>
                             <constraint firstItem="16D-Tu-PFp" firstAttribute="centerX" secondItem="UjM-fR-Uxs" secondAttribute="centerX" id="lHv-da-WWY"/>
                             <constraint firstItem="16D-Tu-PFp" firstAttribute="width" secondItem="41h-F5-4ck" secondAttribute="width" id="nBq-Om-fqM"/>
-                            <constraint firstItem="ikc-YN-MCa" firstAttribute="width" secondItem="41h-F5-4ck" secondAttribute="width" multiplier="0.25" id="oQy-px-VaG"/>
-                            <constraint firstItem="ikc-YN-MCa" firstAttribute="height" secondItem="41h-F5-4ck" secondAttribute="height" multiplier="0.05" id="x7d-BW-Dgv"/>
-                            <constraint firstItem="ikc-YN-MCa" firstAttribute="centerX" secondItem="UjM-fR-Uxs" secondAttribute="centerX" multiplier="0.3" id="y21-Ul-7rQ"/>
+                            <constraint firstItem="Kcg-j2-HTO" firstAttribute="width" secondItem="41h-F5-4ck" secondAttribute="width" id="tPj-QE-Lkh"/>
+                            <constraint firstItem="Kcg-j2-HTO" firstAttribute="centerY" secondItem="UjM-fR-Uxs" secondAttribute="centerY" multiplier="0.27" id="tas-WY-wAl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DR0-ej-9VJ"/>

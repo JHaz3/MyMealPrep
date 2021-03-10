@@ -20,7 +20,7 @@ class RecipeBookTableViewCell: UITableViewCell {
         didSet {
             guard let recipe = recipe else { return }
             recipeNameLabel.text = recipe.label
-            recipeYieldLabel.text = "Yield: \(recipe.yield)"
+            recipeYieldLabel.text = "Servings: \(recipe.yield)"
             recipeCookTimeLabel.text = "\(recipe.totalTime) min"
             recipeImageView.layer.cornerRadius = 5
             
