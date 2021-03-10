@@ -17,11 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Prep Logo 2x" translatesAutoresizingMaskIntoConstraints="NO" id="aFT-xm-Xyq">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Prep Logo 2x" translatesAutoresizingMaskIntoConstraints="NO" id="aFT-xm-Xyq">
                                 <rect key="frame" x="41.5" y="91" width="331" height="268.5"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="xhH-rK-iqO" appends="YES" id="F9t-cn-7aV"/>
+                                    <outletCollection property="gestureRecognizers" destination="nrT-gG-LZv" appends="YES" id="qX6-gd-ca4"/>
                                 </connections>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oNN-h3-7I7">
@@ -115,7 +115,6 @@
                                             <outlet property="recipeImageView" destination="WmN-XB-Jdg" id="fiJ-hN-2HX"/>
                                             <outlet property="recipeNameLabel" destination="LNy-DF-GCl" id="IoJ-Tf-Ae7"/>
                                             <outlet property="recipeYieldLabel" destination="cON-rH-ieL" id="PYr-5I-vec"/>
-                                            <segue destination="F03-zT-uCP" kind="show" identifier="showRecipeDetails" id="Yvn-0X-lyA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -166,9 +165,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="997-mw-WZO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="xhH-rK-iqO">
+                <tapGestureRecognizer id="nrT-gG-LZv">
                     <connections>
-                        <action selector="randomRecipeTapped:" destination="LKm-dk-QHH" id="QtU-G2-1nR"/>
+                        <action selector="randomRecipeTapped:" destination="LKm-dk-QHH" id="d3v-tz-JJh"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -204,7 +203,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edp-IH-jpK">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cqQ-pA-a2H">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
