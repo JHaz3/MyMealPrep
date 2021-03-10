@@ -136,7 +136,7 @@ class UserController {
                 print(MealPlanError.badData, error.localizedDescription)
                 completion(.failure(.badData))
             } else {
-                print("Success! MealPLan created and stored")
+                print("Success! Meal Plan created and stored")
                 self.mealPlan = mealPlan
                 completion(.success(mealPlan))
             }
@@ -190,6 +190,10 @@ class UserController {
                 return completion(.success(filteredMealPlans))
             }
         }
+    }
+    
+    func deleteRecipe(recipe: Recipe) {
+        db.collection(Constants.recipeContainer).document().delete()
     }
     
 } // End of Class

@@ -28,4 +28,5 @@ struct Constants {
     static let endDate = "endDate"
     static let mealPlanRecipes = "mealPlanRecipes"
     static let mealPlanUID = "mealPlanUID"
+    static let mealPlanEncodedRecipes = "mealPlanEncodedRecipes"
 }
