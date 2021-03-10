@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    // Mark: - Outlets
+    // MARK: - Outlets
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var recipeYieldLabel: UILabel!
@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
     var randomRecipe: Recipe?
     var recentlySavedRecipes: [Recipe]?
     
-    // Mark: - Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         loadUserData()
@@ -30,8 +30,6 @@ class HomeViewController: UIViewController {
         recipeNameAndYieldView.layer.cornerRadius = 5
         recentlySavedTableView.rowHeight = 80
         setupHomeViews()
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(randomRecipeTapped))
-//        view.addGestureRecognizer(tap)
         recentlySavedTableView.isScrollEnabled = false
     }
     
@@ -39,13 +37,6 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         recentlySavedTableView.reloadData()
     }
-    
-//    @objc func randomRecipeTapped() {
-//        let sb = UIStoryboard(name: "RecipeBook", bundle: nil)
-//        guard let toLogin = sb.instantiateViewController(identifier: "recipeDetailVC") as? RecipeDetailViewController else {return}
-//        toLogin.recipe = self.randomRecipe
-//        self.navigationController?.pushViewController(toLogin, animated: true)
-//    }
     
     @IBAction func randomRecipeTapped(_ gestureRecognizer : UITapGestureRecognizer) {
         guard gestureRecognizer.view != nil else { return }
@@ -94,12 +85,11 @@ class HomeViewController: UIViewController {
         }
     }
     
-    // Mark: - Actions
+    // MARK: - Actions
     @IBAction func searchButtonTapped(_ sender: Any) {
         let viewController: UIViewController = UIStoryboard(name: "RecipeBook", bundle: nil).instantiateViewController(withIdentifier: "SearchRecipeVC") as UIViewController
         self.present(viewController, animated: true, completion: nil)
     }
-    
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -141,7 +131,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.mockRecipe = mockRecipe
             cell.isUserInteractionEnabled = false
         }
-        
         cell.layer.cornerRadius = 5.0
         cell.layer.borderWidth = 0.5
         cell.layer.borderColor = UIColor.lightGray.cgColor        
@@ -162,5 +151,3 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.pushViewController(toDetail, animated: true)
     }
 }// End of Extension
-
-
