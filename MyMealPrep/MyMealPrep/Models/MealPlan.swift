@@ -54,7 +54,7 @@ class MealPlan: Codable {
         guard let mealPLanName = document[Constants.mealPlanName] as? String,
               let startDate = document[Constants.startDate] as? Timestamp,
               let endDate = document[Constants.endDate] as? Timestamp,
-              let recipes = document[Constants.mealPlanEncodedRecipes] as? [Recipe],
+              let recipes = document[Constants.mealPlanEncodedRecipes] as? [[String : Any]], // how to get recipes back from firebase correctly?
               let authorID = document[Constants.authorID] as? String,
               let mealPlanUID = document[Constants.mealPlanUID] as? String else {
             return nil
