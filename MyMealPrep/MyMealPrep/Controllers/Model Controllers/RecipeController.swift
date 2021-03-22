@@ -127,6 +127,7 @@ class RecipeController {
     func deleteRecipe(recipe: Recipe) {
         guard let index = savedRecipes.firstIndex(of: recipe) else { return }
         savedRecipes.remove(at: index)
+        UserController.shared.deleteRecipe(recipe: recipe)
         saveToPersistentStorage()
     }
     

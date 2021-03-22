@@ -2,7 +2,7 @@
 //  MealPlanError.swift
 //  MyMealPrep
 //
-//  Created by Jake Haslam on 3/8/21.
+//  Created by Jake Haslam on 3/22/21.
 //
 
 import Foundation
@@ -14,7 +14,6 @@ enum MealPlanError: LocalizedError {
     case badData
     case unableToDelete
     case fireError(Error)
-    case couldNotUnwrap
     
     var errorDescription: String? {
         switch self {
@@ -27,11 +26,9 @@ enum MealPlanError: LocalizedError {
         case .badData:
             return "Server responded with bad data."
         case .unableToDelete:
-            return "Unable to Delete"
-        case .fireError(_):
-            return "Fire Error :("
-        case .couldNotUnwrap:
-           return "Could not unwrap data"
+            return "Mission Failed"
+        case .fireError(let error):
+            return error.localizedDescription
         }
     }
 }

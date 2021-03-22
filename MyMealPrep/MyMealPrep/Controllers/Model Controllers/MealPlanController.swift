@@ -44,6 +44,7 @@ class MealPlanController {
     func deleteMealPlan(mealPlan: MealPlan) {
         guard let index = mealPlans.firstIndex(of: mealPlan) else { return }
         mealPlans.remove(at: index)
+        UserController.shared.deleteMealPlan(mealPlan: mealPlan)
         saveToPersistentStorage()
     }
     
