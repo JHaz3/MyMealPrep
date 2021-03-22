@@ -54,7 +54,7 @@ class UserController {
         }
     }
     
-    func fetchUserWithPassword(withPassword password: String, completion: @escaping (Result<User, UserError>) -> Void) {
+    func fetchUserWithPassword(withPassword password: String, completion: @escaping (Result<User?, UserError>) -> Void) {
         db.collection(Constants.users).whereField(Constants.password, isEqualTo: password).getDocuments { (snapshot, error) in
             if let error = error {
                 print("There was an error fetching users: \(error.localizedDescription)")
@@ -79,12 +79,13 @@ class UserController {
     }
     
     func updatePassword(withPassword password: String, completion: @escaping (String) -> Void) {
-        self.fetchUserWithPassword(withPassword: password) { (result) in
+        guard let currentUser = self.currentUser else {return}
+        fetchUserWithEmail(withEmail: currentUser.email) { (result) in
             switch result {
             case .failure(let error):
                 print("There was an error fetching the user in Firestore: \(error.localizedDescription)")
             case .success(let user):
-                //                guard let user = user else {return}
+                guard let user = user else {return}
                 self.db.collection(Constants.users).document(user.uuid).updateData([Constants.password : password])
             }
         }
