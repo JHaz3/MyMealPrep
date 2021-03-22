@@ -119,6 +119,29 @@ class UserController {
         }
     }
     
+    func saveMealPlan(mealPlan: MealPlan, completion: @escaping (Result<MealPlan, MealPlanError>) -> Void) {
+        let mealPlanUID = UUID().uuidString
+        let mealPlanAuthorID = UserController.shared.currentUser?.uuid
+        let mealPlanDictionary: [String: Any] = [
+            Constants.mealPlanName : mealPlan.mealPlanName,
+            Constants.startDate : mealPlan.startDate,
+            Constants.endDate : mealPlan.endDate,
+            Constants.mealPlanRecipes : mealPlan.encodedRecipes,
+            Constants.authorID : mealPlanAuthorID ?? "",
+            Constants.mealPlanUID : mealPlanUID
+        ]
+        
+        db.collection(Constants.mealPlanContainer).document(mealPlanUID).setData(mealPlanDictionary) { (error) in
+            if let error = error {
+                print(MealPlanError.badData, error.localizedDescription)
+                completion(.failure(.badData))
+            } else {
+                print("Success! Meal Plan created and stored")
+                self.mealPlan = mealPlan
+                completion(.success(mealPlan))
+            }
+        }
+    }
     
     // MARK: - Fetch
     func fetchRecipe(completion: @escaping (Result<[Recipe], RecipeError>) -> Void) {
@@ -134,17 +157,43 @@ class UserController {
                     print("\(document.documentID) => \(document.data())")
                     guard let recipe = Recipe(document: document.data()) else
                     { return completion(.failure(.badData)) }
-    
+                    
                     fetchedRecipes.append(recipe)
                 }
-                print(fetchedRecipes.count)
                 let filteredRecipes = fetchedRecipes.filter {
                     $0.authorID == UserController.shared.currentUser?.uuid }
                 RecipeController.shared.savedRecipes = fetchedRecipes
-                print(filteredRecipes.count)
                 return completion(.success(filteredRecipes))
             }
         }
     }
     
-}// End of Class
+    func fetchMealPlans(completion: @escaping (Result<[MealPlan], MealPlanError>) -> Void) {
+        MealPlanController.shared.mealPlans = []
+        db.collection(Constants.mealPlanContainer).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
+                return completion(.failure(.fireError(error)))
+            } else {
+                guard let query = querySnapshot else { return }
+                var fetchedMealPlans: [MealPlan] = []
+                for document in query.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    guard let mealPlan = MealPlan(document: document.data()) else
+                    { return completion(.failure(.badData)) }
+                    
+                    fetchedMealPlans.append(mealPlan)
+                }
+                let filteredMealPlans = fetchedMealPlans.filter {
+                    $0.authorID == UserController.shared.currentUser?.uuid }
+                MealPlanController.shared.mealPlans = fetchedMealPlans
+                return completion(.success(filteredMealPlans))
+            }
+        }
+    }
+    
+    func deleteRecipe(recipe: Recipe) {
+        db.collection(Constants.recipeContainer).document().delete()
+    }
+    
+} // End of Class

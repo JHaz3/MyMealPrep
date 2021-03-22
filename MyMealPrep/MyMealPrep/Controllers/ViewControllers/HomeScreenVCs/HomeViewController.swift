@@ -74,13 +74,24 @@ class HomeViewController: UIViewController {
     }
     
     @objc func loadUserData() {
-        UserController.shared.fetchRecipe { (result) in
-            switch result {
-            case .success(let fetchedRecipes):
-                RecipeController.shared.savedRecipes = fetchedRecipes
-                self.recentlySavedTableView.reloadData()
-            case .failure(let recipeError):
-                print("\(String(describing: recipeError.errorDescription))")
+        DispatchQueue.main.async {
+            UserController.shared.fetchRecipe { (result) in
+                switch result {
+                case .success(let fetchedRecipes):
+                    RecipeController.shared.savedRecipes = fetchedRecipes
+                    self.recentlySavedTableView.reloadData()
+                case .failure(let recipeError):
+                    print("\(String(describing: recipeError.errorDescription))")
+                }
+            }
+            
+            UserController.shared.fetchMealPlans { (result) in
+                switch result {
+                case .success(let fetchedMealPlans):
+                    MealPlanController.shared.mealPlans = fetchedMealPlans
+                case .failure(let mealPlanError):
+                    print("\(String(describing: mealPlanError.errorDescription))")
+                }
             }
         }
     }

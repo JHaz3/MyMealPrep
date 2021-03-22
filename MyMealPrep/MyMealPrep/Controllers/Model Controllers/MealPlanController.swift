@@ -26,7 +26,7 @@ class MealPlanController {
             guard let newDate = dates.last?.addingTimeInterval(numberOfSecondsInDay) else { continue }
             dates.append(newDate)
         }
-       let mealPlan = MealPlan(mealPlanName: "\(formatDate(date: startDate) ) - \(formatDate(date: endDate))", startDate: startDate, endDate: endDate, recipes: [])
+        let mealPlan = MealPlan(mealPlanName: "\(formatDate(date: startDate) ) - \(formatDate(date: endDate))", startDate: startDate, endDate: endDate, recipes: [])
         mealPlans.append(mealPlan)
     }
     

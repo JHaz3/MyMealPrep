@@ -87,5 +87,6 @@ extension Recipe: Equatable {
             && lhs.yield == rhs.yield
             && lhs.totalTime == rhs.totalTime
             && lhs.dateToEat == rhs.dateToEat
+            && lhs.authorID == rhs.authorID
     }
 }
