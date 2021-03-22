@@ -248,6 +248,9 @@
                                         <state key="normal" title="Need some help?">
                                             <color key="titleColor" name="offWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="oIU-lb-3RY" kind="show" id="OPx-wW-840"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -294,6 +297,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="912-be-69t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2328" y="806"/>
+        </scene>
+        <!--Need Help View Controller-->
+        <scene sceneID="dXo-bb-F1Y">
+            <objects>
+                <viewController id="oIU-lb-3RY" customClass="NeedHelpViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3aR-LD-UNp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2o-82-iRd">
+                                <rect key="frame" x="41.5" y="181" width="331" height="42"/>
+                                <color key="backgroundColor" name="red"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <state key="normal" title="Password Reset">
+                                    <color key="titleColor" name="offWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="passwordResetTapped:" destination="oIU-lb-3RY" eventType="touchUpInside" id="VpD-21-1tu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6f-Kp-7sw">
+                                <rect key="frame" x="41.5" y="262" width="331" height="42"/>
+                                <color key="backgroundColor" name="red"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <state key="normal" title="Update Email">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateEmailTapped:" destination="oIU-lb-3RY" eventType="touchUpInside" id="t5V-pe-bqM"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type email here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YGb-i3-5pG">
+                                <rect key="frame" x="35" y="383" width="344" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3cK-9K-ctv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3cK-9K-ctv" firstAttribute="trailing" secondItem="YGb-i3-5pG" secondAttribute="trailing" constant="35" id="2dI-Pf-MP9"/>
+                            <constraint firstItem="G2o-82-iRd" firstAttribute="centerY" secondItem="3cK-9K-ctv" secondAttribute="centerY" multiplier="0.5" id="2f1-Lx-mML"/>
+                            <constraint firstItem="l6f-Kp-7sw" firstAttribute="height" secondItem="3aR-LD-UNp" secondAttribute="height" multiplier="0.05" id="7fv-JK-yEw"/>
+                            <constraint firstItem="YGb-i3-5pG" firstAttribute="leading" secondItem="3cK-9K-ctv" secondAttribute="leading" constant="35" id="GSJ-Du-O7a"/>
+                            <constraint firstItem="G2o-82-iRd" firstAttribute="height" secondItem="3aR-LD-UNp" secondAttribute="height" multiplier="0.05" id="H9U-WL-rxr"/>
+                            <constraint firstItem="l6f-Kp-7sw" firstAttribute="centerX" secondItem="3cK-9K-ctv" secondAttribute="centerX" id="HYc-g1-WIo"/>
+                            <constraint firstItem="l6f-Kp-7sw" firstAttribute="width" secondItem="3aR-LD-UNp" secondAttribute="width" multiplier="0.8" id="OL2-iL-MwB"/>
+                            <constraint firstItem="l6f-Kp-7sw" firstAttribute="centerY" secondItem="3cK-9K-ctv" secondAttribute="centerY" multiplier="0.7" id="OmS-D8-2dF"/>
+                            <constraint firstItem="G2o-82-iRd" firstAttribute="centerX" secondItem="3cK-9K-ctv" secondAttribute="centerX" id="VNQ-pN-ecQ"/>
+                            <constraint firstItem="YGb-i3-5pG" firstAttribute="height" secondItem="3aR-LD-UNp" secondAttribute="height" multiplier="0.05" id="Vgw-nm-Vse"/>
+                            <constraint firstItem="YGb-i3-5pG" firstAttribute="centerX" secondItem="3cK-9K-ctv" secondAttribute="centerX" id="c9o-HD-YlM"/>
+                            <constraint firstItem="G2o-82-iRd" firstAttribute="width" secondItem="3aR-LD-UNp" secondAttribute="width" multiplier="0.8" id="rqW-5U-eJc"/>
+                            <constraint firstItem="YGb-i3-5pG" firstAttribute="centerY" secondItem="3cK-9K-ctv" secondAttribute="centerY" id="tlo-iC-7g6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="YyT-JR-XcA"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="YGb-i3-5pG" id="wWe-pQ-L78"/>
+                        <outlet property="passwordResetButton" destination="G2o-82-iRd" id="EXS-Cy-Qy7"/>
+                        <outlet property="updateEmailButton" destination="l6f-Kp-7sw" id="7g6-Vf-iRj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="okb-QV-KuL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3092.753623188406" y="805.58035714285711"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="dRE-Ga-mzI">

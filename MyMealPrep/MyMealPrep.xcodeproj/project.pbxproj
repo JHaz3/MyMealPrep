@@ -11,7 +11,9 @@
 		3577C10425EECFF0004C9803 /* EditLoginInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3577C10325EECFF0004C9803 /* EditLoginInfoViewController.swift */; };
 		3585FF8125DCAA1100B0AFEC /* RecipeBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585FF8025DCAA1100B0AFEC /* RecipeBookTableViewCell.swift */; };
 		35B1430425DDB792007D7D1B /* RecipeBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1430325DDB792007D7D1B /* RecipeBookViewController.swift */; };
+		35E0E2092609113E0088149E /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E0E2082609113E0088149E /* ContactUsViewController.swift */; };
 		35F7E25F25F0422600016280 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F7E25E25F0422600016280 /* Constants.swift */; };
+		35F7E29125F98CB700016280 /* NeedHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F7E29025F98CB700016280 /* NeedHelpViewController.swift */; };
 		503787DDA6D818F485CBBB6B /* Pods_MyMealPrep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAFAC285B8703D5B03F107CF /* Pods_MyMealPrep.framework */; };
 		EB0E2ACD260902D900EA738A /* MealPlanError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0E2ACC260902D900EA738A /* MealPlanError.swift */; };
 		EB0F133B25E4667100BDCDD4 /* SavedRecipesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F133A25E4667100BDCDD4 /* SavedRecipesDetailViewController.swift */; };
@@ -65,7 +67,9 @@
 		3577C10325EECFF0004C9803 /* EditLoginInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLoginInfoViewController.swift; sourceTree = "<group>"; };
 		3585FF8025DCAA1100B0AFEC /* RecipeBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeBookTableViewCell.swift; sourceTree = "<group>"; };
 		35B1430325DDB792007D7D1B /* RecipeBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeBookViewController.swift; sourceTree = "<group>"; };
+		35E0E2082609113E0088149E /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		35F7E25E25F0422600016280 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		35F7E29025F98CB700016280 /* NeedHelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedHelpViewController.swift; sourceTree = "<group>"; };
 		DAFAC285B8703D5B03F107CF /* Pods_MyMealPrep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMealPrep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0E2ACC260902D900EA738A /* MealPlanError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanError.swift; sourceTree = "<group>"; };
 		EB0F133A25E4667100BDCDD4 /* SavedRecipesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipesDetailViewController.swift; sourceTree = "<group>"; };
@@ -319,6 +323,8 @@
 				EB94E3C125D79A05000A518C /* ProfileViewController.swift */,
 				EB94E74025DF5428000A518C /* SignUpAndInViewController.swift */,
 				3577C10325EECFF0004C9803 /* EditLoginInfoViewController.swift */,
+				35F7E29025F98CB700016280 /* NeedHelpViewController.swift */,
+				35E0E2082609113E0088149E /* ContactUsViewController.swift */,
 			);
 			path = ProfileVCs;
 			sourceTree = "<group>";
@@ -487,6 +493,7 @@
 				EB0F134225E829AF00BDCDD4 /* ShoppingListViewController.swift in Sources */,
 				EB94E74125DF5428000A518C /* SignUpAndInViewController.swift in Sources */,
 				EB94E29A25D482D0000A518C /* SignUpViewController.swift in Sources */,
+				35E0E2092609113E0088149E /* ContactUsViewController.swift in Sources */,
 				EB94E37825D759FA000A518C /* MealPlanListTableViewCell.swift in Sources */,
 				EB0F134625E82B9100BDCDD4 /* ShoppingListController.swift in Sources */,
 				EB94E48125DB154B000A518C /* RecipeSelectTableViewCell.swift in Sources */,
@@ -504,6 +511,7 @@
 				3577C10425EECFF0004C9803 /* EditLoginInfoViewController.swift in Sources */,
 				35F7E25F25F0422600016280 /* Constants.swift in Sources */,
 				EB94E33F25D738DE000A518C /* MealPlanListViewController.swift in Sources */,
+				35F7E29125F98CB700016280 /* NeedHelpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

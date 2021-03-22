@@ -125,11 +125,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="o3b-Iw-YeF">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="Back 1x" id="hs2-rd-ljM">
-                            <connections>
-                                <action selector="backButtonTapped:" destination="Mac-ja-eGo" id="HyH-8s-vwo"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="hlV-pp-bJd">
                             <connections>
                                 <segue destination="ClX-Z2-pcg" kind="show" id="YU8-VY-JUb"/>
@@ -308,7 +303,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Kcg-j2-HTO">
-                                <rect key="frame" x="0.0" y="94" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="93.5" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="16D-Tu-PFp">
@@ -573,7 +568,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Back 1x" width="14" height="21"/>
         <image name="Recipe Icon 1x" width="25" height="21"/>
         <image name="Salad 2x" width="624" height="542"/>
         <image name="chevron.forward" catalog="system" width="96" height="128"/>

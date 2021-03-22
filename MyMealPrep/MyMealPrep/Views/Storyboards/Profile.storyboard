@@ -43,6 +43,9 @@
                                 <state key="normal" title="    Share">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="feJ-Cw-JJh" kind="show" id="wm8-I5-xcD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldX-es-FyL">
                                 <rect key="frame" x="0.0" y="249.5" width="414" height="53.5"/>
@@ -261,16 +264,87 @@
             <point key="canvasLocation" x="2000.0000000000002" y="-259.15178571428572"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="nHf-E4-f6d">
+            <objects>
+                <viewController id="feJ-Cw-JJh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eFk-qV-tbK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="under-construction-2891888_1920" translatesAutoresizingMaskIntoConstraints="NO" id="Z7U-sh-tfv">
+                                <rect key="frame" x="0.0" y="297" width="414" height="307"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3rt-X0-qFA"/>
+                        <color key="backgroundColor" name="black"/>
+                        <constraints>
+                            <constraint firstItem="Z7U-sh-tfv" firstAttribute="centerY" secondItem="3rt-X0-qFA" secondAttribute="centerY" id="3mG-MO-z6A"/>
+                            <constraint firstItem="Z7U-sh-tfv" firstAttribute="height" secondItem="eFk-qV-tbK" secondAttribute="height" multiplier="0.342634" id="FFn-Ta-807"/>
+                            <constraint firstItem="Z7U-sh-tfv" firstAttribute="centerX" secondItem="3rt-X0-qFA" secondAttribute="centerX" id="IGw-ee-IFg"/>
+                            <constraint firstItem="Z7U-sh-tfv" firstAttribute="width" secondItem="eFk-qV-tbK" secondAttribute="width" id="fvH-f5-6YI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="12B-hN-i22"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BDd-h0-7P6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2879.7101449275365" y="63.616071428571423"/>
+        </scene>
+        <!--Contact Us View Controller-->
         <scene sceneID="61b-Yd-njh">
             <objects>
-                <viewController id="sWG-bC-ZWt" sceneMemberID="viewController">
+                <viewController id="sWG-bC-ZWt" customClass="ContactUsViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Fy-4J-Mh3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject line...." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UXh-iX-dzE">
+                                <rect key="frame" x="20.5" y="135.5" width="373" height="44.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lt2-YQ-K9a">
+                                <rect key="frame" x="20.5" y="204" width="373" height="538"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTI-F0-cN0">
+                                <rect key="frame" x="269" y="764.5" width="124.5" height="30"/>
+                                <color key="backgroundColor" name="red"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendButtonTapped:" destination="sWG-bC-ZWt" eventType="touchUpInside" id="GIZ-h4-xu2"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="OHV-4e-69h"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OTI-F0-cN0" firstAttribute="width" secondItem="1Fy-4J-Mh3" secondAttribute="width" multiplier="0.3" id="0pw-oC-sug"/>
+                            <constraint firstItem="OTI-F0-cN0" firstAttribute="centerY" secondItem="OHV-4e-69h" secondAttribute="centerY" multiplier="1.73" id="7Wg-hk-2sm"/>
+                            <constraint firstItem="Lt2-YQ-K9a" firstAttribute="height" secondItem="1Fy-4J-Mh3" secondAttribute="height" multiplier="0.6" id="8fa-Id-ZdF"/>
+                            <constraint firstItem="UXh-iX-dzE" firstAttribute="centerX" secondItem="OHV-4e-69h" secondAttribute="centerX" id="BRf-H4-7BQ"/>
+                            <constraint firstItem="UXh-iX-dzE" firstAttribute="height" secondItem="1Fy-4J-Mh3" secondAttribute="height" multiplier="0.05" id="LMd-Mv-vwS"/>
+                            <constraint firstItem="Lt2-YQ-K9a" firstAttribute="centerY" secondItem="OHV-4e-69h" secondAttribute="centerY" multiplier="1.05" id="VTt-GF-LeJ"/>
+                            <constraint firstItem="Lt2-YQ-K9a" firstAttribute="centerX" secondItem="OHV-4e-69h" secondAttribute="centerX" id="bSx-p2-Xa9"/>
+                            <constraint firstItem="OTI-F0-cN0" firstAttribute="centerX" secondItem="OHV-4e-69h" secondAttribute="centerX" multiplier="1.6" id="gWU-zg-o7b"/>
+                            <constraint firstItem="Lt2-YQ-K9a" firstAttribute="width" secondItem="1Fy-4J-Mh3" secondAttribute="width" multiplier="0.9" id="hTy-OP-new"/>
+                            <constraint firstItem="OTI-F0-cN0" firstAttribute="height" secondItem="1Fy-4J-Mh3" secondAttribute="height" multiplier="0.0334821" id="kSq-gb-st1"/>
+                            <constraint firstItem="UXh-iX-dzE" firstAttribute="width" secondItem="1Fy-4J-Mh3" secondAttribute="width" multiplier="0.9" id="sNF-GX-yg8"/>
+                            <constraint firstItem="UXh-iX-dzE" firstAttribute="centerY" secondItem="OHV-4e-69h" secondAttribute="centerY" multiplier="0.35" id="wKb-fO-hKz"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YPg-2U-vo8"/>
+                    <connections>
+                        <outlet property="emailBodyTextView" destination="Lt2-YQ-K9a" id="9x9-6n-KLI"/>
+                        <outlet property="sendButton" destination="OTI-F0-cN0" id="u3D-40-oZH"/>
+                        <outlet property="subjectLineTextField" destination="UXh-iX-dzE" id="d6k-nF-m8t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eGx-DI-X8N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -302,6 +376,10 @@
         <image name="Email 1x" width="46" height="37"/>
         <image name="Password 1x" width="32" height="42"/>
         <image name="rightArrow" width="7" height="11"/>
+        <image name="under-construction-2891888_1920" width="1920" height="1440"/>
+        <namedColor name="black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="red">
             <color red="0.59999999999999998" green="0.098039215686274508" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
