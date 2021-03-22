@@ -54,10 +54,14 @@ class MealPlan: Codable {
         guard let mealPLanName = document[Constants.mealPlanName] as? String,
               let startDate = document[Constants.startDate] as? Timestamp,
               let endDate = document[Constants.endDate] as? Timestamp,
-              let recipes = document[Constants.mealPlanEncodedRecipes] as? [[String : Any]], // how to get recipes back from firebase correctly?
+              let encodedRecipes = document[Constants.mealPlanEncodedRecipes] as? [[String : Any]],
               let authorID = document[Constants.authorID] as? String,
               let mealPlanUID = document[Constants.mealPlanUID] as? String else {
             return nil
+        }
+        var recipes: [Recipe] = []
+        encodedRecipes.forEach { (data) in
+            recipes.append(Recipe(document: data)!)
         }
         
         self.init(mealPlanName: mealPLanName, startDate: startDate.dateValue(), endDate: endDate.dateValue(), recipes: recipes, authorID: authorID, mealPlanUID: mealPlanUID)
