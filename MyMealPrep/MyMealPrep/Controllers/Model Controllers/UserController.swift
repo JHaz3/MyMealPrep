@@ -193,7 +193,24 @@ class UserController {
     }
     
     func deleteRecipe(recipe: Recipe) {
-        db.collection(Constants.recipeContainer).document().delete()
+        db.collection(Constants.recipeContainer).document(recipe.uid!).delete() { (error) in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
+            } else {
+                print("Deleted it! pogChampion")
+            }
+        }
+    }
+    
+    func deleteMealPlan(mealPlan: MealPlan) {
+        db.collection(Constants.mealPlanContainer).document(mealPlan.mealPlanUID!).delete() { (error) in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
+            } else {
+                print("Deleted it! pogChampion")
+            }
+
+        }
     }
     
 } // End of Class

@@ -44,7 +44,11 @@ class RecipeSelectTableViewCell: UITableViewCell {
     func updateViews() {
         guard let recipe = recipe else { return }
         recipeNameLabel.text = recipe.label
-        cookTimeLabel.text = "\(recipe.totalTime)"
+        if recipe.totalTime == 0 {
+            cookTimeLabel.text = "Cook Time: N/A"
+        } else {
+            cookTimeLabel.text = "Cook Time: \(recipe.totalTime)"
+        }
         
         RecipeController.fetchImage(for: recipe) { (result) in
             switch result {
