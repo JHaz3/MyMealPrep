@@ -10,7 +10,7 @@ import Firebase
 
 class EditLoginInfoViewController: UIViewController {
     
-    // Mark: - Outlets
+    // MARK: - Outlets
     @IBOutlet weak var editEmailView: UIView!
     @IBOutlet weak var editEmailTextField: UITextField!
     @IBOutlet weak var editPasswordView: UIView!
@@ -19,10 +19,10 @@ class EditLoginInfoViewController: UIViewController {
     @IBOutlet weak var reEnterTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     
-    // Mark: - Properties
+    // MARK: - Properties
     let db = Firestore.firestore()
     
-    // Mark: - Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         editEmailView.layer.borderWidth = 0.5
@@ -72,14 +72,14 @@ class EditLoginInfoViewController: UIViewController {
         } 
     }
     
-    // Mark: - Actions
+    // MARK: - Actions
     @IBAction func saveButtonTapped(_ sender: Any) {
         updateUsersEmail()
         updateUsersPassword()
     }
     
     
-    // Mark: - Popups
+    // MARK: - Popups
     private func fillOutAllFieldsPopup() {
         let alert = UIAlertController(title: "Wait!", message: "Make sure you have filled out all fields", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)

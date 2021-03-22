@@ -18,6 +18,7 @@ class RecipeBookViewController: UIViewController {
     //  MARK: - Properties
     var showTV = false
     
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,3 +94,13 @@ extension RecipeBookViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 }// End of Extension
+
+//extension UITextField {
+//
+//    var isEmpty: Bool {
+//        if let text = textField.text, !text.isEmpty {
+//             return false
+//        }
+//        return true
+//    }
+//}
