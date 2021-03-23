@@ -406,30 +406,36 @@
                                                         <constraint firstAttribute="width" secondItem="Y29-2h-0T0" secondAttribute="height" multiplier="1:1" id="7gw-8O-wSW"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZ7-5x-n14">
-                                                    <rect key="frame" x="102" y="21" width="101" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rE-x1-Zny">
-                                                    <rect key="frame" x="102" y="44" width="138" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                    <color key="tintColor" name="darkGreen"/>
-                                                    <date key="date" timeIntervalSinceReferenceDate="636166834.80111098">
-                                                        <!--2021-02-28 01:00:34 +0000-->
-                                                    </date>
-                                                    <connections>
-                                                        <action selector="datePickerValueChanged:" destination="z0k-AT-I8U" eventType="valueChanged" id="sEu-1G-fkc"/>
-                                                    </connections>
-                                                </datePicker>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oki-DH-ZqK">
+                                                    <rect key="frame" x="92" y="10" width="312" height="67"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZ7-5x-n14">
+                                                            <rect key="frame" x="0.0" y="0.0" width="312" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rE-x1-Zny">
+                                                            <rect key="frame" x="0.0" y="17" width="312" height="50"/>
+                                                            <color key="tintColor" name="darkGreen"/>
+                                                            <date key="date" timeIntervalSinceReferenceDate="636166834.80111098">
+                                                                <!--2021-02-28 01:00:34 +0000-->
+                                                            </date>
+                                                            <connections>
+                                                                <action selector="datePickerValueChanged:" destination="z0k-AT-I8U" eventType="valueChanged" id="sEu-1G-fkc"/>
+                                                            </connections>
+                                                        </datePicker>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Y29-2h-0T0" firstAttribute="top" secondItem="z7D-ag-Rpu" secondAttribute="top" constant="10" id="84Z-JE-eWh"/>
+                                                <constraint firstItem="oki-DH-ZqK" firstAttribute="top" secondItem="z7D-ag-Rpu" secondAttribute="top" constant="10" id="B1u-FY-pN2"/>
                                                 <constraint firstItem="Y29-2h-0T0" firstAttribute="leading" secondItem="z7D-ag-Rpu" secondAttribute="leading" constant="15" id="Dw7-us-U4p"/>
-                                                <constraint firstItem="mZ7-5x-n14" firstAttribute="top" secondItem="z7D-ag-Rpu" secondAttribute="topMargin" constant="10" id="i9n-4I-p6d"/>
-                                                <constraint firstItem="mZ7-5x-n14" firstAttribute="leading" secondItem="Y29-2h-0T0" secondAttribute="trailing" constant="20" id="je3-Zh-Gev"/>
+                                                <constraint firstItem="oki-DH-ZqK" firstAttribute="leading" secondItem="Y29-2h-0T0" secondAttribute="trailing" constant="10" id="hrX-f1-WEI"/>
+                                                <constraint firstAttribute="bottom" secondItem="oki-DH-ZqK" secondAttribute="bottom" constant="10" id="mfz-2T-wyA"/>
                                                 <constraint firstAttribute="bottom" secondItem="Y29-2h-0T0" secondAttribute="bottom" constant="10" id="nUa-sx-s33"/>
+                                                <constraint firstAttribute="trailing" secondItem="oki-DH-ZqK" secondAttribute="trailing" constant="10" id="nyG-G9-MAo"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -551,30 +557,36 @@
                                                         <constraint firstAttribute="width" secondItem="7Cc-X7-KCn" secondAttribute="height" multiplier="1:1" id="lle-4F-ukH"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnN-Ae-jrG">
-                                                    <rect key="frame" x="102" y="21" width="101" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <datePicker userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WH5-zG-ppc">
-                                                    <rect key="frame" x="102" y="44" width="138" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                    <color key="tintColor" name="darkGreen"/>
-                                                    <date key="date" timeIntervalSinceReferenceDate="636166834.80111098">
-                                                        <!--2021-02-28 01:00:34 +0000-->
-                                                    </date>
-                                                    <connections>
-                                                        <action selector="datePickerValueChanged:" destination="6b6-M8-ZSu" eventType="valueChanged" id="dZq-aj-Hd6"/>
-                                                    </connections>
-                                                </datePicker>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="t8D-k6-wKc">
+                                                    <rect key="frame" x="92" y="10" width="312" height="67"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnN-Ae-jrG">
+                                                            <rect key="frame" x="0.0" y="0.0" width="312" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <datePicker userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WH5-zG-ppc">
+                                                            <rect key="frame" x="0.0" y="17" width="312" height="50"/>
+                                                            <color key="tintColor" name="darkGreen"/>
+                                                            <date key="date" timeIntervalSinceReferenceDate="636166834.80111098">
+                                                                <!--2021-02-28 01:00:34 +0000-->
+                                                            </date>
+                                                            <connections>
+                                                                <action selector="datePickerValueChanged:" destination="6b6-M8-ZSu" eventType="valueChanged" id="dZq-aj-Hd6"/>
+                                                            </connections>
+                                                        </datePicker>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="fnN-Ae-jrG" firstAttribute="leading" secondItem="7Cc-X7-KCn" secondAttribute="trailing" constant="20" id="07J-SG-EGa"/>
                                                 <constraint firstItem="7Cc-X7-KCn" firstAttribute="top" secondItem="r8M-Pi-4p9" secondAttribute="top" constant="10" id="5BE-wX-woz"/>
+                                                <constraint firstAttribute="trailing" secondItem="t8D-k6-wKc" secondAttribute="trailing" constant="10" id="OsL-bN-QbH"/>
                                                 <constraint firstItem="7Cc-X7-KCn" firstAttribute="leading" secondItem="r8M-Pi-4p9" secondAttribute="leading" constant="15" id="U3F-ts-dF1"/>
                                                 <constraint firstAttribute="bottom" secondItem="7Cc-X7-KCn" secondAttribute="bottom" constant="10" id="Y9f-fs-whP"/>
-                                                <constraint firstItem="fnN-Ae-jrG" firstAttribute="top" secondItem="r8M-Pi-4p9" secondAttribute="topMargin" constant="10" id="YSH-ap-oUn"/>
+                                                <constraint firstAttribute="bottom" secondItem="t8D-k6-wKc" secondAttribute="bottom" constant="10" id="bDf-7z-fKA"/>
+                                                <constraint firstItem="t8D-k6-wKc" firstAttribute="top" secondItem="r8M-Pi-4p9" secondAttribute="top" constant="10" id="cUR-HH-0gs"/>
+                                                <constraint firstItem="t8D-k6-wKc" firstAttribute="leading" secondItem="7Cc-X7-KCn" secondAttribute="trailing" constant="10" id="od8-Mz-082"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -615,11 +627,11 @@
             <objects>
                 <viewController storyboardIdentifier="savedRecipeDetailVC" id="oCe-2f-wK9" customClass="MealPlanRecipesDetailViewController" customModule="MyMealPrep" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="arm-k7-kbr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sum-hc-xjv">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQY-nH-xzU">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
@@ -763,7 +775,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hrT-i8-ZMR"/>
+        <segue reference="scN-22-kqo"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Calendar Icon 1x" width="20" height="20"/>
