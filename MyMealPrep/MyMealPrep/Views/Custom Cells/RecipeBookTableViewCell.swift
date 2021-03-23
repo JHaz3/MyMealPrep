@@ -21,7 +21,11 @@ class RecipeBookTableViewCell: UITableViewCell {
             guard let recipe = recipe else { return }
             recipeNameLabel.text = recipe.label
             recipeYieldLabel.text = "Servings: \(recipe.yield)"
-            recipeCookTimeLabel.text = "\(recipe.totalTime) min"
+            if recipe.totalTime == 0 {
+                recipeCookTimeLabel.text = "Cook Time: N/A"
+            } else {
+                recipeCookTimeLabel.text = "\(recipe.totalTime) min"
+            }
             recipeImageView.layer.cornerRadius = 5
             
             RecipeController.fetchImage(for: recipe) { (result) in

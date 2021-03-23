@@ -57,7 +57,11 @@ class SavedRecipesDetailViewController: UIViewController{
     func fetchImageAndUpdateViews() {
         guard let recipe = recipe else { return }
         recipeNameLabel.text = recipe.label
-        recipeCookTimeLabel.text = "Cook Time: \(recipe.totalTime) min"
+        if recipe.totalTime == 0 {
+            recipeCookTimeLabel.text = "Cook Time: N/A"
+        } else {
+            recipeCookTimeLabel.text = "\(recipe.totalTime) min"
+        }
         recipeYieldLabel.text = "Serves: \(recipe.yield)"
         
         RecipeController.fetchImage(for: recipe) { (result) in
