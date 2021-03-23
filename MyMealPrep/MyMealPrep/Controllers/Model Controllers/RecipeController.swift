@@ -85,7 +85,7 @@ class RecipeController {
     
    static func updateDateToEat(date: Date, recipe: Recipe) {
         recipe.dateToEat = date
-    
+        
     }
     
     static func fetchRandomRecipe(searchTerm: String, completion: @escaping (Result<Recipe, RecipeError>) -> Void) {
