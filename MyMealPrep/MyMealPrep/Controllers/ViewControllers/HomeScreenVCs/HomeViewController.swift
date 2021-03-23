@@ -54,7 +54,11 @@ class HomeViewController: UIViewController {
                 case .success(let recipe):
                     self.recipeNameLabel.text = recipe.label
                     self.recipeYieldLabel.text = "Servings: \(recipe.yield)"
-                    self.recipeCookTimeLabel.text = "Cook Time: \(recipe.totalTime)"
+                    if recipe.totalTime == 0 {
+                        self.recipeCookTimeLabel.text = "Cook Time: N/A"
+                    } else {
+                        self.recipeCookTimeLabel.text = "\(recipe.totalTime) min"
+                    }
                     self.randomRecipe = recipe
                     RecipeController.fetchImage(for: recipe) { (result) in
                         DispatchQueue.main.async {
