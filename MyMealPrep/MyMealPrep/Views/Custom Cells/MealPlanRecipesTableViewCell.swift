@@ -36,6 +36,8 @@ class MealPlanRecipesTableViewCell: UITableViewCell {
         guard let recipe = recipe else { return }
         let dateToEat = dateToEatDatePicker.date
         RecipeController.updateDateToEat(date: dateToEat, recipe: recipe)
+        // right idea here needs some work
+        UserController.shared.db.collection(Constants.mealPlanContainer).document(recipe.uid!).updateData([Constants.dateToEat : dateToEat])
     }
     
     
