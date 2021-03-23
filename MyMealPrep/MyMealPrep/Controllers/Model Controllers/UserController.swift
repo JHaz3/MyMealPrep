@@ -214,4 +214,15 @@ class UserController {
         }
     }
     
+    //    func deleteMealPlanRecipe(mealPlan: MealPlan, recipe: Recipe) {
+    //        db.collection(Constants.mealPlanContainer).document(mealPlan.mealPlanUID!).updateData([Constants.mealPlanRecipes: FieldValue.delete()]) { (error) in
+    //            if let error = error {
+    //                print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
+    //            } else {
+    //                print("Deleted it! pogChampion")
+    //            }
+    //        }
+    //    }
+
+    
 } // End of Class
