@@ -31,6 +31,7 @@ class HomeViewController: UIViewController {
         recentlySavedTableView.rowHeight = 80
         setupHomeViews()
         recentlySavedTableView.isScrollEnabled = false
+        checkForTraitCollection()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,6 +101,21 @@ class HomeViewController: UIViewController {
     @IBAction func searchButtonTapped(_ sender: Any) {
         let viewController: UIViewController = UIStoryboard(name: "RecipeBook", bundle: nil).instantiateViewController(withIdentifier: "SearchRecipeVC") as UIViewController
         self.present(viewController, animated: true, completion: nil)
+    }
+    
+    func checkForTraitCollection() {
+        switch traitCollection.userInterfaceStyle {
+        case .dark:
+            recipeNameLabel.backgroundColor = .secondarySystemBackground
+            recipeYieldLabel.backgroundColor = .secondarySystemBackground
+            recipeCookTimeLabel.backgroundColor = .secondarySystemBackground
+            recipeNameAndYieldView.backgroundColor = .secondarySystemBackground
+//            recentlySavedTableView.backgroundColor = .secondarySystemBackground
+        case .light:
+            print("Device is in light mode, no need to change!")
+        default:
+            print("Could not get specified interface style.")
+        }
     }
 }
 

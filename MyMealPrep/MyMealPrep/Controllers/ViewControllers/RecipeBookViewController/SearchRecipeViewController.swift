@@ -15,13 +15,16 @@ class SearchRecipeViewController: UIViewController {
     
     // MARK: - Properties
     
-    
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         searchRecipeSearchBar.delegate = self
         searchRecipeResultsTableView.rowHeight = 100
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkForTraitCollection()
     }
 }// End of Class
 
@@ -43,6 +46,18 @@ extension SearchRecipeViewController: UITableViewDelegate, UITableViewDataSource
         if let viewController = storyboard?.instantiateViewController(identifier: "recipeDetailVC") as? RecipeDetailViewController {
             viewController.recipe = selectedRecipe
             navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
+    func checkForTraitCollection() {
+        switch traitCollection.userInterfaceStyle {
+        case .dark:
+            searchRecipeSearchBar.backgroundColor = .secondarySystemBackground
+            searchRecipeResultsTableView.backgroundColor = .secondarySystemBackground
+        case .light:
+            print("Device is in light mode, no need to change!")
+        default:
+            print("Could not get specified interface style.")
         }
     }
 }

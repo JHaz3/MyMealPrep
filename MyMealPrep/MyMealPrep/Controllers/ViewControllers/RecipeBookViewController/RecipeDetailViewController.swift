@@ -35,7 +35,11 @@ class RecipeDetailViewController: UIViewController {
         recipeIngredientsTableView.layer.borderWidth = 0.5
         recipeIngredientsTableView.layer.cornerRadius = 5
         recipeIngredientsTableView.separatorStyle = .none
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkForTraitCollection()
     }
     
     // MARK: - Actions
@@ -81,6 +85,22 @@ class RecipeDetailViewController: UIViewController {
         present(vc, animated: true)
     }
     
+    func checkForTraitCollection() {
+        switch traitCollection.userInterfaceStyle {
+        case .dark:
+            recipeNameLabel.backgroundColor = .secondarySystemBackground
+            recipeYieldLabel.backgroundColor = .secondarySystemBackground
+            recipeCookTimeLabel.backgroundColor = .secondarySystemBackground
+            recipeIngredientsTableView.backgroundColor = .secondarySystemBackground
+            seeDirectionsButton.backgroundColor = .white
+            addToRecipeBookButton.backgroundColor = .secondarySystemBackground
+            recipeNameAndYieldView.backgroundColor = .secondarySystemBackground
+        case .light:
+            print("Device is in light mode, no need to change!")
+        default:
+            print("Could not get specified interface style.")
+        }
+    }
 } // End of class
 
 

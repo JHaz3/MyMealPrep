@@ -37,13 +37,18 @@ class SavedRecipesDetailViewController: UIViewController{
         recipeIngredientsTableView.layer.borderWidth = 0.5
         recipeIngredientsTableView.layer.cornerRadius = 5
         recipeIngredientsTableView.separatorStyle = .none
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkForTraitCollection()
     }
     
     // MARK: - Actions
     @IBAction func seeDirectionsButtonTapped(_ sender: Any) {
         recipeDirectionsWebView()
     }
+    
     @IBAction func addToShoppingListButtonTapped(_ sender: Any) {
         guard let recipe = recipe else { return }
         ShoppingListController.shared.addRecipeIngredients(recipe: recipe)
@@ -52,7 +57,6 @@ class SavedRecipesDetailViewController: UIViewController{
         alert.addAction(awesomeButton)
         self.present(alert, animated: true, completion: nil)
     }
-    
     
     func fetchImageAndUpdateViews() {
         guard let recipe = recipe else { return }
@@ -76,6 +80,23 @@ class SavedRecipesDetailViewController: UIViewController{
         guard let recipe = recipe else { return }
         let vc = SFSafariViewController(url: URL(string: "\(recipe.directions)")!)
         present(vc, animated: true)
+    }
+    
+    func checkForTraitCollection() {
+        switch traitCollection.userInterfaceStyle {
+        case .dark:
+            recipeNameLabel.backgroundColor = .secondarySystemBackground
+            recipeYieldLabel.backgroundColor = .secondarySystemBackground
+            recipeCookTimeLabel.backgroundColor = .secondarySystemBackground
+            recipeIngredientsTableView.backgroundColor = .secondarySystemBackground
+            seeDirectionsButton.backgroundColor = .white
+            addToShoppingListButton.backgroundColor = .secondarySystemBackground
+            recipeNameAndYieldView.backgroundColor = .secondarySystemBackground
+        case .light:
+            print("Device is in light mode, no need to change!")
+        default:
+            print("Could not get specified interface style.")
+        }
     }
 } // End of class
 
