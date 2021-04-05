@@ -23,7 +23,6 @@ class HomeRecipeDetailViewController: UIViewController {
     // MARK: - Properties
     var recipe: Recipe?
     
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +35,6 @@ class HomeRecipeDetailViewController: UIViewController {
         recipeIngredientsTableView.layer.borderWidth = 0.5
         recipeIngredientsTableView.layer.cornerRadius = 5
         recipeIngredientsTableView.separatorStyle = .none
-        
     }
     
     // MARK: - Actions
@@ -48,7 +46,6 @@ class HomeRecipeDetailViewController: UIViewController {
         guard let recipe = recipe else { return }
         ShoppingListController.shared.addRecipeIngredients(recipe: recipe)
     }
-    
     
     func fetchImageAndUpdateViews() {
         guard let recipe = recipe else { return }

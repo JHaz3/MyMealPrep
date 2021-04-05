@@ -18,6 +18,7 @@ class RecipeBookTableViewCell: UITableViewCell {
     // Mark: - Properties
     var recipe: Recipe? {
         didSet {
+            checkForTraitCollection()
             guard let recipe = recipe else { return }
             recipeNameLabel.text = recipe.label
             recipeYieldLabel.text = "Servings: \(recipe.yield)"
@@ -43,9 +44,27 @@ class RecipeBookTableViewCell: UITableViewCell {
     
     var mockRecipe: Recipe? {
         didSet {
+            checkForTraitCollection()
             guard let recipe = mockRecipe else {return}
             recipeNameLabel.text = recipe.label
             recipeImageView.image = UIImage(named: recipe.image!)
         }
     }
+    
+    func checkForTraitCollection() {
+        switch traitCollection.userInterfaceStyle {
+        case .dark:
+            recipeNameLabel.backgroundColor = .secondarySystemBackground
+            recipeNameLabel.textColor = .white
+            recipeYieldLabel.backgroundColor = .secondarySystemBackground
+            recipeYieldLabel.textColor = .white
+            recipeCookTimeLabel.backgroundColor = .secondarySystemBackground
+            recipeCookTimeLabel.textColor = .white
+        case .light:
+            print("Device is in light mode, no need to change!")
+        default:
+            print("Could not get specified interface style.")
+        }
+    }
+    
 }

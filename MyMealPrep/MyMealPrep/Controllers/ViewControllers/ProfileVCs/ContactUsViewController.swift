@@ -21,9 +21,9 @@ class ContactUsViewController: UIViewController, MFMailComposeViewControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         emailBodyTextView.layer.borderWidth = 1
-        emailBodyTextView.layer.borderColor = UIColor.black.cgColor
+        emailBodyTextView.layer.borderColor = UIColor.lightGray.cgColor
         subjectLineTextField.layer.borderWidth = 1
-        subjectLineTextField.layer.borderColor = UIColor.black.cgColor
+        subjectLineTextField.layer.borderColor = UIColor.lightGray.cgColor
         sendButton.layer.borderWidth = 1
         sendButton.layer.cornerRadius = 10
     }

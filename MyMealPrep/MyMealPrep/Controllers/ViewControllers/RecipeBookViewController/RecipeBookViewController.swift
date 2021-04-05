@@ -18,7 +18,6 @@ class RecipeBookViewController: UIViewController {
     //  MARK: - Properties
     var showTV = false
     
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +36,7 @@ class RecipeBookViewController: UIViewController {
         super.viewWillAppear(animated)
         savedRecipesTV.reloadData()
         RecipeController.shared.loadFromPersistence()
+        checkForTraitCollection()
     }
     
     // MARK: - Actions
@@ -62,6 +62,18 @@ class RecipeBookViewController: UIViewController {
     
     @IBAction func backButtonTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    func checkForTraitCollection() {
+        switch traitCollection.userInterfaceStyle {
+        case .dark:
+            savedRecipesButton.backgroundColor = .secondarySystemBackground
+//            savedRecipesTV.backgroundColor = .secondarySystemBackground
+        case .light:
+            print("Device is in light mode, no need to change!")
+        default:
+            print("Could not get specified interface style.")
+        }
     }
 }// End of Class
 
