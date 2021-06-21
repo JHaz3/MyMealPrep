@@ -40,7 +40,7 @@ extension User: Equatable {
 extension User {
     convenience init?(dictionary: [String : Any]) {
         guard let email = dictionary[Constants.email] as? String,
-              let password = dictionary[Constants.password] as? String else {return nil}
+              let password = dictionary[Constants.password] as? String else { return nil }
         self.init(email: email, password: password)
     }
 }

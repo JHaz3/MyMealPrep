@@ -11,11 +11,7 @@ class ShoppingListController {
     
     // MARK: - Properties
     static let shared: ShoppingListController = ShoppingListController()
-    var listItems: [ShoppingList] = [] {
-        didSet {
-            saveToPersistentStorage()
-        }
-    }
+    var listItems: [ShoppingList] = []
     
     // MARK: - CRUD
     func addItemToShoppingList(with item: String) {
@@ -25,13 +21,12 @@ class ShoppingListController {
         } else {
             listItems.append(ingredient)
         }
-        saveToPersistentStorage()
+        saveToPersistentStorage(listItems: listItems)
     }
     
     func addMealPlanRecipesIngredients(mealPlan: MealPlan) {
         for recipe in mealPlan.recipes {
             self.addRecipeIngredients(recipe: recipe)
-            saveToPersistentStorage()
         }
     }
     
@@ -42,29 +37,29 @@ class ShoppingListController {
             } else {
                 self.listItems.append(ShoppingList(item: ingredient))
             }
+            saveToPersistentStorage(listItems: listItems)
         }
-        saveToPersistentStorage()
     }
     
     func deleteItem(item: ShoppingList) {
         guard let index = listItems.firstIndex(of: item) else { return }
         listItems.remove(at: index)
-        saveToPersistentStorage()
+        saveToPersistentStorage(listItems: listItems)
     }
     
     func clearListItems() {
         listItems.removeAll()
-        saveToPersistentStorage()
+        saveToPersistentStorage(listItems: listItems)
     }
     
     func updateListItem(listItem: ShoppingList, itemName: String) {
         listItem.item = itemName
-        saveToPersistentStorage()
+        saveToPersistentStorage(listItems: listItems)
     }
     
     func toggleItemChecked(ingredient: ShoppingList) {
         ingredient.isChecked.toggle()
-        saveToPersistentStorage()
+        saveToPersistentStorage(listItems: listItems)
     }
     
     //MARK: - Persistence
@@ -75,7 +70,7 @@ class ShoppingListController {
         let documentsDirectoryURL = documentDirectory.appendingPathComponent(fileName)
         return documentsDirectoryURL
     }
-    func saveToPersistentStorage() {
+    func saveToPersistentStorage(listItems: [ShoppingList]) {
         let encoder = JSONEncoder()
         do {
             let data = try encoder.encode(listItems)
