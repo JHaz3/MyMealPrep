@@ -48,7 +48,12 @@ class MealPlanRecipesDetailViewController: UIViewController {
     @IBAction func addToShoppingListButtonTapped(_ sender: Any) {
         guard let recipe = recipe else { return }
         ShoppingListController.shared.addRecipeIngredients(recipe: recipe)
+        let alert = UIAlertController(title: "Success!", message: "Ingredients successfully added to your shopping list!", preferredStyle: .alert)
+        let awesomeButton = UIAlertAction(title: "Awesome!", style: .default, handler: nil)
+        alert.addAction(awesomeButton)
+        self.present(alert, animated: true, completion: nil)
     }
+    
     
     
     func fetchImageAndUpdateViews() {

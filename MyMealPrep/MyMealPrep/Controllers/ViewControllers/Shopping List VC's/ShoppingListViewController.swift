@@ -27,6 +27,7 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        ShoppingListController.shared.loadFromPersistence()
         shoppingListTableView.delegate = self
         shoppingListTableView.dataSource = self
         shoppingListTableView.rowHeight = 50
@@ -37,7 +38,6 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         updateViews()
-        ShoppingListController.shared.loadFromPersistence()
     }
     
     // MARK: - Actions

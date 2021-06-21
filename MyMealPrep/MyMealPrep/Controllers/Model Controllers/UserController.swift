@@ -192,7 +192,7 @@ class UserController {
             }
         }
     }
-    
+    // MARK: - Delete
     func deleteRecipe(recipe: Recipe) {
         db.collection(Constants.recipeContainer).document(recipe.uid!).delete() { (error) in
             if let error = error {
