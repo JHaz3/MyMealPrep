@@ -57,14 +57,6 @@ class ShoppingListTableViewCell: UITableViewCell {
             let startOfItem = itemToSubString[..<endOfItem]
             itemTextField.text = "\(startOfItem)"
         }
-        if !item.item.contains("(") {
-            itemTextField.text = item.item
-        } else {
-            let itemToSubString = item.item
-            guard let endOfItem = itemToSubString.firstIndex(of: "(") else { return }
-            let startOfItem = itemToSubString[..<endOfItem]
-            itemTextField.text = "\(startOfItem)"
-        }
     }
     
 }// End of Class
