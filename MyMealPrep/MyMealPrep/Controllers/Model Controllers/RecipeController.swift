@@ -20,11 +20,7 @@ class RecipeController {
     
     static let shared: RecipeController = RecipeController()
     static var recipes: [Recipe] = []
-    var savedRecipes: [Recipe] = [] {
-        didSet {
-            saveToPersistentStorage()
-        }
-    }
+    var savedRecipes: [Recipe] = []
     static var randomRecipe: Recipe?
     
     static func fetchRecipe(searchTerm: String, completion: @escaping (Result<[Recipe], RecipeError>) -> Void) {
@@ -128,7 +124,6 @@ class RecipeController {
         guard let index = savedRecipes.firstIndex(of: recipe) else { return }
         savedRecipes.remove(at: index)
         UserController.shared.deleteRecipe(recipe: recipe)
-        saveToPersistentStorage()
     }
     
     func toggleBoxChecked(recipe: Recipe) {
