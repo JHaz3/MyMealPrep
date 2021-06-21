@@ -35,7 +35,6 @@ class RecipeBookViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         savedRecipesTV.reloadData()
-        RecipeController.shared.loadFromPersistence()
         checkForTraitCollection()
     }
     
