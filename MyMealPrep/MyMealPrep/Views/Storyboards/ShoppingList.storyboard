@@ -41,7 +41,7 @@
                                                                         <constraint firstAttribute="width" secondItem="1QD-yZ-YNv" secondAttribute="height" multiplier="1:1" id="SNr-sH-Pc0"/>
                                                                         <constraint firstAttribute="height" constant="30" id="jKC-EO-G6V"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="Button" image="Empty Checkbox 1x"/>
+                                                                    <state key="normal" image="Empty Checkbox 1x"/>
                                                                     <connections>
                                                                         <action selector="checkBoxButtonTapped:" destination="SB1-fb-Fwj" eventType="touchUpInside" id="zfC-OW-sAR"/>
                                                                     </connections>
@@ -56,7 +56,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="bDQ-pd-n8e" secondAttribute="height" multiplier="1:1" id="k7S-ok-cQy"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="Button" image="EditButton"/>
+                                                                    <state key="normal" image="EditButton"/>
                                                                     <connections>
                                                                         <action selector="editItemButtonTapped:" destination="SB1-fb-Fwj" eventType="touchUpInside" id="s2m-y2-RIy"/>
                                                                     </connections>
@@ -107,7 +107,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="wen-Y5-aTa" secondAttribute="height" multiplier="1:1" id="Cch-6y-2dM"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="Trashyboy"/>
+                                                <state key="normal" image="Trashyboy"/>
                                                 <connections>
                                                     <action selector="menuButtonTapped:" destination="ZNV-j7-NE2" eventType="touchUpInside" id="4Oi-41-4Ac"/>
                                                 </connections>
@@ -127,7 +127,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="w2T-9E-XBQ" secondAttribute="height" multiplier="1:1" id="O4e-Ac-TFa"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="Add 1x"/>
+                                                <state key="normal" image="Add 1x"/>
                                                 <connections>
                                                     <action selector="addListItemButtonTapped:" destination="ZNV-j7-NE2" eventType="touchUpInside" id="hvB-f9-TvA"/>
                                                 </connections>
