@@ -45,7 +45,7 @@ class RecipeSelectTableViewCell: UITableViewCell {
         guard let recipe = recipe else { return }
         recipeNameLabel.text = recipe.label
         if recipe.totalTime == 0 {
-            cookTimeLabel.text = "Cook Time: N/A"
+            cookTimeLabel.text = "N/A"
         } else {
             cookTimeLabel.text = "Cook Time: \(recipe.totalTime)"
         }

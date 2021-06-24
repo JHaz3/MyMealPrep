@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - Protocols
-protocol ShoppingListTableViewCellDelegate: class {
+protocol ShoppingListTableViewCellDelegate: AnyObject {
     func toggleItemChecked(_ sender: ShoppingListTableViewCell)
 }
 
@@ -57,6 +57,7 @@ class ShoppingListTableViewCell: UITableViewCell {
             let startOfItem = itemToSubString[..<endOfItem]
             itemTextField.text = "\(startOfItem)"
         }
+        
     }
     
 }// End of Class

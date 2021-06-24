@@ -28,11 +28,11 @@ class NeedHelpViewController: UIViewController {
         emailTextField.isHidden = true
     }
     
-    // MARK: - Actions
+    //MARK: - Actions
 //    @IBAction func passwordResetTapped(_ sender: Any) {
 //        emailTextField.isHidden = false
 //        if let email = !emailTextField.text!.isEmpty {
-//            Auth.auth().sendPasswordReset(withEmail: email) { error in
+//            Auth.auth().sendPasswordReset(withEmail: emailTextField.text!) { error in
 //                // ...
 //            }
 //        }

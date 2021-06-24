@@ -107,6 +107,7 @@ extension ShoppingListViewController: ShoppingListTableViewCellDelegate {
     func toggleItemChecked(_ sender: ShoppingListTableViewCell) {
         guard let item = sender.item else { return }
         item.isChecked.toggle()
+        
     }
 }
 
