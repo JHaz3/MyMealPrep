@@ -106,7 +106,8 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
 extension ShoppingListViewController: ShoppingListTableViewCellDelegate {
     func toggleItemChecked(_ sender: ShoppingListTableViewCell) {
         guard let item = sender.item else { return }
-        item.isChecked.toggle()
+        ShoppingListController.shared.toggleItemChecked(ingredient: item)
+        sender.updateViews()
         
     }
 }
