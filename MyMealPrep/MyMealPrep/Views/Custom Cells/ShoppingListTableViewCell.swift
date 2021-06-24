@@ -8,12 +8,12 @@
 import UIKit
 
 // MARK: - Protocols
-protocol ShoppingListTableViewCellDelegate: class {
+protocol ShoppingListTableViewCellDelegate: AnyObject {
     func toggleItemChecked(_ sender: ShoppingListTableViewCell)
 }
 
 class ShoppingListTableViewCell: UITableViewCell {
-
+    
     // MARK: - Outlets
     @IBOutlet var checkboxButton: UIButton!
     @IBOutlet var itemTextField: UITextField!
@@ -31,8 +31,8 @@ class ShoppingListTableViewCell: UITableViewCell {
     // MARK: - Actions
     @IBAction func checkBoxButtonTapped(_ sender: Any) {
         delegate?.toggleItemChecked(self)
-        isToggled.toggle()
-        checkboxButton.setImage(isToggled ? #imageLiteral(resourceName: "Checked Box 1x"): #imageLiteral(resourceName: "Empty Checkbox 1x"), for: .normal)
+        //        isToggled.toggle()
+        //        checkboxButton.setImage(isToggled ? #imageLiteral(resourceName: "Checked Box 1x"): #imageLiteral(resourceName: "Empty Checkbox 1x"), for: .normal)
     }
     
     @IBAction func editItemButtonTapped(_ sender: Any) {
@@ -47,7 +47,7 @@ class ShoppingListTableViewCell: UITableViewCell {
         }
     }
     
-    private func updateViews() {
+    func updateViews() {
         guard let item = item else { return }
         if !item.item.contains(",") {
             itemTextField.text = item.item
@@ -57,6 +57,8 @@ class ShoppingListTableViewCell: UITableViewCell {
             let startOfItem = itemToSubString[..<endOfItem]
             itemTextField.text = "\(startOfItem)"
         }
+        checkboxButton.setImage(item.isChecked ? #imageLiteral(resourceName: "Checked Box 1x"): #imageLiteral(resourceName: "Empty Checkbox 1x"), for: .normal)
+        
     }
     
 }// End of Class
