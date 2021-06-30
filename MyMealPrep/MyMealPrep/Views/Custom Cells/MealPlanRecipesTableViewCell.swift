@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - Protocols
-protocol MealPLanRecipesTableViewCellDelegate: class {
+protocol MealPLanRecipesTableViewCellDelegate: AnyObject {
     func assignDateToEat(_ sender: MealPlanRecipesTableViewCell)
     
 }
@@ -43,11 +43,11 @@ class MealPlanRecipesTableViewCell: UITableViewCell {
     
     
     // MARK: -Methods
-    private func updateViews() {
+    func updateViews() {
         guard let recipe = recipe else { return }
         recipeNameLabel.text = recipe.label
         dateToEatDatePicker.date = recipe.dateToEat
-
+        
         RecipeController.fetchImage(for: recipe) { (result) in
             switch result {
             case .success(let image):
