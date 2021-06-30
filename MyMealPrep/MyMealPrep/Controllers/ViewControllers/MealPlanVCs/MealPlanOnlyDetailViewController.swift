@@ -81,5 +81,6 @@ class MealPlanOnlyDetailViewController: UIViewController, UITableViewDelegate, U
 // MARK: - Extensions
 extension MealPlanOnlyDetailViewController: MealPLanRecipesTableViewCellDelegate {
     func assignDateToEat(_ sender: MealPlanRecipesTableViewCell) {
+        sender.updateViews()
     }
 }

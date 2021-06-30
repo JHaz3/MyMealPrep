@@ -83,6 +83,8 @@ class MealPlanDetailViewController: UIViewController, UITableViewDataSource, UIT
     // MARK: - Extensions
 extension MealPlanDetailViewController: MealPLanRecipesTableViewCellDelegate {
     func assignDateToEat(_ sender: MealPlanRecipesTableViewCell) {
+        guard let recipeDateToEat = sender.dateToEatDatePicker else { return }
         
+        sender.updateViews()
     }
 }
