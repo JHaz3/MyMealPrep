@@ -47,7 +47,7 @@ class RecipeSelectTableViewCell: UITableViewCell {
         if recipe.totalTime == 0 {
             cookTimeLabel.text = "N/A"
         } else {
-            cookTimeLabel.text = "Cook Time: \(recipe.totalTime)"
+            cookTimeLabel.text = "Cook Time: \(recipe.totalTime) min"
         }
         
         RecipeController.fetchImage(for: recipe) { (result) in
