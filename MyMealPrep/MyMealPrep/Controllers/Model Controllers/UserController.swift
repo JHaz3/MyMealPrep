@@ -93,7 +93,7 @@ class UserController {
     
     // MARK: - Create
     func saveRecipe(recipe: Recipe, completion: @escaping (Result<Recipe, RecipeError>) -> Void) {
-        let recipeUID = UUID().uuidString
+        let recipeUID = UUID().uuidString ?? UUID().uuidString
         let recipeAuthorID = UserController.shared.currentUser?.uuid
         let recipeDictionary:[String: Any] = [
             Constants.recipeLabel : recipe.label,
