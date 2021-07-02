@@ -35,6 +35,7 @@ class RecipeDetailViewController: UIViewController {
         recipeIngredientsTableView.layer.borderWidth = 0.5
         recipeIngredientsTableView.layer.cornerRadius = 5
         recipeIngredientsTableView.separatorStyle = .none
+        seeDirectionsButton.layer.cornerRadius = 5
     }
     
     override func viewWillAppear(_ animated: Bool) {

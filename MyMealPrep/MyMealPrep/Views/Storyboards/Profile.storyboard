@@ -350,11 +350,11 @@
             </objects>
             <point key="canvasLocation" x="2000" y="445"/>
         </scene>
-        <!--Profile-->
+        <!--Account-->
         <scene sceneID="5Cs-d6-0lh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VvB-Fr-mNK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="Account Icon 1x" selectedImage="Account Icon 1x" id="BQi-UF-3Vk"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="Account Icon 1x" selectedImage="Account Icon 1x" id="BQi-UF-3Vk"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WhJ-1d-AEh">
