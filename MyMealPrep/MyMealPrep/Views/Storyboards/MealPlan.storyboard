@@ -450,7 +450,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2F7-DY-NdX">
                                 <rect key="frame" x="25" y="753" width="364" height="30"/>
                                 <color key="backgroundColor" name="darkGreen"/>
-                                <state key="normal" title="See Shopping List">
+                                <state key="normal" title="Add to Shopping List">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>

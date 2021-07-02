@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - Protocol
-protocol RecipeSelectTableViewCellDelegate: class {
+protocol RecipeSelectTableViewCellDelegate: AnyObject {
     func toggleRecipeChecked(_ Sender: RecipeSelectTableViewCell)
 }
 
